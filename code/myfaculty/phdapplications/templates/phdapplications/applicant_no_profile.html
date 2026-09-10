@@ -1,0 +1,18 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block middle %}
+
+
+<div class="row">
+<div class="alert alert-primary">
+    {% trans 'Πρέπει να δημιουργήσετε προφίλ για να προχωρήσετε σε κάποια αίτηση!' %}
+</div>
+</div>
+
+<div class="row">
+    <div class="col text-center landing-button-col ">
+         <a href="{% url 'phdapplications:create_profile' %}" class="btn btn-primary landing-button" type="submit"> {% trans 'Δημιουργία Προφίλ' %} </a>
+    </div>
+</div> 
+{% endblock %}

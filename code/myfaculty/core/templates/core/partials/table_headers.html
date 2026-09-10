@@ -1,0 +1,12 @@
+{% load core_tags %}
+<thead>
+{% for field in fields %}
+    <th>
+        {{ headers|get_item:field }}
+    </th>
+{% endfor %}
+{% for button in buttons %}
+    <th>
+    </th>
+{% endfor %}
+</thead>

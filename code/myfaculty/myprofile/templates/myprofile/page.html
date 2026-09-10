@@ -1,0 +1,159 @@
+{% load static %}
+{% load profile_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <title>{% block title %}{% if LANGUAGE_CODE == 'en' %}Course Recognition{% else %}Αναγνώριση Μαθημάτων{% endif %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'myprofile/dit.png' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap&subset=greek,latin" rel="stylesheet" />
+    <link  href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap&subset=greek,latin" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'myprofile/main.css' %}?v=20260612-5">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </head>
+  <body class="app-body">
+    {% role_dashboard_url request.user as dashboard_url %}
+    <header class="app-header">
+      <div class="app-header-inner">
+        <a class="app-brand" href="{{ dashboard_url }}">
+          <img src="{% static 'myprofile/dit.png' %}" alt="DIT">
+          <span>{% if LANGUAGE_CODE == 'en' %}Course Recognition{% else %}Αναγνώριση Μαθημάτων{% endif %}</span>
+        </a>
+
+        <div class="app-header-actions">
+          {% block username %}
+          {% if request.user.is_authenticated %}
+          <div class="userinfo">
+            <span class="mto" aria-hidden="true">person</span>
+            <span>{{ user.username }}</span>
+          </div>
+          {% endif %}
+          {% endblock %}
+
+          {% block navbar %}
+          {% if request.user.is_authenticated %}
+          <nav class="app-nav" aria-label="Main navigation">
+            <a class="nav-link-icon" href="{{ dashboard_url }}">
+              <span class="mto" aria-hidden="true">home</span>
+              {% trans 'Κεντρική' %}
+            </a>
+            <a class="nav-link-icon" href="{% url 'myprofile:logout' %}">
+              <span class="mto" aria-hidden="true">logout</span>
+              {% trans 'Έξοδος' %}
+            </a>
+          </nav>
+          {% endif %}
+
+          <form action="{% url 'set_language' %}" method="post" class="language-flags">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+            <button type="submit" name="language" value="en" class="btn btn-link" aria-label="English">
+              <img src="{% static 'myprofile/images/en.svg' %}" alt="English" width="24">
+            </button>
+            <button type="submit" name="language" value="el" class="btn btn-link" aria-label="Greek">
+              <img src="{% static 'myprofile/images/gr.svg' %}" alt="Greek" width="24">
+            </button>
+          </form>
+
+          <button id="themeToggle" class="btn btn-link theme-toggle-btn" aria-label="Toggle Theme" title="{% trans 'Αλλαγή Θέματος' %}">
+            <span class="mto" id="themeToggleIcon">dark_mode</span>
+          </button>
+          {% endblock %}
+        </div>
+      </div>
+    </header>
+    
+  <main class="container features app-main">
+    {% block messages %}
+    {% if msg %}
+    <div class="alert alert-danger" role="alert">    
+    {{msg}}
+    </div>
+    {% endif %}
+    {% endblock %}
+    {% block submenu %}
+    {% endblock %}
+    {% block backurl %}
+    {% if backurl %}
+    <div class="row">
+    <div class="col">
+      <a href="{{ backurl }}" type="submit" class="btn btn-primary back-button"> <span class="mto">arrow_back_ios</span> {% trans 'Επιστροφή' %} </a> 
+    </div>
+    </div>    
+    {% endif %}
+    {% if back_url %}
+    <div class="row">
+    <div class="col">
+      <a href="{{ back_url }}" type="submit" class="btn btn-primary back-button"> <span class="mto">arrow_back_ios</span> {% trans 'Επιστροφή' %} </a> 
+    </div>
+    </div>    
+    {% endif %}
+    {% endblock %}
+    {% block upper %}
+    {% endblock %}
+    {% block middle %}
+    {% endblock %}
+    {% block bottom %}
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+    flatpickr('.datepicker', {
+        dateFormat: 'd/m/Y',
+        altFormat: 'd/m/Y',
+        altInput: true,
+    });
+  </script>
+    {% endblock %}    
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeToggleIcon = document.getElementById('themeToggleIcon');
+      
+      if (themeToggle && themeToggleIcon) {
+        function updateToggleIcon(theme) {
+          if (theme === 'dark') {
+            themeToggleIcon.textContent = 'light_mode';
+          } else {
+            themeToggleIcon.textContent = 'dark_mode';
+          }
+        }
+
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        updateToggleIcon(currentTheme);
+
+        themeToggle.addEventListener('click', function() {
+          const activeTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+          
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateToggleIcon(newTheme);
+          themeToggle.blur();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

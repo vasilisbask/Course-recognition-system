@@ -1,0 +1,22 @@
+{% load profile_tags %}
+{% load i18n %}
+{% if request.user|is_secretariat %}
+<div class="row">
+  <div class="col d-flex justify-content-center">
+    <a href={% url 'phdstuds:sec_list_theses' %} class="btn btn-primary me-3"><span class="mto">docs</span>{% trans 'Διατριβές' %}</a>
+    <a href={% url 'phdstuds:sec_list_phd_students' %} class="btn btn-primary me-3"><span class="mto">person</span>{% trans 'Φοιτητές' %}</a>
+    <a href={% url 'phdstuds:sec_list_progress' %} class="btn btn-primary me-3"><span class="mto">checklist_rtl</span>{% trans 'Αναφορές' %}</a>
+    <a href={% url 'phdstuds:sec_list_recommendations' %} class="btn btn-primary me-3"><span class="mto">check_box</span>{% trans 'Eισηγήσεις' %}</a>
+  </div>  
+</div>
+</br></br>
+{% elif request.user|is_staff_member %}
+<div class="row">
+  <div class="col d-flex justify-content-center">
+    <a href={% url 'phdstuds:staff_list_theses' %} class="btn btn-primary me-3"><span class="mto">docs</span>{% trans 'Διατριβές' %}</a>    
+    <a href={% url 'phdstuds:staff_list_recommendations' %} class="btn btn-primary me-3"><span class="mto">check_box</span>{% trans 'Eισηγήσεις' %}</a>
+  </div>  
+</div>
+</br></br>
+
+{% endif %}

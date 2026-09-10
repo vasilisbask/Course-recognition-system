@@ -1,0 +1,28 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block middle %}
+<h2> {% trans 'Σύστημα Διαχείρισης Προσκλήσεων Εκπόνησης Διδακτορικής Διατριβής' %}</h2>
+<p> {{ call.program.department.school.institution.title_gr }} / {{ call.program.department.school.institution.title_en }}</p>
+<p> {% trans 'Καλώς ήρθατε!' %}</p>
+</br>
+</br>
+<h4> {% trans 'Υποβολή Συστατικής Επιστολής' %} </h4>
+</br>
+<h5> {% trans 'Στοιχεία πρόσκλησης υποβολής αιτήσεων' %} </h5>
+<p> {% trans 'Τίτλος Διδακτορικού' %}: {{ call.title }}</p>
+<p> {% trans 'Επιβλέπων' %}: {{ call.supervisor.given_name }} {{ call.supervisor.surname }} </p>
+</br>
+<h5> {% trans 'Στοιχεία Υποψηφίου' %} </h5>
+<p> {% trans 'Όνομα' %}: {{ applicant.given_name }}</p>
+<p> {% trans 'Επώνυμο' %}: {{ applicant.surname }}</p>
+</br>
+<h3> {% trans 'Συστατική Επιστολή' %} </h3>
+<div class="alert alert-info">
+<p> {% trans 'Παρακαλούμε ανεβάστε την συστατική σας επιστολή για τον υποψήφιο χρησιμοποιώντας αυτή την φόρμα.' %}
+<p> {% trans 'Mπορείτε να συμπληρώσετε προαιρετικά και παρατηρήσεις για τον υποψήφιο.' %}</p>
+<p> {% trans 'Επίσης μπορείτε να διορθώσετε τα στοιχεία επικοινωνίας σας, όπως αυτά έχουν καταχωρηθεί από τον υποψήφιο.' %}</p>
+<p> {% trans 'Πατήστε "Υποβολή Συστατικής Επιστολής" όταν συμπληρώσετε την παρακάτω φόρμα' %} </p>
+</div>
+{% crispy form %} 
+{% endblock %}

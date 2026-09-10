@@ -1,0 +1,79 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Δημοσίευση σε Περιοδικό</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Τίτλος Άρθρου</th>
+    <td>{{ pub.title }}</td>
+</tr>
+
+<tr>
+    <th>Τίτλος Περιοδικού</th>
+    <td>{{ pub.journal_title }}</td>
+</tr>
+
+<tr>
+    <th>Συγγραφείς</th>
+    <td>{{ pub.authors }}</td>
+</tr>
+
+<tr>
+    <th>Εκδότης</th>
+    <td>{{ pub.publisher|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Τόμος</th>
+    <td>{{ pub.volume|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Σελίδες</th>
+    <td>{{ pub.pages|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Έτος</th>
+    <td>{{ pub.year }}</td>
+</tr>
+
+<tr>
+    <th>Σύνδεσμος</th>
+    <td>
+        {% if pub.link %}
+            <a href="{{ pub.link }}">{{ pub.link }}</a>
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>DOI</th>
+    <td>{{ pub.doi|default:"—" }}</td>
+</tr>
+
+</table>
+
+<h2 class="subsection">Συνημμένο PDF</h2>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Αρχείο</th>
+    <td>
+        {% if pub.pdf %}
+            Συνημμένο PDF (επισυνάπτεται στο τελικό PDF)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+{% endblock %}

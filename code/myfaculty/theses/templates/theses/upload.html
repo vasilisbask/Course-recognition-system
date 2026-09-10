@@ -1,0 +1,32 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+{% load profile_tags %}
+{% block middle %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#theModal" >Υποβολή</button>
+
+    <div class="modal fade" id="theModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalLabel">Επιβεβαίωση</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
+        </div>
+        <div class="modal-body">
+            Είστε σίγουροι ότι θέλετε να προχωρήσετε {{ message }};
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Όχι</button>
+            <button type="submit" class="btn btn-danger">Ναι </button>        
+        </div>
+        </div>
+    </div>
+    </div>
+
+</form>
+{% endblock %}
+

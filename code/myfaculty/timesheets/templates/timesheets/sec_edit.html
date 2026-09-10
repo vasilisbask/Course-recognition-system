@@ -1,0 +1,32 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+
+{% block middle %}
+
+{% crispy form %} 
+
+{% if perms.myprofile.is_secreteriat %}
+{% if form.instance.pk %}
+<p></p>
+<div class="row">
+  <div class="col-sm-6">
+    <button type="button" class="btn btn-danger" onclick="delete_obj()">
+      Διαγραφή
+  </button>  
+  </div>
+  <div class="col-sm-6">
+  </div>
+  
+</div>
+<script>
+    function delete_obj() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'timesheets:sec_delete' form.instance.pk %}');
+    }
+    }
+</script>  
+{% endif %}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,113 @@
+
+{% load i18n %}
+{% load core_tags %}
+<div class="custom-file-input-wrapper" style="padding-bottom: 1.5rem;">
+{% if field.field.disabled %}
+
+    <!-- Download mode -->
+    <div style="margin-bottom:0.5rem;">
+        <label>
+        {{ field.label }}
+        </label>
+    </div>
+
+    {% if field.value %}
+        <a href="{{ field.value.url }}" class="btn btn-primary" download>
+            <span class="mto">docs</span>
+            <em>{{ field|get_filename }}</em>
+        </a>
+    {% else %}
+        <span class="text-muted">{% trans "Δεν υπάρχει αρχείο" %}</span>
+    {% endif %}
+{% else %}
+    <!-- Hidden file input -->
+    <input type="file" 
+           name="{{ field.html_name }}" 
+           id="{{ field.auto_id }}" 
+           class="form-control" />
+    
+    <div>
+    <label for="{{ field.auto_id }}">
+    {{ field.label }}
+    {% if field.field.required %}
+        <span>*</span>
+    {% endif %}
+    </label>
+    </div>
+    <label for="{{ field.auto_id }}">
+        <span class="btn btn-primary file-text">
+            <span class="mto">docs</span>
+            {% if field.value %}
+                <em>{{ field|get_filename }}</em>
+            {% else %}
+                {% trans 'Επιλέξτε αρχείο' %}
+            {% endif %}
+        </span>
+    </label>
+
+    <!-- Display currently selected file -->
+    <div class="file-name-display" id="file-name-{{ field.auto_id }}"></div>
+    {% if field.errors %}
+    {% for error in field.errors %}
+    <div class="invalid-feedback d-block">
+    <strong> {{ error }} </strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% if field.help_text %}
+    <small class="form-text">
+        {{ field.help_text|safe }}
+    </small>
+{% endif %}
+</div>
+
+<style>
+    .custom-file-input-wrapper input[type="file"] {
+        display: none;
+    }
+    
+    .file-label {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: blue;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+    }
+    
+    .file-label:hover {
+        background-color: #0056b3;
+    }
+    
+    .file-name-display {
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #666;
+    }
+    
+    .file-name-display.selected {
+        font-weight: 500;
+        color: blue;
+    }
+</style>
+
+<script>
+    (function() {
+        const fileInput = document.getElementById('{{ field.auto_id }}');
+        const fileDisplay = document.getElementById('file-name-{{ field.auto_id }}');
+        
+        fileInput.addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                const fileName = e.target.files[0].name;
+                fileDisplay.textContent = '{% trans 'Θα χρησιμοποιηθεί το αρχείο: ' %}' + fileName;
+                fileDisplay.classList.add('selected');
+            } else {
+                fileDisplay.textContent = '';
+                fileDisplay.classList.remove('selected');
+            }
+        });
+    })();
+</script>
+{% endif %}

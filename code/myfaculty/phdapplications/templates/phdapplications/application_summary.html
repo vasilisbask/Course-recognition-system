@@ -1,0 +1,263 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% load phdapp_tags %}
+{% load i18n %}
+
+{% block middle %}
+</br>
+</br>
+
+<div class="row">
+<div class="col-sm-9">
+  <h3> {% trans 'Επισκόπηση Αίτησης' %} </h3>
+</div>
+{% if role == 'sec' %}
+<div class="col-sm-3">
+  <button type="button" onclick="delete_obj()" class="btn btn-danger" style="font-weight: bold;"> {% trans 'Διαγραφή Αίτησης!' %} </button> 
+</div>
+{% endif %}
+</div>
+</br>
+</br>
+{% if role == 'sec' %}
+<div class="row">
+  <div class="col text-center">
+    <a class="btn btn-success" href="{% url 'phdapplications:export_summary' application_id %}"> {% trans 'Εξαγωγή' %}</a>
+  </div>
+</div>
+</br></br>
+{% endif %}
+<div class="row">
+  <div class="col-sm-9">
+    <h5> {% trans 'Στοιχεία της Πρόσκλησης' %} </h5>
+  </div>
+  {% if role == 'sec' %}
+ <div class="col-sm-3">
+    <a href="{% url 'phdapplications:sec_call_edit' call_id %}?next={{ request.get_full_path }}" class="btn btn-primary"> {% trans 'Επεξεργασία Πρόσκλησης' %} </a> 
+  </div> 
+  {% endif %}
+</div>
+{% crispy callform %} 
+<div class="row text-center justify-content-center">
+    <div class="col-sm-6">
+    {% if call_url %}
+        <p> <a class="btn btn-primary file-button" href="{{ call_url }}"> {% trans 'Επισυναπτόμενο αρχείο πρόσκλησης' %} </a> </p>
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+        {% trans 'H πρόσκληση δεν έχει επισυναπτόμενο αρχείο!' %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+</br></br>
+<div class="row">
+  <div class="col-sm-9">
+    <h5> {% trans 'Στοιχεία Υποψηφίου' %} </h5>
+  </div>
+  {% if role == 'sec' %}
+ <div class="col-sm-3">
+    <a href="{% url 'phdapplications:sec_applicant_edit' applicant_id %}" class="btn btn-primary"> {% trans 'Επεξεργασία Υποψηφίου' %} </a> 
+  </div> 
+  {% endif %}
+</div>
+
+{% crispy applicantform %}
+<div class="row text-center justify-content-center">
+    <div class="col-sm-6">
+    {% if cv_url %}
+        <p> <a class="btn btn-primary file-button" href="{{ cv_url }}"> {% trans 'Βιογραφικό Σημείωμα' %} </a> </p>
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+        {% trans 'Δεν έχει ανέβει βιογραφικό σημείωμα'%} !
+        </div>
+        {% endif %}
+    </div>
+</div>
+</br>
+</br>
+
+<div class="row">
+  <div class="col-sm-9">
+    <h5> {% trans 'Στοιχεία Αίτησης' %} </h5>
+  </div>
+  {% if role == 'sec' %}
+ <div class="col-sm-3">
+    <a href="{% url 'phdapplications:sec_edit_application' application_id %}" class="btn btn-primary"> {% trans 'Επεξεργασία Αίτησης' %} </a> 
+  </div> 
+  {% endif %}
+</div>
+{% crispy applicationform %}
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<h5> {% trans 'Τίτλοι Σπουδών' %} </h5>
+
+{% if degrees %}  
+<table id="degrees" class="table">
+  {{ degrees|table_headers }}    
+  </tbody>
+  {% for p in degrees %}
+  
+  {% if role == 'sec' %}
+  {{ p|as_sec_table_row }}
+  {% elif role == 'reviewer' %}
+  {{ p|as_reviewer_table_row:application_id }}
+  {% elif role == 'applicant' %}
+  {{ p|as_applicant_table_row }}
+  {% endif %}
+
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>{% trans 'Δεν έχουν καταχωρηθεί τίτλοι σπουδών' %} </p>
+  {% endif %}
+  </br>
+</br>
+</br>
+</br>
+</br>
+
+<h5> {% trans 'Εργασιακή Εμπειρία' %} </h5>
+{% if experience %}  
+<table id="experience" class="table">
+    {{ experience|table_headers }}  
+  </tbody>
+  {% for p in experience %}
+  
+  {% if role == 'sec' %}
+  {{ p|as_sec_table_row }}
+  {% elif role == 'reviewer' %}
+  {{ p|as_reviewer_table_row:application_id }}
+  {% elif role == 'applicant' %}
+  {{ p|as_applicant_table_row }}
+  {% endif %}
+  
+
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>{% trans 'Δεν έχει καταχωρηθεί κάποια εργασιακή εμπειρία' %}</p>
+  {% endif %}
+</br>
+</br>
+</br>
+
+<h5> {% trans 'Δημοσιεύσεις' %} </h5>
+<h6> {% trans 'Περιοδικά' %} </h6>
+{% if journals %}  
+<table id="journals" class="table">
+    {{ journals|table_headers }}   
+  </tbody>
+  {% for p in journals %}
+  
+  {% if role == 'sec' %}
+  {{ p|as_sec_table_row }}
+  {% elif role == 'reviewer' %}
+  {{ p|as_reviewer_table_row:application_id }}
+  {% elif role == 'applicant' %}
+  {{ p|as_applicant_table_row }}
+  {% endif %}
+  
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>{% trans 'Δεν έχει καταχωρηθεί κάποια δημοσίευση σε περιοδικό' %} </p>
+  {% endif %}
+<h6> {% trans 'Συνέδρια' %} </h6>
+ {% if conferences %}  
+<table id="conferences" class="table">
+    {{ conferences|table_headers }}  
+  </tbody>
+  {% for p in conferences %}
+  
+  {% if role == 'sec' %}
+  {{ p|as_sec_table_row }}
+  {% elif role == 'reviewer' %}
+  {{ p|as_reviewer_table_row:application_id }}
+  {% elif role == 'applicant' %}
+  {{ p|as_applicant_table_row }}
+  {% endif %}
+  
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>{% trans 'Δεν έχει καταχωρήθει κάποια δημοσίευση σε συνέδριο' %} </p>
+  {% endif %}
+
+</br>
+</br>
+</br>
+<h5> {% trans 'Συστατικές Επιστολές που έχουν υποβληθεί' %}</h5>
+{% if perms.myprofile.is_secreteriat %}
+<div class="row">
+  <div class="col text-center">
+   <a href="{% url 'phdapplications:sec_ref_create' application_id %}" class="btn btn-primary" >
+      +{% trans 'Νέο σημείο επαφής' %} 
+    </a>
+    </div>
+  </div>
+  </br>
+</br>
+{% endif %}
+{% if ref_letters %}  
+<table id="ref_letters" class="table">
+  {{ ref_letters|table_headers }}   
+  </tbody>
+  {% for p in ref_letters %}
+  
+  {% if role == 'sec' %}
+  {{ p|as_sec_table_row }}
+  {% elif role == 'reviewer' %}
+  {{ p|as_reviewer_table_row:application_id }}
+  {% elif role == 'applicant' %}
+  {{ p|as_applicant_table_row }}  
+  {% endif %}
+  
+  
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>{% trans 'Δεν έχει υποβληθεί κάποια συστατική επιστολή' %}</p>
+  {% endif %}
+
+<script>
+    function delete_obj() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'phdapplications:sec_delete_application' call_id application_id %}');
+    }
+    }
+</script>  
+</br>
+</br>
+</br>
+
+<h5> {% trans 'Συστατικές Επιστολές που δεν έχουν ακόμα αποστάλλει' %}</h5>
+{% if not_submitted %}
+<table id="not_submitted" class="table">
+{{ not_submitted|table_headers }}
+<tbody>
+{% for p in not_submitted %}
+{% if role == 'sec' %}
+  {{ p|as_sec_table_row }}
+  {% elif role == 'reviewer' %}
+  {{ p|as_reviewer_table_row:application_id }}
+  {% elif role == 'applicant' %}
+  {{ p|as_reference_application_table_row }}  
+  {% endif %}
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+  <p>{% trans 'Δεν έχει υπάρχει κάποια επαφή που να μην έχει αποστείλει συστατική επιστολή' %} </p>
+{% endif %}
+{% endblock %}

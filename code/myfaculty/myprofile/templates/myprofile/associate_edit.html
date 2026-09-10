@@ -1,0 +1,28 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+
+{% block middle %}
+{{ form.media }}
+
+<form method="post">
+    {% crispy form %} 
+</form>
+
+{% if perms.myprofile.is_secreteriat %}
+{% if form.instance.pk %}
+<p></p>
+<button type="button" class="btn btn-danger" onclick="delete_obj()">
+    Διαγραφή
+</button>
+<script>
+    function delete_obj() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'myprofile:delete_associate' form.instance.pk %}');
+    }
+    }
+</script>  
+{% endif %}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,281 @@
+{% extends 'myprofile/page.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block middle %}
+<div class="page-title">
+  <p class="section-kicker">Admin</p>
+  <h1>{{ title }}</h1>
+</div>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags|default:'info' }}" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+{% if status_filters %}
+<div class="d-flex flex-wrap gap-2 mb-4">
+  {% for option in status_filters %}
+    <a class="btn {% if status_filter == option.key %}btn-primary{% else %}btn-outline-primary{% endif %}" href="?status={{ option.key }}">
+      {{ option.label }}
+      <span class="badge {% if status_filter == option.key %}bg-light text-dark{% else %}bg-secondary{% endif %}">{{ option.count }}</span>
+    </a>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+  <div class="text-muted">
+    {% blocktrans count total=requests|length %}{{ total }} αίτηση{% plural %}{{ total }} αιτήσεις{% endblocktrans %}
+  </div>
+  <a class="btn btn-outline-success" id="adminExportButton" href="{% url 'course_recognition:admin_export_xlsx' %}?status={{ status_filter }}" data-export-base-url="{% url 'course_recognition:admin_export_xlsx' %}?status={{ status_filter }}">
+    <span class="mto" aria-hidden="true">table_view</span>
+    {% trans 'Export Excel' %}
+  </a>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle text-center datatable-centered" id="adminRequestsTable">
+    <thead>
+      <tr>
+        <th>{% trans 'ID' %}</th>
+        <th>{% trans 'Ονοματεπώνυμο' %}</th>
+        <th>{% trans 'Αριθμός μητρώου' %}</th>
+        <th>{% trans 'Μάθημα προς αναγνώριση' %}</th>
+        <th>{% trans 'Περασμένο μάθημα' %}</th>
+        <th>{% trans 'Κατάσταση' %}</th>
+        <th>{% trans 'Αριθμός πρωτοκόλλου' %}</th>
+        <th>{% trans 'Ενέργειες' %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in requests %}
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.student_display_name }}</td>
+          <td>{{ item.student.reg_num|default:'-' }}</td>
+          <td>{{ item.course|default:'-' }}</td>
+          <td>{{ item.title_original_course }}</td>
+          <td>
+            {% if item.status == "APPROVED" %}
+              <span class="badge bg-success">{{ item.get_status_display }}</span>
+            {% elif item.status == "REJECTED" %}
+              <span class="badge bg-danger">{{ item.get_status_display }}</span>
+            {% elif item.status == "WITHDRAWN" %}
+              <span class="badge bg-dark">{{ item.get_status_display }}</span>
+            {% else %}
+              <span class="badge bg-secondary">{{ item.get_status_display }}</span>
+            {% endif %}
+          </td>
+          <td>{{ item.protocol_number|default:'-' }}</td>
+          <td class="request-actions-cell">
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+            {% if item.status == "UNDER_REVIEW" and not item.protocol_number %}
+              <a class="btn btn-sm btn-outline-primary" href="{% url 'course_recognition:admin_protocol' item.id %}?next={{ request.get_full_path|urlencode }}">
+                <span class="mto" aria-hidden="true">tag</span>
+                {% trans 'Αριθμός πρωτοκόλλου' %}
+              </a>
+            {% endif %}
+
+            {% if item.status == "UNDER_REVIEW" %}
+              <a class="btn btn-sm btn-outline-primary" href="{% url 'course_recognition:admin_recommendation' item.id %}?next={{ request.get_full_path|urlencode }}">
+                <span class="mto" aria-hidden="true">rate_review</span>
+                {% trans 'Εισήγηση' %}
+              </a>
+              {% if not item.recommendation %}
+                <a class="btn btn-sm btn-outline-primary" href="{% url 'course_recognition:admin_request_update' item.id %}?next={{ request.get_full_path|urlencode }}">
+                  <span class="mto" aria-hidden="true">edit</span>
+                  {% trans 'Επεξεργασία' %}
+                </a>
+              {% endif %}
+              <form method="post" action="{% url 'course_recognition:admin_withdraw' item.id %}" class="withdraw-request-form">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <input type="hidden" name="withdrawal_reason" value="">
+                <button class="btn btn-sm btn-outline-danger" type="submit">
+                  <span class="mto" aria-hidden="true">delete</span>
+                  {% trans 'Διαγραφή' %}
+                </button>
+              </form>
+            {% elif item.status == "WITHDRAWN" %}
+              <a class="btn btn-sm btn-outline-primary" href="{% url 'course_recognition:admin_request_detail' item.id %}?next={{ request.get_full_path|urlencode }}">
+                <span class="mto" aria-hidden="true">visibility</span>
+                {% trans 'Προβολή' %}
+              </a>
+              <form method="post" action="{% url 'course_recognition:admin_restore' item.id %}">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <button class="btn btn-sm btn-outline-success" type="submit">
+                  <span class="mto" aria-hidden="true">restore</span>
+                  {% trans 'Επαναφορά' %}
+                </button>
+              </form>
+            {% else %}
+              <a class="btn btn-sm btn-outline-primary" href="{% url 'course_recognition:admin_request_detail' item.id %}?next={{ request.get_full_path|urlencode }}">
+                <span class="mto" aria-hidden="true">visibility</span>
+                {% trans 'Προβολή' %}
+              </a>
+            {% endif %}
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script>
+  (function () {
+    const table = document.getElementById("adminRequestsTable");
+    if (!table || !window.jQuery || !jQuery.fn.DataTable) {
+      return;
+    }
+
+    const isEnglish = "{{ LANGUAGE_CODE|default:'el' }}".toLowerCase().startsWith("en");
+    const requestLanguage = isEnglish ? {
+      search: "Search:",
+      lengthMenu: "Show _MENU_ requests",
+      info: "Showing _START_ to _END_ of _TOTAL_ requests",
+      infoEmpty: "No requests available",
+      infoFiltered: "(filtered from _MAX_ total)",
+      zeroRecords: "No matching requests found",
+      emptyTable: "No requests available",
+      paginate: {
+        first: "First",
+        previous: "Previous",
+        next: "Next",
+        last: "Last"
+      }
+    } : {
+      search: "Αναζήτηση:",
+      lengthMenu: "Εμφάνιση _MENU_ αιτήσεων",
+      info: "Εμφάνιση _START_ έως _END_ από _TOTAL_ αιτήσεις",
+      infoEmpty: "Δεν υπάρχουν αιτήσεις",
+      infoFiltered: "(φιλτραρισμένες από _MAX_ συνολικά)",
+      zeroRecords: "Δεν βρέθηκαν αιτήσεις",
+      emptyTable: "Δεν υπάρχουν αιτήσεις",
+      paginate: {
+        first: "Πρώτη",
+        previous: "Προηγούμενη",
+        next: "Επόμενη",
+        last: "Τελευταία"
+      }
+    };
+
+    const dataTable = jQuery(table).DataTable({
+      autoWidth: false,
+      width: "100%",
+      order: [[0, "desc"]],
+      pageLength: 10,
+      lengthMenu: [[10, 25, 50, -1], [10, 25, 50, isEnglish ? "All" : "Όλες"]],
+      columnDefs: [
+        { orderable: false, searchable: false, targets: -1 }
+      ],
+      language: requestLanguage
+    });
+
+    const exportButton = document.getElementById("adminExportButton");
+    if (exportButton) {
+      exportButton.addEventListener("click", () => {
+        const ids = dataTable
+          .rows({ search: "applied", order: "applied" })
+          .nodes()
+          .toArray()
+          .map((row) => row.querySelector("td")?.textContent.trim())
+          .filter(Boolean);
+        const separator = exportButton.dataset.exportBaseUrl.includes("?") ? "&" : "?";
+        exportButton.href = `${exportButton.dataset.exportBaseUrl}${separator}ids=${encodeURIComponent(ids.join(","))}`;
+      });
+    }
+  }());
+</script>
+
+<div class="confirm-modal-backdrop" id="withdrawConfirmModal" hidden>
+  <div class="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="withdrawConfirmTitle">
+    <h2 id="withdrawConfirmTitle">{% trans 'Διαγραφή αίτησης' %}</h2>
+    <p>{% trans 'Η αίτηση θα σημειωθεί ως μη ενεργή. Είστε σίγουροι;' %}</p>
+    <label class="confirm-modal-label" for="withdrawalReason">{% trans 'Αιτιολόγηση' %}</label>
+    <textarea class="form-control" id="withdrawalReason" rows="4" required></textarea>
+    <div class="confirm-modal-error" id="withdrawalReasonError" hidden>
+      {% trans 'Η αιτιολόγηση είναι υποχρεωτική.' %}
+    </div>
+    <div class="confirm-modal-actions">
+      <button type="button" class="btn btn-outline-primary" data-confirm-cancel>
+        {% trans 'Όχι' %}
+      </button>
+      <button type="button" class="btn btn-outline-danger" data-confirm-submit>
+        {% trans 'Ναι' %}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const modal = document.getElementById("withdrawConfirmModal");
+    if (!modal) {
+      return;
+    }
+
+    const cancelButton = modal.querySelector("[data-confirm-cancel]");
+    const submitButton = modal.querySelector("[data-confirm-submit]");
+    const reasonInput = modal.querySelector("#withdrawalReason");
+    const reasonError = modal.querySelector("#withdrawalReasonError");
+    let pendingForm = null;
+
+    function openModal(form) {
+      pendingForm = form;
+      reasonInput.value = "";
+      reasonError.hidden = true;
+      modal.hidden = false;
+      reasonInput.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      pendingForm = null;
+    }
+
+    document.querySelectorAll(".withdraw-request-form").forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        openModal(form);
+      });
+    });
+
+    cancelButton.addEventListener("click", closeModal);
+
+    submitButton.addEventListener("click", () => {
+      if (!pendingForm) {
+        return;
+      }
+      const reason = reasonInput.value.trim();
+      if (!reason) {
+        reasonError.hidden = false;
+        reasonInput.focus();
+        return;
+      }
+      const form = pendingForm;
+      const hiddenReason = form.querySelector('input[name="withdrawal_reason"]');
+      if (hiddenReason) {
+        hiddenReason.value = reason;
+      }
+      pendingForm = null;
+      form.submit();
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !modal.hidden) {
+        closeModal();
+      }
+    });
+  }());
+</script>
+{% endblock %}

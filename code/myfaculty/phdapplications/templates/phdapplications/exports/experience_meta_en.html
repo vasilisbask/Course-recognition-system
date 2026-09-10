@@ -1,0 +1,59 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Work Experience</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Position</th>
+    <td>{{ work.title }}</td>
+</tr>
+
+<tr>
+    <th>Company / Organization</th>
+    <td>{{ work.company }}</td>
+</tr>
+
+<tr>
+    <th>Start Date</th>
+    <td>{{ work.start_date|date:"d/m/Y" }}</td>
+</tr>
+
+<tr>
+    <th>End Date</th>
+    <td>
+        {% if work.end_date %}
+            {{ work.end_date|date:"d/m/Y" }}
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Duties / Description</th>
+    <td>{{ work.duties|default:"—" }}</td>
+</tr>
+
+</table>
+
+<h2 class="subsection">Attached Contract</h2>
+
+<table class="metadata-table">
+
+<tr>
+    <th>File</th>
+    <td>
+        {% if work.contract %}
+            Attached document (included in final PDF)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+{% endblock %}

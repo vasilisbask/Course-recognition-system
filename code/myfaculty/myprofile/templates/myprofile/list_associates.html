@@ -1,0 +1,65 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+
+  
+<script>
+    $(document).ready(function() {
+      $('#associates').DataTable({
+        "lengthChange": false,
+        "pageLength": 100
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Συνεργάτες </h3>
+  </div>
+  <div class="d-flex justify-content-end">
+  <a href="{% url 'myprofile:create_associate' %}" class="btn btn-primary" >
+    + Νέος συνεργάτης
+  </a>
+  </div>
+</div> 
+</br>
+{% if associates %}  
+<a href="{% url 'myprofile:export_associate_csv' %}"> Εξαγωγή </a>
+<table id = "associates" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Όνοματεπώνυμο</th>
+        <th scope="col">Email</th>   
+        <th scope="col">Ενημέρωση</th>
+        <th scope="col">Υπεύθυνος</th>        
+        <th scope="col"></th>  
+      </tr>
+    </thead>    
+  </tbody>
+  {% for associate in associates %}
+  <tr>
+    <td>
+    {{ associate.display_name }}
+    </td>
+    <td>
+    {{ associate.email }}
+    </td>    
+    <td>
+      {{ associate.last_update }}
+    </td>    
+    <td>
+      {{ associate.supervisor.display_name}}
+    </td>  
+    <td>
+    <a href="{% url 'myprofile:edit_associate' associate.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>
+    <a href="{% url 'associates:sec_list_attendances' associate.id %}" type="submit" class="btn btn-info tablebutton"> Προσέλευση </a>       
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν έχετε καταχωρήσει συνεργάτες</p>
+  {% endif %}
+
+
+{% endblock %}

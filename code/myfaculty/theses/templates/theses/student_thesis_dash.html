@@ -1,0 +1,129 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+{% load theses_tags %}
+{% load profile_tags %}
+{% block middle %}
+
+{% if thesis %}
+</br></br>
+<h5> Πληροφορίες </h5>
+<h7> Τίτλος Διπλωματικής </h7> 
+<p> {{  thesis.title_gr }}</p>
+<h7> Επιβλέπων/ούσα </h7> 
+<p> {{  thesis.supervisor.display_name }}</p>
+<h7> Μέλη επιτροπής </h7> 
+<p> {{  thesis.member1.display_name }}</p>
+<p> {{  thesis.member2.display_name }}</p>
+
+</br></br>
+<h5> Δήλωση </h5>
+{% if thesis.declared %}
+<h7> Ημερομηνία που δηλώσατε το θέμα </h7>
+<p> {{  thesis.declared_date|date }}</p>
+<h7> Εξάμηνο ανάθεσης </h7>
+{% if thesis.official_date %}
+<p> {{ thesis.semester_assigned|as_semester }}, {{ thesis.year_assigned }}</p>
+<h7> Προθεσμία Κατάθεσης Πτυχιακής </h7>
+<p>{{ thesis.semester_due|as_semester }}, {{ thesis.year_due }} </p>
+
+<h7> Αίτημα παράτασης</h7>
+</br></br>
+{% if thesis.extension_requested %}
+<p> Καταθέσατε αίτημα παράτασης στις {{ thesis.extension_requested_date|date }}</p>
+{% if thesis.extension_granted %}
+<p> Η παράταση έχει εγκριθεί </p>
+{% endif %}
+{% elif thesis.can_ask_extension %}
+<p>
+<a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exModal" role="button">Ζητείστε παράταση</a> 
+</p>
+<!-- Extension Modal -->
+<div class="modal fade" id="exModal" tabindex="-1" aria-labelledby="exModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exModalLabel">Επιβεβαίωση</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Είστε σίγουροι ότι θέλετε να ζητήσετε παράταση;
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Όχι</button>
+        <a href="{% url 'theses:ask_for_extension' thesis.pk %}" class="btn btn-danger">Ναι</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+<p> Θα μπορείτε να ζητήσετε παράταση μόνο στο τελευταίο εξάμηνο εκπόνησης </p>
+{% endif %}
+  {% else %}
+<p> Δεν έχει ακόμα οριστεί.</p>
+
+{% endif %}
+</br></br>
+{% if thesis.official_date %}
+<h5> Ενδιάμεση Αναφορά </h5>
+{% if thesis.report %}
+<h7> Ημερομηνία Υποβολής </h7>
+<p>{{ thesis.report_created|date }} </p>
+<a href="{% url 'theses:get_document' 'report' thesis.pk %}" class="btn btn-primary" role="button">Δείτε την ενδιάμεση αναφορά </a>
+{% else %}
+<p> Δεν έχετε ανεβάσει ενδιάμεση αναφορά.</p>
+<a href="{% url 'theses:upload_document' 'report' thesis.pk %}" class="btn btn-primary" role="button">Ανεβάστε ενδιάμεση αναφορά </a>
+{% endif %}
+
+</br></br>
+<h5> Κείμενο Πτυχιακής </h5>
+{% if thesis.document_created %}
+<h7> Ημερομηνία Υποβολής </h7>
+<p> {{ thesis.document_created|date }} </p>
+<a href="{% url 'theses:get_document' 'document' thesis.pk %}" class="btn btn-primary" role="button">Δείτε το κείμενο </a>
+{% else %}
+<p> Δεν έχετε ανεβάσει το κείμενο της πτυχιακής </p>
+<a href="{% url 'theses:upload_document' 'document' thesis.pk %}" class="btn btn-primary" role="button">Ανεβάστε το κείμενο </a>
+{% endif %}
+
+{% endif %}
+
+</br></br>
+<h5> Βαθμός </h5>
+{% if thesis.grade_avg %}
+<p> {{ thesis.grade_avg }}</p>
+{% else %}
+<p> Δεν έχει βαθμολογηθεί </p>
+{% endif %}
+
+{% else %}
+<p> Δεν έχετε ακόμα δηλώσει το θεμα. Για να το δηλώσετε πατήστε το παρακάτω κουμπί </p>
+<a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#declarationModal" role="button">Δηλώστε το θέμα </a>
+
+<!-- Modal -->
+<div class="modal fade" id="declarationModal" tabindex="-1" aria-labelledby="declarationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Επιβεβαίωση</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Είστε σίγουροι ότι θέλετε να προχωρήσετε με την δήλωση;
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Όχι</button>
+        <a href="{% url 'theses:declare_thesis' thesis.pk %}" class="btn btn-danger">Ναι</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+{% else %}
+<p> Δεν έχετε αναλάβει κάποια πτυχιακή εργασία. </p>
+<p> Ποτέ δεν είναι αργά! </p>
+
+{% endif %}
+{% endblock %}
+

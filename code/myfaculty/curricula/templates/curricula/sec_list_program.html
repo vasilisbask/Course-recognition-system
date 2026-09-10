@@ -1,0 +1,101 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+
+  
+<script>
+    $(document).ready(function() {
+      $('#courses').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "ordering" : [[1,'asc']]
+      }
+      );
+    });
+  </script>
+</br></br>
+<div class="row">
+  <div class="col">
+    <h3> Μαθήματα </h3>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'curricula:create_course' %}" class="btn btn-primary" >
+        + Νέο μάθημα
+      </a>
+  </div>
+</div> 
+<div class="row text-center">
+  <a href="{% url 'curricula:export_program' program.pk %}"> Εξαγωγή Ενεργών (σε .csv) </a>
+</br>
+</br>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 text-center">
+  <a href="{% url 'curricula:list_program' program.pk %}">Όλα</a>
+</div>
+<div class="col-sm-4 text-center">
+<a href="{% url 'curricula:list_program_active' program.pk %}">Ενεργά</a>
+</div>
+<div class="col-sm-4 text-center">
+  <a href="{% url 'curricula:list_program_inactive' program.pk %}">Μη ενεργά</a>
+</div>
+
+</div>
+
+</br>
+{% if courses %}  
+<table id="courses" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Εξάμηνο</th>        
+        <th scope="col">Τίτλος</th>
+        <th scope="col">Επιλογής</th>
+        <th scope="col">Θεωρία</th>
+        <th scope="col">Εργαστήριο</th>        
+        <th scope="col">ECTS</th>        
+        <th scope="col">Κωδικός</th>
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for course in courses %}
+  <tr>
+    <td>
+      {{ course.semester|floatformat }}
+    </td>    
+    <td>
+      {{ course.display_name_full }}
+    </td>
+    <td>
+      {{ course.elective }}
+    </td>
+    <td>
+      {{ course.weekly_hours }}
+    </td>
+    <td>
+      {{ course.weekly_lab_hours }}
+    </td>
+    <td>
+      {{ course.ects_credits }}
+    </td>
+
+    <td>
+      {{ course.code_gr }}
+    </td>
+          
+    <td>
+    <a href="{% url 'curricula:edit_program_course' program.id course.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>
+    <a href="{% url 'curricula:export_course_gr' course.id %}" type="submit" class="btn btn-primary tablebutton"> GR </a>
+    <a href="{% url 'curricula:export_course_en' course.id %}" type="submit" class="btn btn-primary tablebutton"> ΕΝ </a>
+    </td>           
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν έχετε καταχωρήσει μαθήματα</p>
+  {% endif %}
+
+
+{% endblock %}

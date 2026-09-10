@@ -1,0 +1,63 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% block middle %}
+  
+<script>
+    $(document).ready(function() {
+      $('#objs').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Τίτλοι Σπουδών </h3>
+    <p> Υποψήφιος: {{ applicant.name applicant.surname }} </p>
+  </div>
+  </div>  
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'phdapplications:sec_create' 'degree' %}" class="btn btn-primary" >
+      + Νέο Πτυχίο
+    </a>
+  </div>
+</div> 
+</br>
+{% if objs %}  
+<table id="objs" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Έτος</th>        
+        <th scope="col">Σχολή</th>
+        <th scope="col">Ίδρυμα</th>
+        <th scope="col">Τύπος</th>        
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in degrees %}
+  <tr>
+    <td>
+      {{ p.year }}
+    </td>
+    <td>
+      {{ p.school|default_if_none:"" }}
+    </td>
+    <td>
+      {{ p.university }}
+    </td>
+    <td>
+      {{ p.type }}
+    </td>    
+    <td>
+      <a href="{% url 'phdapplications:sec_edit' 'degree' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+  </td>              
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν έχετε καταχωρήσει κάποιο πτυχίο</p>
+  {% endif %}
+  {% endblock %}

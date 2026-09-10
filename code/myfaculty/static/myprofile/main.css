@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=GFS+Neohellenic:wght@400;700&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #f2f6e9;
+    font-family: 'GFS Neohellenic';
+  }
+  
+.select2-search {
+  font-size : 12px;
+}
+label {
+  padding-top: 20px;
+}
+  .navbar {
+    background: #09f;
+  }
+  
+  .navbar-text-username {
+    color: #fff;
+    padding-left: 10px;
+  }
+  
+  .tablebutton {
+    color: #fff;  
+    padding: 2px;
+    font-size: small;
+    margin: 3px;
+  }
+  
+  .button-menu {
+    margin: 4px;
+    color: #fff;  
+  }
+  
+  .button-table {
+    margin: 1px;
+    font-size: small;
+    color: #fff;
+  }
+  
+  .nav-link,
+  .navbar-brand {
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  h3, h4, h5, h6, h7 {
+    color: blue;
+    margin-bottom: 16px;
+  }
+  
+  .stats p {
+    display: block;
+    margin: 0;
+  }
+  
+  .nav-link a {
+    color: #fff;
+    cursor: pointer;
+    padding-left: 6px;
+    padding-right: 6px;  
+  }
+  .navbar-brand p {
+    color: #000;
+  }
+  
+  .nav-link {
+    margin-right: 1em !important;
+  }
+  
+  .nav-link:hover {
+    color: #000
+  }
+  
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+  
+  .navbar-username {
+    color: #fff;
+  }
+  
+  .login-div {
+    max-width: 1400px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+  .nav-link.sidelink {
+    color: #00f;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  
+  .nav-link.sidelink:hover {
+    color: #00a;
+  }
+
+  .landing-button-col {
+    padding: 0.5em;
+  }
+
+  .landing-button {
+    min-width: 200px;
+    font-weight: bold;
+  }
+
+  .submit-button {
+    font-weight: bold;
+    margin: 12px;
+  }
+
+  .file-button {
+    min-width: 200px;
+    font-weight: bold;
+    margin: 10px;
+  }
+  
+  .header {
+    background-image: url('images/hua2.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+  }
+  
+  .back-button {
+    margin-bottom: 20px;
+  }
+
+  .overlay {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.8);
+  }
+  
+  .description {
+    left: 50%;
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%,-65%);
+    text-align: center;
+  }
+  
+  .description h1 {
+    color: #0055ff;
+  }
+  
+  .description p {
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  
+  .description button {
+    border: 1px solid #6ab466;
+    background: #6ab446;
+    border-radius: 0;
+    color: #fff;
+  }
+  
+  .description button:hover {
+    border: 1px solid #fff;
+    background: #fff;
+    border-radius: 0;
+    color: #000;
+  }
+  
+  .features {
+    margin: 4em auto;
+    padding: 1em;
+    position: relative;
+    font-size: 1.0rem;    
+  }
+  
+  .feature-title {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .features img {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 60%;
+  }
+  
+  .textinput, .emailinput, .dateinput {
+    margin-bottom: 0.8rem;
+  }
+  .login-box {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.0rem;
+    line-height: 1.1;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .register-box {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9rem;
+    line-height: 1.1;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .register-box th,
+  .register-box td {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .login-form {
+    font-size: 1.0rem;
+    height: 1.6rem;
+  }
+  .login-box p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  .forgot-create {
+    line-height: 1.4rem;
+  }
+  .btn-login {
+     font-variant: small-caps;
+     font-weight: bold;
+     padding-top: 0.2rem;
+  }
+  
+  .login-label {
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  
+  .email-message {
+    color: #000;
+    line-height: 200%;
+  }
+  
+  .title-message {
+    color: #000;
+    line-height: 200%;
+    text-align: center;  
+    font-weight: bold;  
+  }
+  
+  .page-footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 60px 0 30px;
+  }
+  .footer-copyright {
+    color: #666;
+    padding: 40px 0;
+  }
+  
+  .mto {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  }

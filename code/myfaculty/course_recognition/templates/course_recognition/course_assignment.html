@@ -1,0 +1,244 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block middle %}
+<div class="page-title">
+  <p class="section-kicker">
+    {% if LANGUAGE_CODE|slice:":2" == "en" %}Secretariat{% else %}{% trans 'Γραμματεία' %}{% endif %}
+  </p>
+  <h1>
+    {% if LANGUAGE_CODE|slice:":2" == "en" %}Assign courses to professors{% else %}{{ title }}{% endif %}
+  </h1>
+</div>
+
+<style>
+  .asteriskField {
+    color: var(--danger, #e53e3e) !important;
+    margin-left: 0.25rem !important;
+  }
+
+  .csv-import-control {
+    position: relative;
+  }
+
+  .csv-import-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .csv-import-picker {
+    display: flex;
+    min-width: min(530px, 100%);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .csv-import-button,
+  .csv-import-name {
+    display: inline-flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 0 16px;
+  }
+
+  .csv-import-button {
+    flex: 0 0 auto;
+    background: var(--surface-soft);
+    color: var(--text);
+    border-right: 1px solid var(--border);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .csv-import-name {
+    flex: 1 1 auto;
+    min-width: 0;
+    background: var(--surface);
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .csv-import-input:focus + .csv-import-picker {
+    border-color: var(--django-secondary);
+    box-shadow: 0 0 0 0.18rem rgba(65, 118, 144, 0.18);
+  }
+
+  .assignment-required-error {
+    color: var(--danger, #e53e3e);
+    display: none;
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+  }
+
+  .select2-selection.assignment-invalid {
+    border-color: var(--danger, #e53e3e) !important;
+  }
+</style>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-{{ message.tags|default:'info' }}{% endif %}" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+{% if form.errors or import_form.errors %}
+  <div class="alert alert-danger" role="alert">
+    {% trans 'Παρακαλούμε διορθώστε τα σφάλματα στη φόρμα.' %}
+  </div>
+{% endif %}
+
+{{ form.media }}
+
+<div class="d-flex justify-content-end mb-3">
+  <form method="post" enctype="multipart/form-data" class="d-flex flex-wrap justify-content-end align-items-end gap-2" novalidate>
+    {% csrf_token %}
+    <div>
+      <label class="form-label" for="{{ import_form.import_file.id_for_label }}">
+        {% if LANGUAGE_CODE|slice:":2" == "en" %}CSV file{% else %}{{ import_form.import_file.label }}{% endif %}
+      </label>
+      <div class="csv-import-control">
+        <input
+          class="csv-import-input"
+          type="file"
+          name="{{ import_form.import_file.html_name }}"
+          id="{{ import_form.import_file.id_for_label }}"
+          accept=".csv,text/csv"
+          required
+        >
+        <label class="csv-import-picker" for="{{ import_form.import_file.id_for_label }}">
+          <span class="csv-import-button">
+            {% if LANGUAGE_CODE|slice:":2" == "en" %}Choose file{% else %}{% trans 'Επιλογή αρχείου' %}{% endif %}
+          </span>
+          <span class="csv-import-name" data-empty-text="{% if LANGUAGE_CODE|slice:':2' == 'en' %}No file selected{% else %}Δεν επιλέχθηκε κανένα αρχείο.{% endif %}">
+            {% if LANGUAGE_CODE|slice:":2" == "en" %}No file selected{% else %}Δεν επιλέχθηκε κανένα αρχείο.{% endif %}
+          </span>
+        </label>
+      </div>
+      {% for error in import_form.import_file.errors %}
+        <div class="text-danger small mt-1">{{ error }}</div>
+      {% endfor %}
+    </div>
+    <button class="btn btn-outline-primary" type="submit" name="import_assignments" value="1">
+      <span class="mto" aria-hidden="true">upload_file</span>
+      {% trans 'Import CSV' %}
+    </button>
+  </form>
+</div>
+
+<div class="form-surface">
+  <form method="post" id="course-assignment-form" novalidate>
+    {% csrf_token %}
+    {% crispy form %}
+  </form>
+</div>
+
+<script>
+  (function () {
+    const input = document.getElementById("{{ import_form.import_file.id_for_label }}");
+    if (!input) {
+      return;
+    }
+    const fileName = input.closest("div").querySelector(".csv-import-name");
+    const emptyText = fileName.dataset.emptyText;
+
+    input.addEventListener("change", () => {
+      fileName.textContent = input.files && input.files.length ? input.files[0].name : emptyText;
+    });
+  }());
+
+  (function () {
+    const form = document.getElementById("course-assignment-form");
+    if (!form) {
+      return;
+    }
+
+    const requiredMessage = "{% if LANGUAGE_CODE|slice:':2' == 'en' %}Please fill out this field.{% else %}{% trans 'Συμπληρώστε αυτό το πεδίο.' %}{% endif %}";
+    const requiredSelects = Array.from(
+      form.querySelectorAll("select[name='course'], select[name='instructors']")
+    );
+
+    function fieldWrapper(select) {
+      return select.closest(".mb-3") || select.closest(".form-group") || select.parentElement;
+    }
+
+    function select2Selection(select) {
+      const container = select.nextElementSibling;
+      return container ? container.querySelector(".select2-selection") : null;
+    }
+
+    function errorElement(select) {
+      const wrapper = fieldWrapper(select);
+      let error = wrapper.querySelector(".assignment-required-error");
+      if (!error) {
+        error = document.createElement("div");
+        error.className = "assignment-required-error";
+        error.textContent = requiredMessage;
+        wrapper.appendChild(error);
+      }
+      return error;
+    }
+
+    function setError(select, visible) {
+      const error = errorElement(select);
+      const selection = select2Selection(select);
+      error.style.display = visible ? "block" : "none";
+      if (selection) {
+        selection.classList.toggle("assignment-invalid", visible);
+      }
+    }
+
+    requiredSelects.forEach((select) => {
+      select.removeAttribute("required");
+      select.setAttribute("aria-required", "true");
+
+      if (window.jQuery) {
+        jQuery(select).on("change select2:select", () => {
+          if (select.value) {
+            setError(select, false);
+          }
+        });
+      } else {
+        select.addEventListener("change", () => {
+          if (select.value) {
+            setError(select, false);
+          }
+        });
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      let firstInvalid = null;
+
+      requiredSelects.forEach((select) => {
+        const invalid = !select.value;
+        setError(select, invalid);
+        if (invalid && !firstInvalid) {
+          firstInvalid = select;
+        }
+      });
+
+      if (firstInvalid) {
+        event.preventDefault();
+        event.stopPropagation();
+        const wrapper = fieldWrapper(firstInvalid);
+        wrapper.scrollIntoView({ behavior: "smooth", block: "center" });
+        const selection = select2Selection(firstInvalid);
+        if (selection) {
+          setTimeout(() => selection.focus(), 250);
+        }
+      }
+    });
+  }());
+</script>
+{% endblock %}

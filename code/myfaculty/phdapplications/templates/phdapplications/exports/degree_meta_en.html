@@ -1,0 +1,70 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Academic Degree</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Degree Type</th>
+    <td>{{ degree.get_type_display }}</td>
+</tr>
+
+<tr>
+    <th>University</th>
+    <td>{{ degree.university }}</td>
+</tr>
+
+<tr>
+    <th>School</th>
+    <td>{{ degree.school|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Department</th>
+    <td>{{ degree.department|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Year Awarded</th>
+    <td>{{ degree.year }}</td>
+</tr>
+
+<tr>
+    <th>Final Grade</th>
+    <td>{{ degree.score|default:"—" }}</td>
+</tr>
+
+</table>
+
+
+<h2 class="subsection">Attached Documents</h2>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Degree Certificate</th>
+    <td>
+        {% if degree.degree %}
+            Attached document (included in final PDF)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Transcript of Records</th>
+    <td>
+        {% if degree.transcript_of_records %}
+            Attached document
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+{% endblock %}

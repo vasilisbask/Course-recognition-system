@@ -1,0 +1,86 @@
+services:
+  db:
+    image: postgres:17
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./code/myfaculty:/code
+      - ./code/tmp:/code/tmp      
+    ports:
+      - "30100:8000"
+    environment:
+      - POSTGRES_NAME=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=db
+      - AUTH_LDAP_BIND_DN=${AUTH_LDAP_BIND_DN} # LDAP settings
+      - AUTH_LDAP_BIND_PASSWORD=${AUTH_LDAP_BIND_PASSWORD} # LDAP settings
+      - AUTH_LDAP_SERVER_URI=${AUTH_LDAP_SERVER_URI} # LDAP settings
+      - SIS_KEYCLOAK_TOKEN_URL=${SIS_KEYCLOAK_TOKEN_URL}
+      - SIS_CLIENT_ID=${SIS_CLIENT_ID}
+      - SIS_USER_NAME=${SIS_USER_NAME}
+      - SIS_PASSWD=${SIS_PASSWD}
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY:-}
+      - DEBUG=True
+      - DUMMY_EMAILS=True # Να το αλλάξωσε False για να στέλνονται πραγματικά emails
+      - EMAIL_HOST=${EMAIL_HOST:-localhost}
+      - EMAIL_PORT=${EMAIL_PORT:-587}
+      - EMAIL_HOST_USER=${EMAIL_HOST_USER:-}
+      - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD:-}
+      - EMAIL_USE_TLS=${EMAIL_USE_TLS:-True}
+      - EMAIL_USE_SSL=${EMAIL_USE_SSL:-False}
+      - DEFAULT_FROM_EMAIL=${DEFAULT_FROM_EMAIL:-no-reply@hua.gr}
+      - BUDI_KEY=${BUDI_KEY}
+      - RECAPTCHA_PUBLIC_KEY=${RECAPTCHA_PUBLIC_KEY}
+      - RECAPTCHA_PRIVATE_KEY=${RECAPTCHA_PRIVATE_KEY}
+    depends_on:
+      - db
+
+  redis:
+    image: redis:7
+
+  worker:
+    build: .
+    command: celery -A myfaculty worker --loglevel=INFO
+    volumes:
+      - ./code/myfaculty:/code
+      - ./code/tmp:/code/tmp 
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - POSTGRES_NAME=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=db
+      - AUTH_LDAP_BIND_DN=${AUTH_LDAP_BIND_DN}
+      - AUTH_LDAP_BIND_PASSWORD=${AUTH_LDAP_BIND_PASSWORD}
+      - AUTH_LDAP_SERVER_URI=${AUTH_LDAP_SERVER_URI}
+      - SIS_KEYCLOAK_TOKEN_URL=${SIS_KEYCLOAK_TOKEN_URL}
+      - SIS_CLIENT_ID=${SIS_CLIENT_ID}
+      - SIS_USER_NAME=${SIS_USER_NAME}
+      - SIS_PASSWD=${SIS_PASSWD}
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY:-}
+      - DEBUG=True
+      - DUMMY_EMAILS=True
+      - EMAIL_HOST=${EMAIL_HOST:-localhost}
+      - EMAIL_PORT=${EMAIL_PORT:-587}
+      - EMAIL_HOST_USER=${EMAIL_HOST_USER:-}
+      - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD:-}
+      - EMAIL_USE_TLS=${EMAIL_USE_TLS:-True}
+      - EMAIL_USE_SSL=${EMAIL_USE_SSL:-False}
+      - DEFAULT_FROM_EMAIL=${DEFAULT_FROM_EMAIL:-no-reply@hua.gr}
+      - BUDI_KEY=${BUDI_KEY}
+      - RECAPTCHA_PUBLIC_KEY=${RECAPTCHA_PUBLIC_KEY}
+      - RECAPTCHA_PRIVATE_KEY=${RECAPTCHA_PRIVATE_KEY}
+     
+volumes:
+  postgres_data:

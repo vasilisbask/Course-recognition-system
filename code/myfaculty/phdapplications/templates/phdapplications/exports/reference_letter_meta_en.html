@@ -1,0 +1,73 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Reference Letter</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>First Name</th>
+    <td>{{ ref.given_name }}</td>
+</tr>
+
+<tr>
+    <th>Last Name</th>
+    <td>{{ ref.surname }}</td>
+</tr>
+
+<tr>
+    <th>Title</th>
+    <td>{{ ref.title|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Institution</th>
+    <td>{{ ref.institution|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Email</th>
+    <td>{{ ref.email }}</td>
+</tr>
+
+<tr>
+    <th>Phone</th>
+    <td>{{ ref.phone|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Submission Date</th>
+    <td>{{ ref.submitted_date|date:"d/m/Y"|default:"—" }}</td>
+</tr>
+
+</table>
+
+
+<h2 class="subsection">Reference Letter Document</h2>
+
+<table class="metadata-table">
+
+<tr>
+    <th>File</th>
+    <td>
+        {% if ref.letter %}
+            Attached document (included in final PDF)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+
+{% if ref.notes %}
+<h2 class="subsection">Notes</h2>
+
+<div class="text-block">
+    {{ ref.notes|linebreaks }}
+</div>
+{% endif %}
+
+{% endblock %}

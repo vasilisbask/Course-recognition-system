@@ -1,0 +1,95 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+
+{% block middle %}
+{{ form.media }}
+
+<form method="post">
+    {% csrf_token %}
+    {% crispy form %} 
+</form>
+
+{% if perms.myprofile.is_secreteriat %}
+{% if form.instance.pk %}
+<p></p>
+<button type="button" class="btn btn-danger" onclick="delete_obj()">
+    Διαγραφή
+</button>
+<script>
+    function delete_obj() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'curricula:delete_course' form.instance.pk %}');
+    }
+    }
+</script>  
+{% endif %}
+{% endif %}
+<script>
+  function convertFloat(id) {
+    var element = document.getElementById(id)
+    if (element.value) {
+        return parseFloat(element.value);        
+    } else {
+        return 0.0;
+    }
+
+    return parseFloat(document.getElementById(id).value);    
+  }
+
+  function calc_sum() {
+    var hours_lecturing = convertFloat('id_hours_lecturing');
+    var hours_lab = convertFloat('id_hours_lab');
+    var hours_study = convertFloat('id_hours_study');
+    var hours_project = convertFloat('id_hours_project');
+    var hours_lab_prep = convertFloat('id_hours_lab_prep');
+    var sum = hours_lecturing + hours_lab + hours_study + hours_project + hours_lab_prep;
+    return sum
+  }
+
+  function calc_lecturing() {
+    var weekly_hours = convertFloat('id_weekly_hours'); 
+    return 13.0 * weekly_hours;
+  }
+
+  function calc_lab_lecturing() {
+    var weekly_lab_hours = convertFloat('id_weekly_lab_hours'); 
+    return 13.0 * weekly_lab_hours;
+  }
+
+  function calc_ects() {
+    var ects = convertFloat('id_ects_credits');
+    return 25 * ects;  
+  }
+
+  function update_lecturing() {
+    var total_lecturing = calc_lecturing();
+    var element = document.getElementById('id_hours_lecturing');
+    element.value = total_lecturing;
+
+    var total_lab_lecturing = calc_lab_lecturing();
+    var element = document.getElementById('id_hours_lab');
+    element.value = total_lab_lecturing;
+
+    var ects_hours = calc_ects();
+    var element = document.getElementById('totalects');
+    element.innerHTML = `<p>Σύνολο Φόρτου από τα ECTS: ${ects_hours} ώρες </p>`  
+
+    var sum = calc_sum();
+    var total_element = document.getElementById('total')
+    total_element.innerHTML = `<p>Σύνολο Φόρτου από τις δραστηριότητες: ${sum} ώρες</p>`
+  }
+
+  function onchange_handler() {
+    update_lecturing();    
+  } 
+  
+  update_lecturing();
+  var fields = ['id_hours_lecturing', 'id_hours_lab', 'id_hours_study', 'id_hours_project', 'id_hours_lab_prep', 'id_weekly_hours', 'id_weekly_lab_hours', 'id_ects_credits'];
+  fields.forEach( (id) => {
+    var obj = document.getElementById(id);
+    obj.addEventListener("change", onchange_handler);
+  });
+  
+</script>
+{% endblock %}

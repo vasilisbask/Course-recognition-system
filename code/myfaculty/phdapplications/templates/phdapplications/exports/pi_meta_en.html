@@ -1,0 +1,164 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Personal Information</h1>
+
+<div class="profile-container">
+
+    {% if personal.pic %}
+    <div class="photo">
+        <img src="file://{{ personal.pic.path }}" alt="Photo">
+    </div>
+    {% endif %}
+
+    <table class="metadata-table">
+
+        <tr>
+            <th>First Name</th>
+            <td>{{ personal.given_name|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Last Name</th>
+            <td>{{ personal.surname|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Father's Name</th>
+            <td>{{ personal.fathers_name|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Gender</th>
+            <td>{{ personal.get_gender_display|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Date of Birth</th>
+            <td>{{ personal.date_of_birth|date:"d/m/Y"|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Department</th>
+            <td>{{ personal.department|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Study Program</th>
+            <td>{{ personal.program|default:"—" }}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+
+<h2 class="subsection">Contact Information</h2>
+
+<table class="metadata-table">
+
+    <tr>
+        <th>Email</th>
+        <td>{{ personal.email|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Secondary Email</th>
+        <td>{{ personal.secondary_email|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Mobile Phone</th>
+        <td>{{ personal.mobile_phone|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Home Phone</th>
+        <td>{{ personal.home_phone|default:"—" }}</td>
+    </tr>
+
+</table>
+
+
+<h2 class="subsection">Home Address</h2>
+
+<table class="metadata-table">
+
+    <tr>
+        <th>Street</th>
+        <td>{{ personal.home_address_street }} {{ personal.home_address_no }}</td>
+    </tr>
+
+    <tr>
+        <th>Postal Code</th>
+        <td>{{ personal.home_address_po_box|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>City</th>
+        <td>{{ personal.home_address_city|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Country</th>
+        <td>{{ personal.home_address_country|default:"—" }}</td>
+    </tr>
+
+</table>
+
+
+<h2 class="subsection">Work Address</h2>
+
+<table class="metadata-table">
+
+    <tr>
+        <th>Street</th>
+        <td>{{ personal.work_address_street }} {{ personal.work_address_no }}</td>
+    </tr>
+
+    <tr>
+        <th>Postal Code</th>
+        <td>{{ personal.work_address_po_box|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>City</th>
+        <td>{{ personal.work_address_city|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Country</th>
+        <td>{{ personal.work_address_country|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Phone</th>
+        <td>{{ personal.work_phone|default:"—" }}</td>
+    </tr>
+
+</table>
+
+
+<h2 class="subsection">Administrative Information</h2>
+
+<table class="metadata-table">
+
+    <tr>
+        <th>Tax Identification Number (TIN)</th>
+        <td>{{ personal.tin|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Social Security Number</th>
+        <td>{{ personal.ssn|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Last Update</th>
+        <td>{{ personal.last_update|date:"d/m/Y H:i"|default:"—" }}</td>
+    </tr>
+
+</table>
+
+{% endblock %}

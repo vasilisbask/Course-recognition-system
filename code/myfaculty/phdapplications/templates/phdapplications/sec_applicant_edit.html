@@ -1,0 +1,53 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+
+{% block middle %}
+
+{% crispy form %} 
+
+{% if form.instance.pk %}
+<p></p>
+<div class="row justify-content-center">
+  <div class="col-sm-2 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:sec_list' 'degree' form.instance.pk %}">Τίτλοι Σπουδών</a>
+  </div>
+  <div class="col-sm-2 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:sec_list' 'experience' form.instance.pk %}">Εργασιακή Εμπειρία</a>
+  </div>
+  <div class="col-sm-2 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:sec_list' 'journal' form.instance.pk %}">Δημοσιεύσεις (Περιοδικά)</a>
+  </div>
+  <div class="col-sm-2 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:sec_list' 'conference' form.instance.pk %}">Δημοσιεύσεις (Συνέδρια)</a>
+  </div>  
+  <div class="col-sm-2 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:sec_list' 'contact' form.instance.pk %}">Σημεία Επαφής</a>
+  </div>
+</div>
+</br>
+</br>
+</br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <button type="button" class="btn btn-danger" onclick="delete_obj()">
+      Διαγραφή Υποψηφίου
+  </button>  
+  </div>
+  <div class="col-sm-6">
+  </div>  
+</div>
+<script>
+    function delete_obj() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'phdapplications:sec_applicant_delete' form.instance.pk %}');
+    }
+    }
+</script>  
+{% endif %}
+</br>
+</br>
+
+
+{% endblock %}

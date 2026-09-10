@@ -1,0 +1,350 @@
+{% extends 'myprofile/page.html' %}
+{% load i18n %}
+
+{% block middle %}
+<div class="page-title dashboard-title">
+  <div>
+    <p class="section-kicker">{% trans 'Αναγνώριση μαθημάτων' %}</p>
+    <h1>{% trans 'Προβολή αίτησης' %}</h1>
+  </div>
+  {% if role == "student" and can_edit %}
+    <a class="btn btn-primary" href="{% url 'course_recognition:student_request_update' request_obj.id %}">
+      <span class="mto" aria-hidden="true">edit</span>
+      {% trans 'Επεξεργασία' %}
+    </a>
+  {% endif %}
+</div>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags|default:'info' }}" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+{% if student_edit_locked_by_pending_recommendation %}
+  <div class="alert alert-warning" role="alert">
+    {% trans 'Η αίτηση δεν μπορεί να επεξεργαστεί επειδή υπάρχει εκκρεμής εισήγηση καθηγητή.' %}
+  </div>
+{% endif %}
+
+<div class="form-surface mb-4">
+  <h5>{% trans 'Στοιχεία φοιτητή' %}</h5>
+  <div class="table-responsive">
+    <table class="table table-sm request-details-table">
+      <tbody>
+        <tr>
+          <th>{% trans 'Ονοματεπώνυμο' %}</th>
+          <td>{{ request_obj.student_display_name }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Αριθμός μητρώου' %}</th>
+          <td>{{ request_obj.student.reg_num|default:'-' }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Πρόγραμμα Σπουδών' %}</th>
+          <td>{{ request_obj.student.program|default:'-' }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Κατάσταση' %}</th>
+          <td>{{ request_obj.get_status_display }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Αριθμός πρωτοκόλλου' %}</th>
+          <td>{{ request_obj.protocol_number|default:'-' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h5>{% trans 'Μάθημα προς αναγνώριση' %}</h5>
+  <div class="table-responsive">
+    <table class="table table-sm request-details-table">
+      <tbody>
+        <tr>
+          <th>{% trans 'Μάθημα' %}</th>
+          <td>{{ request_obj.course|default:'-' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h5>{% trans 'Στοιχεία περασμένου μαθήματος' %}</h5>
+  <div class="table-responsive">
+    <table class="table table-sm request-details-table">
+      <tbody>
+        <tr>
+          <th>{% trans 'Περασμένο μάθημα' %}</th>
+          <td>{{ request_obj.title_original_course }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Ίδρυμα' %}</th>
+          <td>{{ request_obj.institution }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Σχολή' %}</th>
+          <td>{{ request_obj.school }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Τμήμα' %}</th>
+          <td>{{ request_obj.department|default:'-' }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Διδάσκοντες' %}</th>
+          <td>{{ request_obj.instructors }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Διδακτικό έτος' %}</th>
+          <td>{{ request_obj.get_academic_year_display }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Διδακτικό εξάμηνο' %}</th>
+          <td>{{ request_obj.get_academic_semester_display }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h5>{% trans 'Βαθμολογία και ώρες' %}</h5>
+  <div class="table-responsive">
+    <table class="table table-sm request-details-table">
+      <tbody>
+        <tr>
+          <th>{% trans 'Βαθμός θεωρίας' %}</th>
+          <td>{{ request_obj.grade_theory }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Βαθμός εργαστηρίου' %}</th>
+          <td>{{ request_obj.grade_lab|default:'-' }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Μέσος όρος' %}</th>
+          <td>{{ request_obj.average_grade }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Ώρες θεωρίας ανά εβδομάδα' %}</th>
+          <td>{{ request_obj.hours_theory }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'Ώρες εργαστηρίου ανά εβδομάδα' %}</th>
+          <td>{{ request_obj.hours_lab|default:'-' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h5>{% trans 'Τεκμηρίωση' %}</h5>
+  <div class="table-responsive">
+    <table class="table table-sm request-details-table">
+      <tbody>
+        <tr>
+          <th>{% trans 'Περιγραφή μαθήματος' %}</th>
+          <td class="request-details-description">{{ request_obj.description|linebreaksbr }}</td>
+        </tr>
+        <tr>
+          <th>{% trans 'URL μαθήματος' %}</th>
+          <td>
+            {% if request_obj.url %}
+              <a href="{{ request_obj.url }}" target="_blank" rel="noopener">{% trans 'Άνοιγμα συνδέσμου' %}</a>
+            {% else %}
+              -
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>{% trans 'Αρχείο περιγραφής μαθήματος' %}</th>
+          <td><a href="{{ request_obj.course_description_file.url }}">{% trans 'Λήψη αρχείου' %}</a></td>
+        </tr>
+        <tr>
+          <th>{% trans 'Αρχείο αναλυτικής βαθμολογίας' %}</th>
+          <td><a href="{{ request_obj.transcript_file.url }}">{% trans 'Λήψη αρχείου' %}</a></td>
+        </tr>
+        <tr>
+          <th>{% trans 'Αρχείο πτυχίου' %}</th>
+          <td><a href="{{ request_obj.degree_file.url }}">{% trans 'Λήψη αρχείου' %}</a></td>
+        </tr>
+        <tr>
+          <th>{% trans 'Σχόλια φοιτητή' %}</th>
+          <td class="request-details-description">{{ request_obj.comments|default:'-'|linebreaksbr }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% if recommendation %}
+  <div class="form-surface mb-4">
+    <h5>{% trans 'Εισήγηση αίτησης' %}</h5>
+    <div class="table-responsive">
+      <table class="table table-sm request-details-table">
+        <tbody>
+          <tr>
+            <th>{% trans 'Απόφαση' %}</th>
+            <td>
+              {% if recommendation.approval %}
+                <span class="badge bg-success">{% trans 'Εγκρίθηκε' %}</span>
+              {% else %}
+                <span class="badge bg-danger">{% trans 'Απορρίφθηκε' %}</span>
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>{% trans 'Συμπληρώθηκε από' %}</th>
+            <td>
+              {% if recommendation.submitted_by_secretariat %}
+                {% if recommendation.submitted_by_user %}
+                  {{ recommendation.submitted_by_user.get_full_name|default:recommendation.submitted_by_user.username }}
+                {% else %}
+                  -
+                {% endif %}
+              {% elif recommendation.professor %}
+                {{ recommendation.professor }}
+              {% elif recommendation.submitted_by_user %}
+                {{ recommendation.submitted_by_user.get_full_name|default:recommendation.submitted_by_user.username }}
+              {% else %}
+                -
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>{% trans 'Θεωρητικό μέρος' %}</th>
+            <td>{{ recommendation.get_theoretical_part_display }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Εργαστηριακό μέρος' %}</th>
+            <td>{{ recommendation.get_laboratory_part_display }}</td>
+          </tr>
+          {% if recommendation.grade %}
+            <tr>
+              <th>{% trans 'Βαθμός αναγνώρισης' %}</th>
+              <td>{{ recommendation.grade }}</td>
+            </tr>
+          {% endif %}
+          <tr>
+            <th>{% trans 'Σχόλια εισήγησης' %}</th>
+            <td class="request-details-description">{{ recommendation.comments|default:'-'|linebreaksbr }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endif %}
+
+{% if pending_recommendation %}
+  <div class="form-surface mb-4">
+    <h5>{% trans 'Εκκρεμής εισήγηση καθηγητή' %}</h5>
+    <div class="table-responsive">
+      <table class="table table-sm request-details-table">
+        <tbody>
+          <tr>
+            <th>{% trans 'Εισήγηση' %}</th>
+            <td>
+              {% if pending_recommendation.approval %}
+                <span class="badge bg-success">{% trans 'Προτείνεται έγκριση' %}</span>
+              {% else %}
+                <span class="badge bg-danger">{% trans 'Προτείνεται απόρριψη' %}</span>
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>{% trans 'Συμπληρώθηκε από' %}</th>
+            <td>
+              {% if pending_recommendation.professor %}
+                {{ pending_recommendation.professor }}
+              {% elif pending_recommendation.submitted_by_user %}
+                {{ pending_recommendation.submitted_by_user.get_full_name|default:pending_recommendation.submitted_by_user.username }}
+              {% else %}
+                -
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>{% trans 'Θεωρητικό μέρος' %}</th>
+            <td>{{ pending_recommendation.get_theoretical_part_display }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Εργαστηριακό μέρος' %}</th>
+            <td>{{ pending_recommendation.get_laboratory_part_display }}</td>
+          </tr>
+          {% if pending_recommendation.grade %}
+            <tr>
+              <th>{% trans 'Βαθμός αναγνώρισης' %}</th>
+              <td>{{ pending_recommendation.grade }}</td>
+            </tr>
+          {% endif %}
+          <tr>
+            <th>{% trans 'Σχόλια εισήγησης' %}</th>
+            <td class="request-details-description">{{ pending_recommendation.comments|default:'-'|linebreaksbr }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    {% if role == "secretariat" or role == "admin" %}
+      <div class="d-flex flex-wrap gap-2 justify-content-end">
+        {% if role == "secretariat" %}
+          <form method="post" action="{% url 'course_recognition:secretariat_reject_recommendation' request_obj.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ back_url }}">
+            <button type="submit" class="btn btn-outline-danger">
+              {% trans 'Απόρριψη εισήγησης' %}
+            </button>
+          </form>
+          <form method="post" action="{% url 'course_recognition:secretariat_accept_recommendation' request_obj.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ back_url }}">
+            <button type="submit" class="btn btn-primary">
+              {% trans 'Αποδοχή εισήγησης' %}
+            </button>
+          </form>
+        {% elif role == "admin" %}
+          <form method="post" action="{% url 'course_recognition:admin_reject_recommendation' request_obj.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ back_url }}">
+            <button type="submit" class="btn btn-outline-danger">
+              {% trans 'Απόρριψη εισήγησης' %}
+            </button>
+          </form>
+          <form method="post" action="{% url 'course_recognition:admin_accept_recommendation' request_obj.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ back_url }}">
+            <button type="submit" class="btn btn-primary">
+              {% trans 'Αποδοχή εισήγησης' %}
+            </button>
+          </form>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% if request_obj.status == "WITHDRAWN" %}
+  <div class="form-surface mb-4">
+    <h5>{% trans 'Στοιχεία διαγραφής' %}</h5>
+    <div class="table-responsive">
+      <table class="table table-sm request-details-table">
+        <tbody>
+          <tr>
+            <th>{% trans 'Διαγραφή από' %}</th>
+            <td>
+              {% if request_obj.withdrawn_by %}
+                {{ request_obj.withdrawn_by.get_full_name|default:request_obj.withdrawn_by.username }}
+              {% else %}
+                -
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>{% trans 'Ημερομηνία διαγραφής' %}</th>
+            <td>{{ request_obj.withdrawn_at|default:'-' }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Αιτιολόγηση' %}</th>
+            <td class="request-details-description">{{ request_obj.withdrawal_reason|default:'-'|linebreaksbr }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endif %}
+
+{% endblock %}

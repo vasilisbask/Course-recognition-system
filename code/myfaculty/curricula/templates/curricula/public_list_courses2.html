@@ -1,0 +1,72 @@
+{% extends 'myprofile/page.html' %}
+{% load curricula_tags %}
+{% block middle %}
+{% for n in semesters %}
+<h4 style="padding-top:20px"> Εξάμηνο {{ n }}</h4>
+{% if obl|get_element:n %}
+<h6> Υποχρεωτικά </h6>
+<table id="obl-{{n}}" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Κωδικός</th>
+        <th scope="col">Τίτλος</th>
+        <th scope="col">ECTS</th>                 
+        <th></th>      
+      </tr>
+    </thead>    
+<tbody>
+    
+{% for k in obl|get_element:n %}
+<tr>
+    <td style="width:100px">
+      {{ k.code_gr }}
+    </td>
+    <td>
+      {{ k.title_gr }}
+    </td>
+    <td style="width:100px">
+      {{ k.ects_credits }}
+    </td>
+    <td style="width:100px">
+    <a href="{% url 'curricula:public_detail_course' k.id %}" type="submit" class="btn btn-primary tablebutton"> Λεπτομέρειες </a>       
+    </td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
+{% if elec|get_element:n %}
+<h6> Επιλογής </h6>
+<table id="obl-{{n}}" class="table">
+  <thead>
+    <tr>
+      <th scope="col">Κωδικός</th>
+      <th scope="col">Τίτλος</th>
+      <th scope="col">ECTS</th>                 
+      <th></th>      
+    </tr>
+  </thead>    
+<tbody>
+  
+{% for k in elec|get_element:n %}
+<tr>
+  <td style="width:100px">
+    {{ k.code_gr }}
+  </td>
+  <td>
+    {{ k.title_gr }}
+  </td>
+  <td style="width:100px">
+    {{ k.ects_credits }}
+  </td>
+  <td style="width:100px">
+  <a href="{% url 'curricula:public_detail_course' k.id %}" type="submit" class="btn btn-primary tablebutton"> Λεπτομέρειες </a>       
+  </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
+
+{% endfor %}
+{% endblock %}

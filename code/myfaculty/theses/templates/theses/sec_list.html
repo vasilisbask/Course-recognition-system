@@ -1,0 +1,52 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+
+  
+<script>
+    $(document).ready(function() {
+      $('#theses_unassigned').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+    $(document).ready(function() {
+      $('#theses_assigned').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Διπλωματικές/Πτυχιακές </h3>
+  </div>
+</div>
+<div class="row">
+  {% for p in programs %}
+  <p style="text-align: center;"> <a href="{% url 'theses:sec_list_program' p.id %}"> {{ p.title_gr }} </a> </p>
+  <p style="text-align: center;"> 
+    <a href="{% url 'theses:sec_filter' p.pk 'graded' %}" class="btn btn-primary"> Με βαθμολογία</a> 
+    <a href="{% url 'theses:sec_filter' p.pk 'nograde' %}" class="btn btn-primary"> Χωρίς βαθμολογία</a> 
+    <a href="{% url 'theses:sec_filter' p.pk 'noga' %}" class="btn btn-primary"> Χωρίς συνέλευση</a>
+    <a href="{% url 'theses:sec_filter' p.pk 'expired' %}" class="btn btn-primary"> Εκτός προθεσμίας</a>
+    <a href="{% url 'theses:sec_filter' p.pk 'expiring' %}" class="btn btn-primary"> Υπό παράδοση</a> 
+    <a href="{% url 'theses:sec_filter' p.pk 'all' %}" class="btn btn-primary"> Όλες</a>     
+  </p>
+</br></br></br>
+  {% endfor %}
+</div>
+<div class="row">
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'theses:sec_create' %}" class="btn btn-primary" >
+      + Νέο Θέμα
+    </a>
+  </div>
+</div> 
+<br></br>
+  
+{% endblock %}

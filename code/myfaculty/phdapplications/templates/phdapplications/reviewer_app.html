@@ -1,0 +1,9 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block middle %}
+<h3> {% trans 'Επισκόπηση Αίτησης' %} </h3>
+{% include 'phdapplications/partials/app_info.html' %}
+{% include 'phdapplications/partials/reviewer_app_menu.html' %}
+
+{% endblock %}

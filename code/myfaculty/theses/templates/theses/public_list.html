@@ -1,0 +1,58 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+ 
+<script>
+    $(document).ready(function() {
+      $('#theses_active').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Θέματα Διπλωματικών / Πτυχιακών Εργασιών </h3>
+  </div>
+    <h6>  {{ program.title_gr }}</h6>
+  </div> 
+{% if theses %}  
+<table id="theses_active" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Επιβλέπων</th>
+        <th scope="col">Τίτλος</th>
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in theses %}
+  <tr>
+    <td>
+      {{ p.created_date|date:"Y-m-d" }}
+    </td>
+    
+    <td>
+      {{ p.supervisor.display_name }}
+    </td>
+    <td>
+      {{ p.title_gr }}
+    </td>
+    
+    <td>
+      <a href="{% url 'theses:public_detail' p.id %}" type="submit" class="btn btn-primary tablebutton"> Λεπτομέρειες </a>     
+  </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν υπάρχουν θέματα.</p>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% load i18n %}
+<div class="file-upload-wrapper">
+    <label class="form-label"> {{ field.label }} </label>   
+    {% if field.value %}
+    <p>  <a class="btn btn-primary" href="{{ field.value.url }}"> <span class="mto">download</span> {% trans 'Κατεβάστε εδώ' %} </a></p> 
+    {% else %}
+    <p> <i>{% trans 'Δεν έχει υποβληθεί κάποιο αρχείο.' %} </i></p>
+</div>
+{% endif %}

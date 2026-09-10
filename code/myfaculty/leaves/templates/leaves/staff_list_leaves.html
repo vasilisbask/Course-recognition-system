@@ -1,0 +1,63 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+ 
+<script>
+    $(document).ready(function() {
+      $('#leaves').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Άδειες </h3>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'leaves:staff_create_leave' %}" class="btn btn-primary" >
+      + Νέα Άδεια
+    </a>
+  </div>
+</div> 
+</br>
+{% if leaves %}  
+<table id="leaves" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Αιτών</th>
+        <th scope="col">Προορισμός</th>
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in leaves %}
+  <tr>
+    <td>
+      {{ p.created_date|date:"Y-m-d" }}
+    </td>
+    
+    <td>
+      {{ p.applicant.display_name }}
+    </td>
+    <td>
+      {{ p.city }} ({{ p.country }})
+    </td>
+    
+    <td>
+      <a href="{% url 'leaves:staff_edit_leave' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+  </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν έχετε καταχωρήσει άδειες</p>
+  {% endif %}
+
+
+{% endblock %}

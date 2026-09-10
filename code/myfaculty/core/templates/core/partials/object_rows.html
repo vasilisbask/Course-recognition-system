@@ -1,0 +1,9 @@
+{% for obj in objects %}
+<tr>
+    {% for field in fields %}
+        <td>
+            {{ obj|get_attr:field }}
+        </td>
+    {% endfor %}
+</tr>
+{% endfor %}

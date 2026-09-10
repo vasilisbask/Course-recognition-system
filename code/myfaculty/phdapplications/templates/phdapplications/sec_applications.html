@@ -1,0 +1,64 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% block middle %}
+  
+<script>
+    $(document).ready(function() {
+      $('#applications').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Στοιχεία Πρόσκλησης </h3>
+    <p> Τίτλος Προσκλησης: {{ call.title }}</p>
+    <p> Επιβλέπων: {{ call.supervisor.display_name }}</p>    
+  </div>  
+</div> 
+</br>
+<div class="row">
+  <div class="col">
+    <h3> Αιτήσεις </h3>
+ </div>
+</div>
+</br>
+{% if applications %}  
+<table id="applications" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Όνομα</th>
+        <th scope="col">Επώνυμο</th>
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in applications %}
+  <tr>
+    <td>
+      {{ p.date_submitted|date:"Y-m-d" }}
+    </td>
+    <td>
+      {{ p.applicant.name }}
+    </td>
+
+    <td>
+      {{ p.applicant.surname }}
+    </td>
+    
+    <td>
+      <a href="{% url 'phdapplications:application_summary' 'sec' p.id %}" type="submit" class="btn btn-primary tablebutton"> Λεπτομέρειες </a>     
+  </td>           
+
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν υπάρχουν αιτήσεις σε αυτή την πρόσκληση</p>
+  {% endif %}
+
+{% endblock %}

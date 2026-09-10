@@ -1,0 +1,174 @@
+{% extends 'registration/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <div class="auth-layout">
+
+    <section class="auth-panel auth-panel-form">
+
+      <div class="text-center mb-4">
+        <img src="{% static 'myprofile/dit.png' %}" class="auth-logo" style="max-width: 120px;" alt="Department of Informatics and Telematics">
+        <h2>{% trans 'Σύνδεση' %}</h2>
+        <p class="text-muted mb-0">{% trans 'Παρακαλούμε συνδεθείτε με τον λογαριασμό σας.' %}</p>
+      </div>
+
+      {% if form.errors %}
+      <div class="alert alert-danger">
+        {% trans 'Δεν δώσατε σωστό συνδυασμό email και συνθηματικού' %}
+      </div>
+      {% endif %}
+
+      {% if next and user.is_authenticated %}
+      <div class="alert alert-danger">
+        {% trans 'Είστε ήδη συνδεδεμένος.' %}
+      </div>
+      {% endif %}
+
+      <form action="{% url 'set_language' %}" method="post" class="language-switch mb-4">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}">
+
+        <div class="row g-2">
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100" type="submit" name="language" value="el">
+              Ελληνικά
+            </button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100" type="submit" name="language" value="en">
+              English
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <form method="post" action="{% url 'login' %}" id="loginForm" novalidate>
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label class="form-label" for="id_username">{% trans 'Email' %}</label>
+          <input type="text"
+                 name="username"
+                 autofocus
+                 autocapitalize="none"
+                 autocomplete="username"
+                 required
+                 id="id_username"
+                 class="form-control"
+                 placeholder="{% trans 'π.χ. user@hua.gr' %}">
+          <div class="text-danger small mt-1 login-required-error" data-for="id_username" hidden></div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="id_password">{% trans 'Συνθηματικό' %}</label>
+          <div class="input-group">
+            <input type="password"
+                   name="password"
+                   autocomplete="current-password"
+                   required
+                   id="id_password"
+                   class="form-control">
+            <button type="button" id="togglePassword" class="btn btn-outline-secondary password-toggle" aria-label="{% trans 'Εμφάνιση συνθηματικού' %}" title="{% trans 'Εμφάνιση συνθηματικού' %}">
+              <span class="mto" aria-hidden="true">visibility</span>
+            </button>
+          </div>
+          <div class="text-danger small mt-1 login-required-error" data-for="id_password" hidden></div>
+        </div>
+
+        <input type="hidden" name="next" value="{{ next }}">
+
+        <div class="d-grid gap-2 mt-4">
+          <button class="btn btn-primary" type="submit">
+            {% trans 'Είσοδος' %}
+          </button>
+
+          <a href="{% url 'myprofile:password_reset_choice' %}" class="btn btn-outline-danger">
+            {% trans 'Ξέχασα τον κωδικό μου' %}
+          </a>
+        </div>
+      </form>
+
+    </section>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("loginForm");
+  const requiredMessage = "{% trans 'Συμπληρώστε αυτό το πεδίο.' %}";
+  const requiredFields = [
+    document.getElementById("id_username"),
+    document.getElementById("id_password")
+  ].filter(Boolean);
+  const input = document.getElementById("id_password");
+  const button = document.getElementById("togglePassword");
+  const icon = button ? button.querySelector(".mto") : null;
+
+  function errorFor(field) {
+    return document.querySelector(".login-required-error[data-for='" + field.id + "']");
+  }
+
+  function setError(field, message) {
+    const error = errorFor(field);
+    if (!error) return;
+    error.textContent = message;
+    error.hidden = false;
+    field.classList.add("is-invalid");
+  }
+
+  function clearError(field) {
+    const error = errorFor(field);
+    if (error) {
+      error.textContent = "";
+      error.hidden = true;
+    }
+    field.classList.remove("is-invalid");
+  }
+
+  if (form) {
+    requiredFields.forEach(function(field) {
+      field.addEventListener("input", function() {
+        if (field.value.trim()) {
+          clearError(field);
+        }
+      });
+    });
+
+    form.addEventListener("submit", function(event) {
+      let firstMissing = null;
+      requiredFields.forEach(function(field) {
+        if (!field.value.trim()) {
+          setError(field, requiredMessage);
+          if (!firstMissing) {
+            firstMissing = field;
+          }
+        } else {
+          clearError(field);
+        }
+      });
+
+      if (firstMissing) {
+        event.preventDefault();
+        event.stopPropagation();
+        firstMissing.focus();
+      }
+    });
+  }
+
+  if (input && button && icon) {
+    button.addEventListener("click", function () {
+      if (input.type === "password") {
+        input.type = "text";
+        icon.textContent = "visibility_off";
+      } else {
+        input.type = "password";
+        icon.textContent = "visibility";
+      }
+    });
+  }
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+
+  
+<script>
+    $(document).ready(function() {
+      $('#courses').DataTable({
+        "lengthChange": false,
+        "pageLength": 100
+      }
+      );
+    });
+  </script>
+    <div class="col">
+      <h3> Προγράμματα Σπουδών </h3>
+    </div>
+    <div class="row justify-content-center">
+      <table id="programs" class="table">
+      {% for p in programs %}
+      <tr>
+      <td>
+      {{ p.title_gr }}
+      </td>
+      <td>
+        <a href="{% url 'curricula:list_program' p.id %}"> Λεπτομέρειες </a>
+      </td>
+       
+      <td>
+      <a href="{% url 'curricula:export_program' p.id %}"> .csv </a>
+      </td>
+      <td>
+        <a href="{% url 'curricula:export_all_en' p.id %}"> .docx (EN) </a>
+        </td>
+       <td>
+       <a href="{% url 'curricula:export_all_gr' p.id %}"> .docx (GR) </a>
+       </td>
+            
+      </tr>
+      {% endfor %}    
+    </table>
+  </div>
+</br></br>
+
+
+<div class="row">
+  <div class="col">
+    <h3> Μαθήματα </h3>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'curricula:create_course' %}" class="btn btn-primary" >
+        + Νέο μάθημα
+      </a>
+  </div>
+</div> 
+</br>
+{% if courses %}  
+<table id="courses" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Τίτλος</th>
+        <th scope="col">Επιλογής</th>
+        <th scope="col">Κωδικός</th>
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for course in courses %}
+  <tr>
+    <td>
+      {{ course.title_gr }}
+    </td>
+    <td>
+      {{ course.elective }}
+    </td>
+    <td>
+      {{ course.code_gr }}
+    </td>
+          
+    <td>
+    <a href="{% url 'curricula:edit_course' course.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>
+    <a href="{% url 'curricula:export_course_gr' course.id %}" type="submit" class="btn btn-primary tablebutton"> Εξαγωγή (GR) </a>
+    <a href="{% url 'curricula:export_course_en' course.id %}" type="submit" class="btn btn-primary tablebutton"> Εξαγωγή (ΕΝ) </a>
+    </td>           
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν έχετε καταχωρήσει μαθήματα</p>
+  {% endif %}
+
+
+{% endblock %}

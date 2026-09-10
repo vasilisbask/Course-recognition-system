@@ -1,0 +1,53 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load phdapp_tags %}
+{% block middle %}
+  
+<script>
+    $(document).ready(function() {
+      $('#open_for_application').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+
+</br>
+
+<div class="row">
+  <div class="col">
+    <h3> Ενεργές Προσκλήσεις </h3>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'phdapplications:sec_call_create' %}" class="btn btn-primary" >
+      + Νέα πρόσκληση
+    </a>
+  </div>
+</div> 
+</br>
+{{ open_for_application|as_call_table:"open" }}
+
+<div class="row">
+  <div class="col">
+    <h5> Προσκλήσεις που δεν έχουν ανοίξει ακόμα </h5>
+  </div>  
+</div> 
+{{ not_open_yet|as_call_table:"notopenyet" }}
+
+</br></br>
+<div class="row">
+  <div class="col">
+    <h5> Προσκλήσεις που έχουν λήξει </h5>
+  </div>  
+</div> 
+{{ expired|as_call_table:"expired" }}
+
+<div class="row">
+  <div class="col">
+    <h5> Προσκλήσεις που είναι ανενεργές </h5>
+  </div>  
+</div> 
+{{ not_published|as_call_table:"notpublished" }}
+
+{% endblock %}

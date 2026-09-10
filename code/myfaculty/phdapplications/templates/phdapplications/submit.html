@@ -1,0 +1,60 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load i18n %}
+{% load core_tags %}
+{% include 'phdapplications/partials/app_info.html' %}
+
+{% block middle %}
+{% if result|get_item:'errors' %}
+<div class="alert alert-danger" role="alert">
+    <p><b>{% trans 'Διορθώστε τα παρακάτω σφάλματα για να μπορέσετε να υποβάλλετε την αίτηση σας:' %}</b></p>
+    <ul>
+    {% for error in result|get_item:'errors' %}
+    <p class="p-result"> <span class="mto"> error </span> {{ error }} </p>
+    {% endfor %}
+    </ul>    
+</div>
+{% else %}
+{% if can_submit %}
+<div class="row">
+    <div class="col text-center">
+        <form method="post">
+        {% csrf_token %}
+        <button class="submit-app-button btn btn-primary " type="submit">
+            <span class="mto" style="font-size: 1.5rem; ">check_circle </span> {% trans 'Υποβολή Αίτησης' %}
+        </button>
+        </form>
+    </div>
+</div>
+    <div class="alert alert-success" role="alert">
+        <p><b>Αν πατήσετε Υποβολή Αίτησης, θα αποσταλλεί email στα σημεία επαφής που έχετε υποδείξη για να ανεβάσουν συστατική επιστολή στο σύστημα. </b></p>
+        <p><b>Μπορείτε να αλλάξετε όλα τα άλλα στοιχεία της αίτησης μέχρι την ημερομηνία λήξης της πρόσκλησης</b> ({{ application.call.deadline }}) </p>
+    </div>
+{% endif %}
+{% endif %}
+
+{% if result|get_item:'warnings' %}
+<div class="alert alert-warning" role="alert">
+    <p><b>{% trans 'Προειδοποιητικά μηνύματα:' %}</b></p>
+    <ul>
+    {% for warning in result|get_item:'warnings' %}
+    <p class="p-result"> <span class="mto"> warning </span> {{ warning }} </p>
+    {% endfor %}
+    </ul>  
+</div>  
+{% endif %}
+
+{% if result|get_item:'checked' %}
+<div class="alert alert-success" role="alert">
+    <p><b>{% trans 'Επιτυχείς έλεγχοι:' %}</b></p>
+    <ul>
+    {% for msg in result|get_item:'checked' %}
+    <p class="p-result"> <span class="mto"> check </span> {{ msg }} </p>
+    {% endfor %}
+    </ul>  
+</div>  
+{% endif %}
+
+
+
+{% endblock %}
+</div>

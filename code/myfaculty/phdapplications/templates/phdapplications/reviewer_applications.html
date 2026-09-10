@@ -1,0 +1,38 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load phdapp_tags %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block middle %}
+
+<script>
+    $(document).ready(function() {
+      $('#active').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+
+<div class="row">
+  <div class="col">
+    <h3> {% trans 'Πληροφορίες Πρόσκλησης' %} </h3>
+  </div> 
+</div> 
+{% crispy call_form %}
+</br>
+{% if applications %}
+<table id="applications" class="table">
+    {{ applications|as_reviewer_application_table_headers }}    
+  </tbody>
+  {% for application in applications %}
+  {{ application|as_reviewer_application_row }}
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>{% trans 'Δεν υπάρχουν αιτήσεις στην πρόσκληση αυτή.' %}' </p>
+  {% endif %}
+
+{% endblock %}

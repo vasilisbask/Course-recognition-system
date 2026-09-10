@@ -1,0 +1,75 @@
+{% extends 'myprofile/page.html' %}
+{% block middle %}
+{% load i18n %}
+<div class="page-title dashboard-title">
+    <div>
+        <p class="section-kicker">Dashboard</p>
+        <h1>{% trans 'Κεντρική Σελίδα' %}</h1>
+        <p>{% trans 'Καλώς ορίσατε στην εφαρμογή αναγνώρισης μαθημάτων.' %}</p>
+    </div>
+    {% if course_recognition_role == "student" %}
+    <a class="btn btn-primary" href="{% url 'course_recognition:student_request_create' %}">
+        <span class="mto" aria-hidden="true">add</span>
+        {% trans 'Νέα αίτηση αναγνώρισης' %}
+    </a>
+    {% endif %}
+</div>
+
+{% if apps or course_recognition_role == "secretariat" %}
+<div class="app-grid">
+{% for app in apps %}
+    <a class="app-card" href="{{ app.url }}">
+        <span class="mto app-card-icon" aria-hidden="true">apps</span>
+        <span class="app-card-title">{{ app.title }}</span>
+        <span class="mto app-card-arrow" aria-hidden="true">chevron_right</span>
+    </a>
+{% endfor %}
+{% if course_recognition_role == "secretariat" %}
+    <a class="app-card" href="{% url 'course_recognition:secretariat_course_assignment' %}">
+        <span class="mto app-card-icon" aria-hidden="true">assignment_ind</span>
+        <span class="app-card-title">{% trans 'Ανάθεση Μαθημάτων σε Καθηγητές' %}</span>
+        <span class="mto app-card-arrow" aria-hidden="true">chevron_right</span>
+    </a>
+{% endif %}
+</div>
+{% endif %}
+
+{% if show_course_recognition_requests %}
+<div class="dashboard-section">
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0">{{ course_recognition_requests_title }}</h2>
+        {% if course_recognition_requests_url and course_recognition_role != "professor" %}
+        <a class="btn btn-outline-primary" href="{{ course_recognition_requests_url }}">
+            {% trans 'Προβολή όλων' %}
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="app-grid dashboard-request-grid">
+    {% for item in course_recognition_requests %}
+        {% if course_recognition_role == "student" %}
+        <a class="app-card" href="{% url 'course_recognition:student_request_detail' item.id %}">
+        {% elif course_recognition_role == "professor" %}
+        <a class="app-card" href="{% url 'course_recognition:professor_recommendation' item.id %}">
+        {% else %}
+        <a class="app-card" href="{% url 'course_recognition:secretariat_protocol' item.id %}">
+        {% endif %}
+            <span class="mto app-card-icon" aria-hidden="true">description</span>
+            <span class="app-card-title">
+                {{ item.course|default:item.title_original_course }}
+                {% if course_recognition_role != "student" and item.student.reg_num %}
+                <small class="d-block text-muted">{% trans 'Αριθμός μητρώου φοιτητή' %}: {{ item.student.reg_num }}</small>
+                {% endif %}
+                <small class="d-block text-muted">{{ item.get_status_display }}</small>
+            </span>
+            <span class="mto app-card-arrow" aria-hidden="true">chevron_right</span>
+        </a>
+    {% empty %}
+        <div class="alert alert-info mb-0">
+            {% trans 'Δεν υπάρχουν αιτήσεις ακόμη.' %}
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

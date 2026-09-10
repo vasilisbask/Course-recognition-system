@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+
+<meta charset="utf-8">
+
+<style>
+
+@page {
+    size: A4;
+    margin: 2cm;
+
+    /* @bottom-center {
+        content: counter(page) " / " counter(pages);
+        font-size: 10pt;
+        color: #555;
+    } */
+}
+
+body{
+    font-family: DejaVu Sans, Arial, sans-serif;
+    font-size: 11pt;
+    color:#222;
+}
+
+.section-title{
+    font-size:22pt;
+    margin-bottom:20px;
+    border-bottom:2px solid #444;
+    padding-bottom:6px;
+}
+
+.subsection{
+    margin-top:30px;
+    font-size:16pt;
+    border-bottom:1px solid #aaa;
+}
+
+.metadata-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+.metadata-table th{
+    text-align:left;
+    width:30%;
+    padding:6px;
+    background:#f3f3f3;
+    border:1px solid #ddd;
+}
+
+.metadata-table td{
+    padding:6px;
+    border:1px solid #ddd;
+}
+
+.profile-container{
+    display:flex;
+    gap:20px;
+}
+
+.photo img{
+    width:120px;
+    border:1px solid #ccc;
+}
+
+.page-break {
+    break-before: page;
+}
+
+.section-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* full page height */
+    font-size: 36pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* full page height */
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+
+</head>
+
+<body>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

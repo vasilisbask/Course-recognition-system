@@ -1,0 +1,36 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block middle %}
+<h3> {% trans 'Υποβολή αίτησης' %} </h3>
+</br>
+
+<h5> {% trans 'Στοιχεία Πρόσκλησης' %} </h5>
+<p> {% trans 'Τίτλος Πρόσκλησης'%} : {{ call.title }} </p>
+<p> {% trans 'Επιβλέπων' %}: {{ call.supervisor.surname }} {{ call.supervisor.given_name }}</p>
+</br>
+
+<h5> {% trans 'Οδηγίες' %}</h5>
+
+<p> {% trans 'Μπορείτε να υποβάλλετε την αίτηση σας εδώ.' %} </p>
+</br>
+<div class="alert alert-success" role="alert">
+<p> <span class="mto"> info </span> {% trans 'Θα πρέπει να ανεβάσετε το έγγραφο' %} <b>"{% trans 'Πλάνο Διδακτορικής Διατριβής' %}"</b> </p>
+<p> <span class="mto"> info </span> {% trans 'Μπορείτε επίσης να συμπληρώσετε κάποιες παρατηρήσεις/σημειώσεις για την αίτηση σας, αν το επιθυμείτε στο αντίστοιχο πεδίο παρακάτω.' %}</p>
+</div>
+
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+<p> <b>{% trans 'Προσοχή' %}!</b></p>
+{% for message in messages %}
+<p><span class="mto">notifications_active</span> {{ message }}</p>
+{% endfor %}
+</div>
+{% endif %}
+
+</br>
+
+{% crispy form %} 
+
+{% endblock %}

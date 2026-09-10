@@ -1,0 +1,64 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+
+  
+<script>
+    $(document).ready(function() {
+      $('#timesheets').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Timesheets </h3>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'timesheets:sec_create' %}" class="btn btn-primary" >
+      + Νέο Timesheet
+    </a>
+  </div>
+</div> 
+</br>
+{% if timesheets %}  
+<table id="timesheets" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Αιτών</th>
+        <th scope="col">Προορισμός</th>
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in timesheets %}
+  <tr>
+    <td>
+      {{ p.created_date|date:"Y-m-d" }}
+    </td>
+    
+    <td>
+      {{ p.applicant.display_name }}
+    </td>
+    <td>
+      {{ p.month }}/{{ p.year }}
+    </td>
+    
+    <td>
+      <a href="{% url 'timesheets:sec_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+  </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν έχετε καταχωρήσει timesheets</p>
+  {% endif %}
+
+
+{% endblock %}

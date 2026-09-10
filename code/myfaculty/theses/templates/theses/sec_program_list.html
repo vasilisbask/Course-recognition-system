@@ -1,0 +1,231 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+
+  
+<script>
+    $(document).ready(function() {
+      $('#theses_assigned_grade').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+    $(document).ready(function() {
+      $('#theses_assigned_noga').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+    $(document).ready(function() {
+      $('#theses_unassigned').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+    $(document).ready(function() {
+      $('#theses_assigned_ga').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h4> Διπλωματικές/Πτυχιακές: {{ program.title_gr }} </h4>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'theses:sec_create' %}" class="btn btn-primary" >
+      + Νέο Θέμα
+    </a>
+  </div>
+</div> 
+<br></br>
+<h5> Με βαθμολογία </h5>
+{% if theses_assigned_grade %}
+<a href="{% url 'theses:export_graded_program' program.id %}"> Εξαγωγή </a>  
+<table id="theses_assigned_grade" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Επιβλέπων</th>
+        <th scope="col">Τίτλος</th>
+        <th scope="col">Ανάθεση </th>
+        <th scope="col">Βαθμός </th>        
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in theses_assigned_grade %}
+  <tr>
+    <td>
+      {{ p.created_date|date:"Y-m-d" }}
+    </td>
+    
+    <td>
+      {{ p.supervisor.display_name }}
+    </td>
+    <td>
+      {{ p.title_gr }}
+    </td>
+    <td>
+      {% if p.assigned_to %}
+      {{ p.assigned_to.display_name }}
+      {% endif %}
+    </td>
+    <td>
+        {{ p.grade_avg }}
+    </td>
+      
+    
+    <td>
+      <a href="{% url 'theses:sec_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+    </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν υπάρχουν εγγραφές σε αυτή την κατηγορία </p>
+  {% endif %}
+</br></br>
+  <h5> Με ανάθεση που ΔΕΝ έχουν περάσει από την συνέλευση</h5>
+  {% if theses_assigned_noga %}  
+  <a href="{% url 'theses:export_assigned_noga' program.id %}"> Εξαγωγή </a>
+  <table id="theses_assigned_noga" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Υποβολή</th>        
+          <th scope="col">Επιβλέπων</th>
+          <th scope="col">Τίτλος</th>         
+          <th scope="col">Ανάθεση</th>         
+          <th></th>
+        </tr>
+      </thead>    
+    </tbody>
+    {% for p in theses_assigned_noga %}
+    <tr>
+      <td>
+        {{ p.created_date|date:"Y-m-d" }}
+      </td>
+      
+      <td>
+        {{ p.supervisor.display_name }}
+      </td>
+      <td>
+        {{ p.title_gr }}
+      </td>
+      <td>
+        {% if p.assigned_to %}
+        {{ p.assigned_to.display_name }} ({{ p.assigned_to.user.username }})
+        {% endif %}
+      </td>
+      
+      <td>
+        <a href="{% url 'theses:sec_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+      </td>           
+        
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% else %}
+    <p>Δεν υπάρχουν εγγραφές σε αυτή την κατηγορία </p>
+    {% endif %}
+
+    <h5> Με ανάθεση που έχουν περάσει από την συνέλευση και δεν έχουν βαθμολογία</h5>
+  {% if theses_assigned_ga %}  
+  <a href="{% url 'theses:export_assigned_ga' program.id %}"> Εξαγωγή </a>  
+  <table id="theses_assigned_ga" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Υποβολή</th>        
+          <th scope="col">Επιβλέπων</th>
+          <th scope="col">Τίτλος</th>         
+          <th scope="col">Ανάθεση</th>         
+          <th></th>
+        </tr>
+      </thead>    
+    </tbody>
+    {% for p in theses_assigned_ga %}
+    <tr>
+      <td>
+        {{ p.created_date|date:"Y-m-d" }}
+      </td>
+      
+      <td>
+        {{ p.supervisor.display_name }}
+      </td>
+      <td>
+        {{ p.title_gr }}
+      </td>
+      <td>
+        {% if p.assigned_to %}
+        {{ p.assigned_to.display_name }} ({{ p.assigned_to.user.username }})
+        {% endif %}
+      </td>
+      
+      <td>
+        <a href="{% url 'theses:sec_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+      </td>           
+        
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% else %}
+    <p>Δεν υπάρχουν εγγραφές σε αυτή την κατηγορία </p>
+    {% endif %}
+
+    <h5> Χωρίς ανάθεση</h5>
+    {% if theses_unassigned %}  
+    <a href="{% url 'theses:export_unassigned' program.id %}"> Εξαγωγή </a>
+  
+    <table id="theses_unassigned" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Υποβολή</th>        
+            <th scope="col">Επιβλέπων</th>
+            <th scope="col">Τίτλος</th>
+            <th></th>
+          </tr>
+        </thead>    
+      </tbody>
+      {% for p in theses_unassigned %}
+      <tr>
+        <td>
+          {{ p.created_date|date:"Y-m-d" }}
+        </td>
+        
+        <td>
+          {{ p.supervisor.display_name }}
+        </td>
+        <td>
+          {{ p.title_gr }}
+        </td>
+        
+        <td>
+          <a href="{% url 'theses:sec_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+        </td>           
+          
+      </tr>
+      {% endfor %}
+      </tbody>
+      </table>
+      {% else %}
+      <p>Δεν υπάρχουν εγγραφές σε αυτή την κατηγορία </p>
+      {% endif %}
+  
+{% endblock %}

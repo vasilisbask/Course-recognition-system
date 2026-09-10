@@ -1,0 +1,46 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+
+  
+<script>
+    $(document).ready(function() {
+      $('#cards').DataTable({
+        "lengthChange": false,
+        "pageLength": 100
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Κάρτες που δεν αντιστοιχούν σε συνεργάτη </h3>   
+  </div>
+</div>
+{% if cards %}  
+<table id = "cards" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Αριθμός</th>
+        <th scope="col">Ημερομηνία</th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for card in cards %}
+  <tr>
+    <td>
+    {{ card.card_no }}
+    </td>
+    <td>
+      {{ card.updated_time }}
+    </td>      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν έχουν υπάρχουν κάρτες που δεν αντιστοιχούν σε συνεργάτη </p>
+  {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block middle %}
+
+<h3> {% trans 'Παρακαλούμε καταχωρείστε τα στοιχεία σας' %} </h3>
+{% if password_policy %}
+<div class="{{ alertclass }}" role="alert">
+  {{ password_policy }}
+</div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}   
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">{% trans 'Εγγραφή!' %}</button>
+</form>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll('input[type="password"]').forEach(function (input) {
+
+        // Avoid double wrapping
+        if (input.closest('.password-wrapper')) return;
+
+        // Create wrapper
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("input-group", "password-wrapper");
+
+        // Insert wrapper before input
+        input.parentNode.insertBefore(wrapper, input);
+        wrapper.appendChild(input);
+
+        // Create toggle button
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "btn btn-outline-secondary";
+        button.innerHTML = '<span class="mto">visibility</span>';
+
+        button.addEventListener("click", function () {
+            const icon = button.querySelector("span");
+
+            if (input.type === "password") {
+                input.type = "text";
+                icon.innerHTML = '<span class="mto">visibility_lock</span>';
+            } else {
+                input.type = "password";
+                icon.innerHTML = '<span class="mto">visibility</span>';
+            }
+        });
+
+        wrapper.appendChild(button);
+    });
+
+});
+</script>
+
+{% endblock %}

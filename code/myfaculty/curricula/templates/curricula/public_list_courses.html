@@ -1,0 +1,59 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+
+  
+<script>
+    $(document).ready(function() {
+      $('#courses').DataTable({
+        "lengthChange": false,
+        "pageLength": 100
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Μαθήματα </h3>
+  </div>
+</div> 
+</br>
+{% if courses %}  
+<table id="courses" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Τίτλος</th>
+        <th scope="col">Πρόγραμμα Σπουδών</th>       
+        <th scope="col">Επιλογής</th>
+        <th scope="col">Κωδικός</th> 
+        <th></th>      
+      </tr>
+    </thead>    
+  </tbody>
+  {% for course in courses %}
+  <tr>
+    <td>
+      {{ course.title_gr }}
+    </td>
+    <td>
+      {{ course.program.title_gr }}
+    </td>
+    <td>
+      {{ course.elective }}
+    </td>
+    <td>
+      {{ course.code_gr }}
+    </td>
+    <td>
+    <a href="{% url 'curricula:public_detail_course' course.id %}" type="submit" class="btn btn-primary tablebutton"> Λεπτομέρειες </a>       
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν έχετε καταχωρήσει μαθήματα</p>
+  {% endif %}
+
+
+{% endblock %}

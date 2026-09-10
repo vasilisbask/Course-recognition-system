@@ -1,0 +1,12 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% block middle %}
+{% if alertclass %}
+<div class="alert alert-{{ alertclass }}">
+    {{ message|safe }}
+</div>
+{% else %}
+<div class="alert alert-primary">
+    {{ message|safe }}
+</div>
+{% endif %}
+{% endblock %}

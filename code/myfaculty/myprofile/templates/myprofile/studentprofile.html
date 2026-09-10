@@ -1,0 +1,41 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+
+{% block middle %}
+{{ form.media }}
+
+<form method="post">
+    {% csrf_token %}
+    {% crispy form %} 
+</form>
+
+{% if perms.myprofile.is_secreteriat %}
+{% if form.instance.pk %}
+<p></p>
+<button type="button" class="btn btn-danger" onclick="delete_obj()">
+    Διαγραφή
+</button>
+<script>
+    function delete_obj() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'myprofile:delete_associate' form.instance.pk %}');
+    }
+    }
+</script>  
+{% endif %}
+{% endif %}
+
+{% if thesis %}
+</br></br>
+<p> Τίτλος Διπλωματικής: {{  thesis.title_gr }}</p>
+<p> Επιβλέπων: {{  thesis.supervisor.display_name }}</p>
+{% if thesis.grade_avg %}
+<p> Βαθμός: {{ thesis.grade_avg }}</p>
+{% else %}
+<p> Βαθμός: Δεν έχει βαθμολογηθεί </p>
+{% endif %}
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block middle %}
+<div class="row">
+    <div class="col-sm-6">
+    <h3> {% trans 'Στοιχεία Πρόκλησης' %} </h3>
+    </div>
+    <div class="col-sm-6 text-end">
+    <a class="btn btn-primary" href="{% url 'phdapplications:apply' call.id %}" style="font-weight: bold;"> <span class="mto">check_box</span>{% trans 'Κάντε Αίτηση!' %} <a>
+    </div>
+</div>
+{% crispy form %} 
+
+{% endblock %}

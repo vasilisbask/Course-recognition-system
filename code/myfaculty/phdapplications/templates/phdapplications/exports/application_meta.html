@@ -1,0 +1,116 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Σύστημα Διαχείρισης Αιτήσεων Διδακτορικών Διατριβών</h1>
+<table class="metadata-table">
+<tr>
+    <th>Τμήμα</th>
+    <td> {{ application.call.program.department.title_gr }} </td>    
+</tr>
+<tr>
+    <th>Σχολή</th>
+    <td> {{ application.call.program.department.school.title_gr }} </td>    
+</tr>
+
+<tr>
+    <th>Ίδρυμα</th>
+    <td> {{ application.call.program.department.school.institution.title_gr }} </td>    
+</tr>
+
+</table>
+<h1 class="section-title">Στοιχεία Αίτησης</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Υποψήφιος</th>
+    <td>{{ application.applicant.given_name }} {{ application.applicant.surname }} </td>
+</tr>
+
+<tr>
+    <th>Πρόσκληση</th>
+    <td>{{ application.call|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Κατάσταση</th>
+    <td>{{ application.get_status_display }}</td>
+</tr>
+
+<tr>
+    <th>Ημερομηνία Υποβολής</th>
+    <td>{{ application.date_submitted|date:"d/m/Y H:i"|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Αριθμός Αναφοράς Συστήματος</th>
+    <td>{{ application.rf|default:"—" }}</td>
+</tr>
+
+</table>
+
+<div class="page-break"></div>
+
+{% include 'phdapplications/exports/pi_meta.html' with personal=application.pi %}
+
+<h1 class="subsection">Συνημμένα Αρχεία Αίτησης</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Διδακτορικό Σχέδιο</th>
+    <td>
+        {% if application.doctoral_plan %}
+            (επισυνάπτεται στη συνέχεια)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Υπεύθυνη Δήλωση</th>
+    <td>
+        {% if application.declaration_not_enlisted %}
+            (επισυνάπτεται στη συνέχεια)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Βιογραφικό</th>
+    <td>
+        {% if application.cv %}
+            (επισυνάπτεται στη συνέχεια)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Πρόσθετο Έγγραφο</th>
+    <td>
+        {% if application.additional_doc %}
+            (επισυνάπτεται στη συνέχεια)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+
+{% if application.notes %}
+<h2 class="subsection">Σημειώσεις</h2>
+
+<div class="text-block">
+    {{ application.notes|linebreaks }}
+</div>
+{% endif %}
+
+{% endblock %}

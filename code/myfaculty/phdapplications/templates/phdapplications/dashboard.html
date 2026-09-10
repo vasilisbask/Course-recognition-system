@@ -1,0 +1,118 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% block middle %}
+{% load i18n %}
+
+<h3> {% trans 'Καλώς ήρθατε!' %} </h3>
+<div class="row justify-content-center">
+  <div class="col-sm-4 text-center">
+  <a class="btn btn-success" href="{% url 'phdapplications:applicant_call_list' %}"> <span class="mto">
+remove_red_eye
+</span> {% trans 'Δείτε τις ανοιχτές προσκλήσεις' %}</a>
+  </div>
+</div>
+{% crispy profile %} 
+</br>
+</br>
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+<p> <b>{% trans 'Προσοχή' %}!</b></p>
+{% for message in messages %}
+<p><span class="mto">notifications_active</span> {{ message }}</p>
+{% endfor %}
+</div>
+{% endif %}
+
+
+<div class="row text-center">
+<p> {% trans 'Βεβαιωθείτε ότι όλα τα προσωπικά σας στοιχεία είναι ενημερωμένα.' %}
+</p>
+</div>
+<div class="row text-center">
+  <p>
+  <a class="btn btn-danger" href="{% url 'phdapplications:update_profile' %}"> <span class="mto">
+remove_red_eye
+</span> {% trans 'Δείτε όλα τα στοιχεία σας' %}</a>
+  </p>
+</div>
+<div class="row justify-content-center text-center">
+<p> {% trans 'Συνοδευτικές πληροφορίες για τις αιτήσεις σας:' %} 
+</p>
+</div>
+<div class="row justify-content-center">
+  <div class="col-sm-2 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:applicant_obj_list' 'degree' %}"><span class="mto">
+school
+</span> {% trans 'Τίτλοι Σπουδών' %}</a>
+  </div>
+  <div class="col-sm-2 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:applicant_obj_list' 'experience' %}"><span class="mto">
+work_outline
+</span> {% trans 'Εργασιακή Εμπειρία' %}</a>
+  </div>
+  <div class="col-sm-2 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:applicant_obj_list' 'journal' %}"><span class="mto">
+menu_book
+</span> {% trans 'Eπ. Περιοδικά' %}</a>
+  </div>
+  <div class="col-sm-2 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:applicant_obj_list' 'conference' %}">
+    <span class="mto">
+co_present
+</span>
+    {% trans 'Επ. Συνέδρια' %}</a>
+  </div>  
+  <div class="col-sm-3 text-center">
+  <a class="btn btn-primary" href="{% url 'phdapplications:applicant_obj_list' 'contact' %}"><span class="mto">
+person_add_alt
+</span>{% trans 'Σημεία Επαφής' %}</a>
+  </div>
+</div>
+</br>
+<script>
+    $(document).ready(function() {
+      $('#applicaitons').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+
+<h3> {% trans 'Οι αιτήσεις σας' %} </h3>
+{% if applications %}  
+<table id="applications" class="table">
+    <thead>
+      <tr>
+        <th scope="col">{% trans 'Τελευταία Ενημέρωση' %}</th>        
+        <th scope="col">{% trans 'Αριθμός Αναφοράς' %}</th>
+        <th scope="col">{% trans 'Κατάσταση' %}</th>
+         <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in applications %}
+  <tr>
+    <td>
+      {{ p.date_updated|date:"Y-m-d" }}
+    </td>
+    <td>
+      {{ p.rf.display_name }}
+    </td>
+    <td>
+      {{ p.get_status_display }}
+    </td>    
+    <td>
+      <a href="{% url 'phdapplications:application_summary' 'applicant' p.pk %}" type="submit" class="btn btn btn-success tablebutton"> {% trans 'Λεπτομέρειες' %} </a>           
+    </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>{% trans 'Δεν έχετε κάνει κάποια αίτηση.' %} </p>
+  {% endif %}
+
+{% endblock %}

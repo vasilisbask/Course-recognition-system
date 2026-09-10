@@ -1,0 +1,44 @@
+Attention working strategy to safely reset migrations
+
+STEP 1 — Dump ONLY DATA (not schema)
+
+On the production database dump everything:
+!!!THIS RUNS ON THE PRODUCTION VM!!!
+  docker compose -f docker-compose-prod.yaml exec -T -u postgres db pg_dump postgres > /tmp/myfaculty2026.data
+
+STEP 2 — Drop & recreate the database
+
+Create a test environment
+!!!THIS RUNS ON THE DEV VM!!!
+  sudo rm -r data
+  docker compose up db
+  docker compose exec -u postgres -T db psql postgres < myfaculty2026.data
+  docker compose exec -u postgres -T pg_dump   --data-only   --column-inserts   --no-owner   --no-privileges   --disable-triggers   postgres > data.sql
+
+STEP 3 — Drop the dev database again.
+!!!THIS RUNS ON THE DEV VM!!!
+  docker compose stop db
+  sudo rm -r data
+  
+STEP 4 — Reset migrations in Django apps 
+    !!!THIS RUNS ON THE DEV VM!!!
+    sudo rm -r ./associates/migrations/0*.py
+    sudo rm -r ./curricula/migrations/0*.py
+    sudo rm -r ./leaves/migrations/0*.py
+    sudo rm -r ./myprofile/migrations/0*.py
+    sudo rm -r ./phdapplications/migrations/0*.py
+    sudo rm -r ./projects/migrations/0*.py
+    sudo rm -r ./theses/migrations/0*.py
+    sudo rm -r ./timesheets/migrations/0*.p
+   
+STEP 5 — Recreate migrations from models
+    !!!THIS RUNS ON THE DEV VM!!!
+    docker compose up
+    docker compose exec web python manage.py makemigrations
+    docker compose exec web python manage.py migrate
+
+STEP 6 — Reload the data
+    !!!THIS RUNS ON THE DEV VM!!!
+    docker compose exec -u postgres -T db psql postgres < data.sql
+    
+

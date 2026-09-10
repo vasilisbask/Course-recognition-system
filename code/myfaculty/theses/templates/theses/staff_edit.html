@@ -1,0 +1,31 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+{% load profile_tags %}
+{% block middle %}
+
+{% crispy form %} 
+
+{% if form.instance.pk %}
+{% if form.instance.assigned_to %}
+<p> Ανάθεση: {{ form.instance.assigned_to.display_name }} ({{ form.instance.assigned_to.user.username }}) </p>
+{% endif %}
+{% if form.instance.assigned_to and form.instance.grade_avg %}
+<p> Βαθμολογία: {{ form.instance.grade_avg }} </p>
+{% endif %}
+<p></p>
+{% if not form.instance.assigned_to %}
+<button type="button" class="btn btn-danger" onclick="delete_obj()">
+    Διαγραφή
+</button>
+<script>
+    function delete_obj() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'theses:staff_delete' form.instance.pk %}');
+    }
+    }
+</script>
+{% endif %}  
+{% endif %}
+
+{% endblock %}

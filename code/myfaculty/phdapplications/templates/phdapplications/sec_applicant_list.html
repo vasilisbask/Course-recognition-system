@@ -1,0 +1,59 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% block middle %}
+  
+<script>
+    $(document).ready(function() {
+      $('#applicants').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Υποψήφιοι </h3>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'phdapplications:sec_applicant_create' %}" class="btn btn-primary" >
+      + Νέος Υποψήφιος
+    </a>
+  </div>
+</div> 
+</br>
+{% if applicants %}  
+<table id="applicants" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Όνομα</th>        
+        <th scope="col">Επώνυμο</th>
+        <th scope="col">Δημιουργία</th>
+         <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in applicants %}
+  <tr>
+    <td>
+      {{ p.name }}
+    </td>
+    <td>
+      {{ p.surname }}
+    </td>
+    <td>
+      {{ p.date_created|date:"Y-m-d" }}
+    </td>    
+    <td>
+      <a href="{% url 'phdapplications:sec_applicant_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+  </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν υπάρχουν υποψήφιοι</p>
+  {% endif %}
+
+{% endblock %}

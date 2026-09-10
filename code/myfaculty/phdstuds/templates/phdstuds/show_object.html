@@ -1,0 +1,114 @@
+{% extends 'phdstuds/page.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block middle %}
+
+{% if headline_above %}
+<h5> {{ headline_above }}</h5>
+{% endif %}
+
+{% if above_p %}
+<div class="row text-center">
+<p> {{ above_p }} </p>
+</div>
+{% endif %}
+
+{% if button_above_text %}
+<div class="row text-center justify-content-center">
+  <div class="col-sm-6 text-center">
+    {% if button_above_next %}
+    <a href="{{ button_above_url }}?next={{ button_above_next }}" class="{{ button_above_classes }}"><span class="mto">{{ button_above_icon }} </span> {{ button_above_text }}</a>
+    {% else %}
+    <a href="{{ button_above_url }}" class="{{ button_above_classes }}"><span class="mto">{{ button_above_icon }} </span> {{ button_above_text }}</a>
+    {% endif %}
+  </div>
+</div>
+</br>
+{% endif %}
+
+<h4> {{ headline }} </h4>
+
+{% crispy form %} 
+
+{% if confirm_modal %}
+<div class="modal fade" id="updateConfirmModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">{{ confirm_modal_title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        {{ confirm_modal_question }}
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{ confirm_modal_cancel }}
+        </button>
+        <button type="button" class="btn btn-primary" id="confirmUpdateBtn">
+          {{ confirm_modal_ok }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // ===== UPDATE CONFIRMATION =====
+    const form = document.getElementById("crispyForm");
+    const updateModal = new bootstrap.Modal(
+        document.getElementById("updateConfirmModal")
+    );
+    const confirmUpdateBtn = document.getElementById("confirmUpdateBtn");
+
+    let updateConfirmed = false;
+
+    if (form) {
+        form.addEventListener("submit", function(e) {
+            if (!updateConfirmed) {
+                e.preventDefault();
+                updateModal.show();
+            }
+        });
+    }
+
+    confirmUpdateBtn.addEventListener("click", function() {
+        updateConfirmed = true;
+        form.submit();
+    }); 
+  });
+</script>
+{% endif %}
+{% if delete_url %}
+{% if form.instance.pk %}
+<p></p>
+<div class="row">
+  <div class="col-sm-6">
+    <button type="button" class="btn btn-danger" onclick="delete_obj()">
+      <span class="mto">{{ delete_icon }}</span>{{ delete_text }}
+  </button>  
+  </div>
+  <div class="col-sm-6">
+  </div>  
+</div>
+<script>
+    function delete_obj() {
+    var result = confirm("{% trans 'Είστε σίγουροι;' %}");
+    if (result) {
+      {% if success_url %}
+      window.location.replace('{{ delete_url }}?next={{ success_url }}');      
+      {% else %}
+      window.location.replace('{{ delete_url }}');      
+      {% endif %}
+    }
+    }
+</script>  
+{% endif %}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'myprofile/page.html' %}
+{% load i18n %}
+
+{% block middle %}
+<div class="page-title dashboard-title">
+  <div>
+    <p class="section-kicker">Admin</p>
+    <h1>{% trans 'Διαχείριση συστήματος' %}</h1>
+    <p>{% trans 'Προβολή χρηστών και αιτήσεων αναγνώρισης μαθημάτων.' %}</p>
+  </div>
+</div>
+
+<div class="app-grid">
+  <a class="app-card" href="{% url 'myprofile:admin_secretariat_users' %}">
+    <span class="mto app-card-icon" aria-hidden="true">manage_accounts</span>
+    <span class="app-card-title">
+      {% trans 'Προβολή Χρηστών Γραμματείας' %}
+      <small class="d-block text-muted">{% trans 'Ενεργές Γραμματείες' %}: {{ secretariats_count }}</small>
+    </span>
+    <span class="mto app-card-arrow" aria-hidden="true">chevron_right</span>
+  </a>
+
+  <a class="app-card" href="{% url 'myprofile:admin_student_users' %}">
+    <span class="mto app-card-icon" aria-hidden="true">school</span>
+    <span class="app-card-title">
+      {% trans 'Προβολή Χρηστών Φοιτητών' %}
+      <small class="d-block text-muted">{% trans 'Φοιτητές' %}: {{ students_count }}</small>
+    </span>
+    <span class="mto app-card-arrow" aria-hidden="true">chevron_right</span>
+  </a>
+
+  <a class="app-card" href="{% url 'course_recognition:admin_requests' %}">
+    <span class="mto app-card-icon" aria-hidden="true">description</span>
+    <span class="app-card-title">
+      {% trans 'Προβολή Αιτήσεων' %}
+      <small class="d-block text-muted">{% trans 'Αιτήσεις' %}: {{ requests_count }}</small>
+    </span>
+    <span class="mto app-card-arrow" aria-hidden="true">chevron_right</span>
+  </a>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Τίτλος Σπουδών</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Τύπος Τίτλου</th>
+    <td>{{ degree.get_type_display }}</td>
+</tr>
+
+<tr>
+    <th>Πανεπιστήμιο</th>
+    <td>{{ degree.university }}</td>
+</tr>
+
+<tr>
+    <th>Σχολή</th>
+    <td>{{ degree.school|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Τμήμα</th>
+    <td>{{ degree.department|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Έτος Απόκτησης</th>
+    <td>{{ degree.year }}</td>
+</tr>
+
+<tr>
+    <th>Βαθμός</th>
+    <td>{{ degree.score|default:"—" }}</td>
+</tr>
+
+</table>
+
+
+<h2 class="subsection">Συνημμένα Έγγραφα</h2>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Αντίγραφο Πτυχίου</th>
+    <td>
+        {% if degree.degree %}
+            (επισυνάπτεται στη συνέχεια)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Αναλυτική Βαθμολογία</th>
+    <td>
+        {% if degree.transcript_of_records %}
+            (επισυνάπτεται στη συνέχεια)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Συστατική Επιστολή</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Όνομα</th>
+    <td>{{ ref.given_name }}</td>
+</tr>
+
+<tr>
+    <th>Επώνυμο</th>
+    <td>{{ ref.surname }}</td>
+</tr>
+
+<tr>
+    <th>Τίτλος</th>
+    <td>{{ ref.title|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Ίδρυμα</th>
+    <td>{{ ref.institution|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Email</th>
+    <td>{{ ref.email }}</td>
+</tr>
+
+<tr>
+    <th>Τηλέφωνο</th>
+    <td>{{ ref.phone|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Ημερομηνία Υποβολής</th>
+    <td>{{ ref.submitted_date|date:"d/m/Y"|default:"—" }}</td>
+</tr>
+
+</table>
+
+
+<h2 class="subsection">Έγγραφο Συστατικής Επιστολής</h2>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Αρχείο</th>
+    <td>
+        {% if ref.letter %}
+            (επισυνάπτεται στη συνέχεια)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+
+{% if ref.notes %}
+<h2 class="subsection">Σημειώσεις</h2>
+
+<div class="text-block">
+    {{ ref.notes|linebreaks }}
+</div>
+{% endif %}
+
+{% endblock %}

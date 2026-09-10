@@ -1,0 +1,36 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load phdapp_tags %}
+{% block middle %}
+{% load i18n %}
+
+<script>
+    $(document).ready(function() {
+      $('#active').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+
+<div class="row">
+  <div class="col">
+    <h3> {% trans 'Προσκλήσεις στις οποίες είστε αξιολογητής' %} </h3>
+  </div> 
+</div> 
+</br>
+{% if calls %}
+<table id="active" class="table">
+    {{ calls|table_headers }}    
+  </tbody>
+  {% for call in calls %}
+  {{ call|as_reviewer_call_row }}
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>{% trans 'Δεν υπάρχουν προσκλήσεις στις οποίες είστε αξιολογητής' %} </p>
+  {% endif %}
+
+{% endblock %}

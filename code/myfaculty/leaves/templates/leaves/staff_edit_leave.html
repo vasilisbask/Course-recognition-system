@@ -1,0 +1,23 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+{% load profile_tags %}
+{% block middle %}
+
+{% crispy form %} 
+
+{% if form.instance.pk and form.instance.is_editable %}
+<p></p>
+<button type="button" class="btn btn-danger" onclick="delete_obj()">
+    Διαγραφή
+</button>
+<script>
+    function delete_obj() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'leaves:staff_delete_leave' form.instance.pk %}');
+    }
+    }
+</script>  
+{% endif %}
+
+{% endblock %}

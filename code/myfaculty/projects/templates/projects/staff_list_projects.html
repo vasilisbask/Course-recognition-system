@@ -1,0 +1,57 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+
+  
+<script>
+    $(document).ready(function() {
+      $('#projects').DataTable({
+        "lengthChange": false,
+        "pageLength": 100,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Έργα </h3>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'projects:staff_create_project' %}" class="btn btn-primary" >
+      + Νέο Έργο
+    </a>
+  </div>
+</div> 
+</br>
+{% if projects %}  
+<table id="projects" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Τίτλος</th>        
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in projects %}
+  <tr>
+    <td>
+      {{ p.created_date|date:"Y-m-d" }}
+    </td>
+    <td>
+      {{ p.title }}
+    </td>
+    <td>
+      <a href="{% url 'projects:staff_edit_project' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν έχετε καταχωρήσει έργα</p>
+  {% endif %}
+
+
+{% endblock %}

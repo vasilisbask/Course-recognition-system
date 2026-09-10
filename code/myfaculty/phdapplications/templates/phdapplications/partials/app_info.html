@@ -1,0 +1,11 @@
+{% load i18n %}
+<div class="alert alert-success" role="alert">
+<p>{% trans 'Κωδικός Αναφοράς Συστήματος' %}: <b>{{ application.rf }}</b> </p>
+<p>{% trans 'Όνομα' %}: <b>{{ application.applicant.given_name }} </b></p>
+<p>{% trans 'Επώνυμο' %}: <b>{{ application.applicant.surname }} </b></p>
+<p>{% trans 'Πρόσκληση' %}: <b>{{ application.call.title }} </b></p>
+<p>{% trans 'Επιβλέπων' %}: <b>{{ application.call.supervisor }} </b></p>
+<p>{% trans 'Κατάσταση' %}: <b>{{ application.get_status_display }} </b></p>
+<p>{% trans 'Προθεσμία Υποβολής' %}: <b>{{ application.call.deadline }} </b></p>
+
+</div>

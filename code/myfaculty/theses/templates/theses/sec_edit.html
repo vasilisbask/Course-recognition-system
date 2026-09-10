@@ -1,0 +1,53 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+
+{% block middle %}
+
+{% crispy form %} 
+
+{% if perms.myprofile.is_secreteriat %}
+{% if form.instance.pk %}
+
+
+  {% if form.instance.assigned_to %}
+  <p>Ανάθεση: {{ form.instance.assigned_to.display_name }} ({{ form.instance.assigned_to.user.username }})</p> 
+  {% endif %}
+  {% if form.instance.assigned_to and form.instance.grade_avg %}
+  <p> Βαθμολογία: {{ form.instance.grade_avg }} </p>
+  {% endif %}
+</p>
+<p></p>
+<div class="row">
+  <div class="col-sm-6">
+    {% if form.instance.assigned_to %}
+    <button type="button" class="btn btn-danger" onclick="cancel_assignment()">
+      Ακύρωση Ανάθεσης
+  </button>
+  {% endif %}
+  </div>
+  
+  <div class="col-sm-6">
+    <button type="button" class="btn btn-danger" onclick="delete_obj()">
+      Διαγραφή
+  </button>  
+  </div>
+  
+</div>
+<script>
+    function delete_obj() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'theses:sec_delete' form.instance.pk %}');
+    }
+    }
+    function cancel_assignment() {
+    var result = confirm("Είστε σίγουροι;");
+    if (result) {
+      window.location.replace('{% url 'theses:sec_cancel' form.instance.pk %}');
+    }
+    }
+</script>  
+{% endif %}
+{% endif %}
+
+{% endblock %}

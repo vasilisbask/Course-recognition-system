@@ -1,0 +1,17 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block middle %}
+
+{% crispy form %} 
+
+{% if include_change_password %}
+</br>
+<div class="row">
+<p>
+<a href="{% url 'myprofile:password_change' %}"class="btn btn-success"><span class="mto">key</span>{% trans 'Αλλαγή Κωδικού Πρόσβασης' %}</a>
+</p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load core_tags %}
+{% if master_headline %}
+<h2> {{ master_headline }} </h2>
+{% endif %}
+
+{% if master_p %}
+<p> {{ master_p }} </p>
+</br></br></br>
+{% endif %}
+{% if master_button %}
+<div class="row justify-content-center">
+    <div class="col-sm-12 text-center">
+        {% if next %}
+    <a href="{{ master_url }}?next={{ next }}" class="{{ master_button_class }}"><span class="mto">{{ master_button_icon }}</span>{{ master_text }}</a>
+        {% else %}
+    <a href="{{ master_url }}" class="{{ master_button_class }}"><span class="mto">{{ master_button_icon }}</span>{{ master_text }}</a>
+        {% endif %}
+    </div>
+</div>
+</br></br></br>
+
+{% endif %}
+{% if tables %}
+{% for t in tables %}
+{% render_table t %}
+</br></br>
+{% endfor %}
+{% endif %}

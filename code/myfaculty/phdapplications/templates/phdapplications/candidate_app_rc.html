@@ -1,0 +1,14 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block upper %}
+<h3> {% trans 'Σημεία Επαφής' %} </h3>
+<div class="alert alert-primary" role="alert">
+<p> {% trans 'Εδώ μπορείτε να καταχωρήσετε σημεία επαφής για την παροχή συστατικών επιστολών για την αίτηση σας.' %}</p>
+<p> {% trans 'Όταν υποβάλλετε την αίτηση σας, θα τους αποσταλλεί email για να ανεβάσουν την συστατική τους επιστολή.' %} </p>
+<p> {% trans 'Δεν μπορείτε να διαγράψετε σημεία επαφής όταν έχετε υποβάλλει την αίτηση.' %} </p>
+</div>
+{% endblock %}
+{% block middle %}
+{% include 'core/partials/tables.html' %}
+{% endblock %}

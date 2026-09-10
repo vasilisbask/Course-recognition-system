@@ -1,0 +1,37 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block middle %}
+
+<h4> {{ headline }} </h4>
+
+{% crispy form %} 
+
+{% if perms.myprofile.is_secreteriat %}
+{% if form.instance.pk %}
+<p></p>
+<div class="row">
+  <div class="col-sm-6">
+    <button type="button" class="btn btn-danger" onclick="delete_obj()">
+      Διαγραφή
+  </button>  
+  </div>
+  <div class="col-sm-6">
+  </div>  
+</div>
+<script>
+    function delete_obj() {
+    var result = confirm("{% trans 'Είστε σίγουροι;' %}");
+    if (result) {
+      {% if form.instance.applicant %}
+      window.location.replace('{% url 'phdapplications:sec_delete' obj_type form.instance.applicant.pk form.instance.pk %}');
+      {% elif form.instance.doctorate_application.applicant %}
+      window.location.replace('{% url 'phdapplications:sec_delete' obj_type  form.instance.doctorate_application.applicant.pk form.instance.pk %}');      
+      {% endif %}
+    }
+    }
+</script>  
+{% endif %}
+{% endif %}
+
+{% endblock %}

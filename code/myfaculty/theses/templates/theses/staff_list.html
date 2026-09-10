@@ -1,0 +1,251 @@
+{% extends 'myprofile/page.html' %}
+
+{% block middle %}
+ 
+<script>
+    $(document).ready(function() {
+      $('#theses_assigned').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+    $(document).ready(function() {
+      $('#theses_graded').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+    $(document).ready(function() {
+      $('#theses_active').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+    $(document).ready(function() {
+      $('#theses_member').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+    $(document).ready(function() {
+      $('#theses_inactive').DataTable({
+        "lengthChange": false,
+        "pageLength": 10,
+        "order" : [[ 0, "desc" ]],
+      }
+      );
+    });
+  </script>
+<div class="row">
+  <div class="col">
+    <h3> Θέματα Διπλωματικών / Πτυχιακών Εργασιών </h3>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'theses:staff_create' %}" class="btn btn-primary" >
+      + Νέο Θέμα
+    </a>
+  </div>
+</div> 
+<h5> Θέματα με ανάθεση (χωρίς βαθμολογία)</h5>
+{% if theses_assigned %}  
+<table id="theses_assigned" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Τίτλος</th>
+        <th scope="col">Ανάθεση</th>
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in theses_assigned %}
+  <tr>
+    <td>
+      {{ p.created_date|date:"Y-m-d" }}
+    </td>
+    
+    <td>
+      {{ p.title_gr }}
+    </td>
+    
+    <td>
+      {{ p.assigned_to.display_name }} ({{ p.assigned_to.username }})
+    </td>
+    
+    <td>
+      <a href="{% url 'theses:staff_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+    </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν υπάρχουν εγγραφές σε αυτή την κατηγορία </p>
+  {% endif %}
+
+  <h5> Θέματα που είστε επιβλέπων και έχουν βαθμολογηθεί</h5>
+  {% if theses_graded %}  
+  <table id="theses_graded" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Υποβολή</th>        
+          <th scope="col">Τίτλος</th>
+          <th scope="col">Ανάθεση</th>
+          <th scope="col">Βαθμός</th>
+          
+          <th></th>
+        </tr>
+      </thead>    
+    </tbody>
+    {% for p in theses_graded %}
+    <tr>
+      <td>
+        {{ p.created_date|date:"Y-m-d" }}
+      </td>
+      
+      <td>
+        {{ p.title_gr }}
+      </td>
+      
+      <td>
+        {{ p.assigned_to.display_name }} ({{ p.assigned_to.username }})
+      </td>
+      
+      <td>
+        {{ p.grade_avg }}
+      </td>
+      
+      <td>
+        <a href="{% url 'theses:staff_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+      </td>           
+        
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% else %}
+    <p>Δεν υπάρχουν εγγραφές σε αυτή την κατηγορία </p>
+    {% endif %}
+
+  <h5> Θέματα όπου είστε συνεπιβλέπων</h5>
+{% if theses_member %}  
+<table id="theses_member" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Τίτλος</th>
+        <th scope="col">Ανάθεση</th>
+        <th scope="col">Επιβλέπων</th>
+        
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in theses_member %}
+  <tr>
+    <td>
+      {{ p.created_date|date:"Y-m-d" }}
+    </td>
+    
+    <td>
+      {{ p.title_gr }}
+    </td>
+    
+    <td>
+      {% if p.assigned_to %}
+      {{ p.assigned_to.display_name }} ({{ p.assigned_to.username }})
+      {% endif %}
+    </td>
+   
+    <td>
+      {{ p.supervisor.display_name }}
+    </td>
+   
+    <td>
+      <a href="{% url 'theses:staff_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+    </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν υπάρχουν εγγραφές σε αυτή την κατηγορία </p>
+  {% endif %}
+
+<h5> Θέματα χωρίς ανάθεση</h5>
+{% if theses_active %}  
+<table id="theses_active" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Τίτλος</th>
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in theses_active %}
+  <tr>
+    <td>
+      {{ p.created_date|date:"Y-m-d" }}
+    </td>
+    
+    <td>
+      {{ p.title_gr }}
+    </td>
+    
+    <td>
+      <a href="{% url 'theses:staff_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+    </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν υπάρχουν εγγραφές σε αυτή την κατηγορία </p>
+  {% endif %}
+  
+  <h5> Θέματα που δεν προσφέρονται </h5>
+  {% if theses_inactive %}  
+<table id="theses_inactive" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Υποβολή</th>        
+        <th scope="col">Τίτλος</th>
+        <th></th>
+      </tr>
+    </thead>    
+  </tbody>
+  {% for p in theses_inactive %}
+  <tr>
+    <td>
+      {{ p.created_date|date:"Y-m-d" }}
+    </td>
+    <td>
+      {{ p.title_gr }}
+    </td>
+    
+    <td>
+      <a href="{% url 'theses:staff_edit' p.id %}" type="submit" class="btn btn-primary tablebutton"> Επεξεργασία </a>     
+  </td>           
+      
+  </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% else %}
+  <p>Δεν υπάρχουν εγγραφές σε αυτή την κατηγορία </p>
+  {% endif %}
+
+
+{% endblock %}

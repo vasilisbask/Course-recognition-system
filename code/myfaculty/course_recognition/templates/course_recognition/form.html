@@ -1,0 +1,381 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block middle %}
+<div class="page-title">
+  <p class="section-kicker">{% trans 'Αναγνώριση μαθημάτων' %}</p>
+  <h1>{{ title }}</h1>
+</div>
+
+<style>
+  .asteriskField {
+    color: var(--danger, #e53e3e) !important;
+    margin-left: 0.25rem !important;
+  }
+</style>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags|default:'info' }}" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+{% if form.errors %}
+  <div class="alert alert-danger" role="alert">
+    {% trans 'Παρακαλούμε διορθώστε τα σφάλματα στη φόρμα.' %}
+  </div>
+{% endif %}
+
+{% if request_obj %}
+  <div class="form-surface mb-4">
+    <h5>{% trans 'Στοιχεία αίτησης' %}</h5>
+    <div class="table-responsive">
+      <table class="table table-sm request-details-table">
+        <tbody>
+          <tr>
+            <th>{% trans 'Ονοματεπώνυμο' %}</th>
+            <td>{{ request_obj.student_display_name }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Αριθμός μητρώου' %}</th>
+            <td>{{ request_obj.student.reg_num|default:'-' }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Πρόγραμμα Σπουδών' %}</th>
+            <td>{{ request_obj.student.program|default:'-' }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Μάθημα προς αναγνώριση' %}</th>
+            <td>{{ request_obj.course|default:'-' }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Περασμένο μάθημα' %}</th>
+            <td>{{ request_obj.title_original_course }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Κατάσταση' %}</th>
+            <td>{{ request_obj.get_status_display }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Αριθμός πρωτοκόλλου' %}</th>
+            <td>{{ request_obj.protocol_number|default:'-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h5>{% trans 'Στοιχεία περασμένου μαθήματος' %}</h5>
+    <div class="table-responsive">
+      <table class="table table-sm request-details-table">
+        <tbody>
+          <tr>
+            <th>{% trans 'Ίδρυμα' %}</th>
+            <td>{{ request_obj.institution }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Σχολή' %}</th>
+            <td>{{ request_obj.school }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Τμήμα' %}</th>
+            <td>{{ request_obj.department|default:'-' }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Διδάσκοντες' %}</th>
+            <td>{{ request_obj.instructors }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Διδακτικό έτος' %}</th>
+            <td>{{ request_obj.get_academic_year_display }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Διδακτικό εξάμηνο' %}</th>
+            <td>{{ request_obj.get_academic_semester_display }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h5>{% trans 'Βαθμολογία και ώρες' %}</h5>
+    <div class="table-responsive">
+      <table class="table table-sm request-details-table">
+        <tbody>
+          <tr>
+            <th>{% trans 'Βαθμός θεωρίας' %}</th>
+            <td>{{ request_obj.grade_theory }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Βαθμός εργαστηρίου' %}</th>
+            <td>{{ request_obj.grade_lab|default:'-' }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Μέσος όρος' %}</th>
+            <td>{{ request_obj.average_grade }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Ώρες θεωρίας ανά εβδομάδα' %}</th>
+            <td>{{ request_obj.hours_theory }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'Ώρες εργαστηρίου ανά εβδομάδα' %}</th>
+            <td>{{ request_obj.hours_lab|default:'-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h5>{% trans 'Τεκμηρίωση' %}</h5>
+    <div class="table-responsive">
+      <table class="table table-sm request-details-table">
+        <tbody>
+          <tr>
+            <th>{% trans 'Περιγραφή μαθήματος' %}</th>
+            <td class="request-details-description">{{ request_obj.description|linebreaksbr }}</td>
+          </tr>
+          <tr>
+            <th>{% trans 'URL μαθήματος' %}</th>
+            <td>
+              {% if request_obj.url %}
+                <a href="{{ request_obj.url }}" target="_blank" rel="noopener">{% trans 'Άνοιγμα συνδέσμου' %}</a>
+              {% else %}
+                -
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>{% trans 'Αρχείο περιγραφής μαθήματος' %}</th>
+            <td><a href="{{ request_obj.course_description_file.url }}">{% trans 'Λήψη αρχείου' %}</a></td>
+          </tr>
+          <tr>
+            <th>{% trans 'Αρχείο αναλυτικής βαθμολογίας' %}</th>
+            <td><a href="{{ request_obj.transcript_file.url }}">{% trans 'Λήψη αρχείου' %}</a></td>
+          </tr>
+          <tr>
+            <th>{% trans 'Αρχείο πτυχίου' %}</th>
+            <td><a href="{{ request_obj.degree_file.url }}">{% trans 'Λήψη αρχείου' %}</a></td>
+          </tr>
+          <tr>
+            <th>{% trans 'Σχόλια αιτούντα' %}</th>
+            <td class="request-details-description">{{ request_obj.comments|default:'-'|linebreaksbr }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endif %}
+
+{{ form.media }}
+
+<div class="form-surface">
+  <form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {% if next_url %}
+      <input type="hidden" name="next" value="{{ next_url }}">
+    {% endif %}
+    {% crispy form %}
+  </form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('.form-surface form');
+      if (!form) return;
+
+      const approvalInput = document.getElementById('id_approval');
+      const gradeInput = document.getElementById('id_grade');
+      const protocolInput = document.getElementById('id_protocol_number');
+
+      if (protocolInput) {
+          protocolInput.addEventListener('input', function() {
+              const parent = protocolInput.closest('.mb-3') || protocolInput.parentElement;
+              if (parent) {
+                  parent.querySelectorAll('.invalid-feedback, .text-danger, [id^="error_"]').forEach(function(err) {
+                      err.style.display = 'none';
+                  });
+              }
+              protocolInput.classList.remove('is-invalid');
+              const topAlert = document.querySelector('.alert-danger');
+              if (topAlert) topAlert.style.display = 'none';
+          });
+      }
+
+      // ── Numeric range validation ─────────────────────────────────────────
+      function updateNumericValidity(input) {
+      }
+
+      document.querySelectorAll('[data-range-message]').forEach(function(input) {
+          input.addEventListener('input', function() { updateNumericValidity(input); });
+          input.addEventListener('blur', function() { updateNumericValidity(input); });
+          input.addEventListener('invalid', function() { updateNumericValidity(input); });
+      });
+
+      // ── Approval / grade dependency ──────────────────────────────────────
+      if (approvalInput && gradeInput) {
+          function updateGradeRequirement() {
+              gradeInput.required = approvalInput.checked;
+              gradeInput.disabled = !approvalInput.checked;
+              gradeInput.setAttribute('aria-required', approvalInput.checked ? 'true' : 'false');
+              if (!approvalInput.checked) gradeInput.value = '';
+              updateNumericValidity(gradeInput);
+          }
+          approvalInput.addEventListener('change', updateGradeRequirement);
+          updateGradeRequirement();
+      }
+
+      // ── Inline error helpers ─────────────────────────────────────────────
+      var requiredMsg = '{% trans "Συμπληρώστε αυτό το πεδίο." %}';
+
+      function getErrorEl(container) {
+          var el = container.querySelector('.js-required-error');
+          if (!el) {
+              el = document.createElement('div');
+              el.className = 'js-required-error';
+              el.style.cssText = 'color:#e53e3e;font-size:0.85rem;margin-top:0.3rem;display:none;';
+              container.appendChild(el);
+          }
+          return el;
+      }
+
+      function showError(container, msg) {
+          var el = getErrorEl(container);
+          el.textContent = msg || requiredMsg;
+          el.style.display = 'block';
+      }
+
+      function clearError(container) {
+          var el = container.querySelector('.js-required-error');
+          if (el) el.style.display = 'none';
+      }
+
+      // Find the closest wrapper div for a field
+      function getFieldContainer(input) {
+          return input.closest('.mb-3') || input.closest('.col-lg-12') || input.closest('.col-lg-6') || input.closest('.col-lg-4') || input.closest('.col-lg-3') || input.parentElement;
+      }
+
+      // ── Attach live-clear on each required field ─────────────────────────
+      form.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(input) {
+          // For Select2: clear error when value changes
+          if (input.classList.contains('select2-hidden-accessible')) {
+              if (window.jQuery) {
+                  jQuery(input).on('change', function() {
+                      clearError(getFieldContainer(input));
+                  });
+              }
+              return;
+          }
+          // For file inputs: clear when file chosen
+          if (input.type === 'file') {
+              input.addEventListener('change', function() {
+                  if (input.files && input.files.length > 0) {
+                      clearError(getFieldContainer(input));
+                  }
+              });
+              return;
+          }
+          // For all other inputs
+          input.addEventListener('input', function() {
+              if (input.value.trim() !== '') clearError(getFieldContainer(input));
+          });
+          input.addEventListener('change', function() {
+              if (input.value.trim() !== '') clearError(getFieldContainer(input));
+          });
+      });
+
+      // ── Live-clear for optional range fields (not required but have min/max) ──
+      form.querySelectorAll('[data-range-message]:not([required])').forEach(function(input) {
+          input.addEventListener('input', function() {
+              if (input.disabled) return;
+              var val = input.value.trim();
+              if (val === '') {
+                  clearError(getFieldContainer(input));
+                  return;
+              }
+              var num = Number(val);
+              var min = Number(input.min);
+              var max = Number(input.max);
+              if (!Number.isNaN(num) && num >= min && num <= max) {
+                  clearError(getFieldContainer(input));
+              }
+          });
+      });
+
+      // ── Submit validation ────────────────────────────────────────────────
+      function validateForm(event) {
+          // First: update all range validities
+          form.querySelectorAll('[data-range-message]').forEach(updateNumericValidity);
+
+          var firstError = null;
+
+          form.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(input) {
+              if (input.disabled) return;
+
+              var container = getFieldContainer(input);
+              var isEmpty = false;
+              var rangeMsg = '';
+
+              if (input.classList.contains('select2-hidden-accessible')) {
+                  // Select2: check underlying value
+                  isEmpty = !input.value;
+              } else if (input.type === 'file') {
+                  // Custom file input: empty only if no file selected AND no existing file
+                  var wrapper = input.closest('.custom-file-input-wrapper');
+                  var hasExisting = wrapper && wrapper.querySelector('.custom-file-name') &&
+                      wrapper.querySelector('.custom-file-name').textContent.trim() !== '{% trans "Δεν επιλέχθηκε αρχείο." %}';
+                  isEmpty = (!input.files || input.files.length === 0) && !hasExisting;
+              } else if (input.dataset.rangeMessage) {
+                  // Numeric with range: required AND valid range
+                  if (input.value.trim() === '') {
+                      isEmpty = true;
+                  } else if (!input.validity.valid) {
+                      rangeMsg = input.dataset.rangeMessage;
+                      isEmpty = true;
+                  }
+              } else {
+                  isEmpty = input.value.trim() === '';
+              }
+
+              if (isEmpty) {
+                  showError(container, rangeMsg || requiredMsg);
+                  if (!firstError) firstError = container;
+              } else {
+                  clearError(container);
+              }
+          });
+
+          // ── Also check optional numeric fields for out-of-range values ─────
+          form.querySelectorAll('[data-range-message]:not([required])').forEach(function(input) {
+              if (input.disabled) return;
+              var val = input.value.trim();
+              if (val === '') return;  // optional, blank is fine
+              var container = getFieldContainer(input);
+              var num = Number(val);
+              var min = Number(input.min);
+              var max = Number(input.max);
+              if (Number.isNaN(num) || num < min || num > max) {
+                  showError(container, input.dataset.rangeMessage);
+                  if (!firstError) firstError = container;
+              } else {
+                  clearError(container);
+              }
+          });
+
+          if (firstError) {
+              event.preventDefault();
+              event.stopPropagation();
+              firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              // Try to focus the actual input
+              var focusTarget = firstError.querySelector('input:not([type="hidden"]):not(.select2-hidden-accessible), textarea, select:not(.select2-hidden-accessible)');
+              if (focusTarget && !focusTarget.classList.contains('select2-hidden-accessible')) {
+                  setTimeout(function() { focusTarget.focus(); }, 300);
+              }
+          }
+      }
+
+      form.addEventListener('submit', validateForm);
+      form.querySelectorAll('[type="submit"]').forEach(function(button) {
+          button.addEventListener('click', function(e) { validateForm(e); });
+      });
+  });
+</script>
+{% endblock %}

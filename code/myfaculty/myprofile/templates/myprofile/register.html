@@ -1,0 +1,14 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block middle %}
+
+<h3> {% trans 'Παρακαλούμε καταχωρείστε το e-mail σας' %} </h3>
+<p> {% trans 'Θα σας στείλουμε e-mail επιβεβαίωσης για να επαληθεύσετε την ηλεκτρονική σας διεύθυνση' %} </p>
+
+<form method="post">
+    {% csrf_token %}   
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">{% trans 'Εγγραφή!' %}</button>
+</form>
+{% endblock %}

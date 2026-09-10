@@ -1,0 +1,11 @@
+{% extends 'myprofile/page.html' %}
+{% load crispy_forms_tags %}
+
+{% block middle %}
+{{ form.media }}
+<form method="post">
+    {% csrf_token %}
+    {% crispy form %} 
+</form>
+
+{% endblock %}

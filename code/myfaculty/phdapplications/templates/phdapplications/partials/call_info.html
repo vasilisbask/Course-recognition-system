@@ -1,0 +1,8 @@
+{% load i18n %}
+<div class="alert alert-success" role="alert">
+<h3>{% trans 'Πληροφορίες Πρόσκλησης' %} </h3>
+<p>{% trans 'Πρόσκληση' %}: <b>{{ call.title }} </b></p>
+<p>{% trans 'Επιβλέπων' %}: <b>{{ call.supervisor }} </b></p>
+<p>{% trans 'Προθεσμία Υποβολής' %}: <b>{{ call.deadline }} </b></p>
+
+</div>

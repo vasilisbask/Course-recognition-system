@@ -1,0 +1,6 @@
+{% load core_tags %}
+{% for field in fields %}
+    <td>
+        {{ obj|get_attr:field }}
+    </td>
+{% endfor %}

@@ -1,0 +1,64 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Conference Publication</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Article Title</th>
+    <td>{{ conf.title }}</td>
+</tr>
+
+<tr>
+    <th>Authors</th>
+    <td>{{ conf.authors }}</td>
+</tr>
+
+<tr>
+    <th>Conference Title</th>
+    <td>{{ conf.conference_title }}</td>
+</tr>
+
+<tr>
+    <th>Year</th>
+    <td>{{ conf.year }}</td>
+</tr>
+
+<tr>
+    <th>Link</th>
+    <td>
+        {% if conf.link %}
+            <a href="{{ conf.link }}">{{ conf.link }}</a>
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>DOI</th>
+    <td>{{ conf.doi|default:"—" }}</td>
+</tr>
+
+</table>
+
+<h2 class="subsection">Attached PDF</h2>
+
+<table class="metadata-table">
+
+<tr>
+    <th>File</th>
+    <td>
+        {% if conf.pdf %}
+            Attached PDF (included in final PDF)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+{% endblock %}

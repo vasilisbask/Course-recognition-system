@@ -1,0 +1,14 @@
+{% extends 'phdapplications/phdapp.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block upper %}
+<h3> {% trans 'Επισυναπτόμενα' %} </h3>
+
+<div class="alert alert-primary" role="alert">
+<p> {% trans 'Εδώ μπορείτε να υποβάλλετε τα επισυναπτόμενα για την αίτηση σας.' %}</p>
+<p> {% trans 'Βεβαιωθείτε ότι έχει συμπληρώσει έχετε προσθέσει όλες τις συνοδευτικές πληροφορίες (π.χ. πτυχία, κτλ)' %} </p>
+</div>
+{% endblock %}
+{% block middle %}
+{% include 'core/partials/tables.html' %}
+{% endblock %}

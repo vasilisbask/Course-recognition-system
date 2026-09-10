@@ -1,0 +1,28 @@
+{% extends 'phdstuds/page.html' %}
+{% load i18n %}
+{% load core_tags %}
+{% block submenu %}
+{% include 'phdstuds/partials/phdstuds_menu.html' %}
+{% endblock %}
+{% block middle %}
+
+{% if master_headline %}
+<h2> {{ master_headline }} </h2>
+{% endif %}
+
+{% if master_p %}
+<p> {{ master_p }} </p>
+</br></br></br>
+{% endif %}
+{% if master_button %}
+<a href="{{ master_url }}" class="{{ master_class }}"><span class="mto">{{ master_button_icon }}</span>{{ master_text }}</a>
+</br></br></br>
+{% endif %}
+{% if tables %}
+{% for t in tables %}
+{% render_table t %}
+</br></br>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

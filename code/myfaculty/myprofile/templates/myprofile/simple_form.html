@@ -1,0 +1,204 @@
+{% extends 'myprofile/page.html' %}
+{% load i18n %}
+
+{% block middle %}
+<div class="page-title">
+  <p class="section-kicker">{% trans 'Διαχείριση' %}</p>
+  <h1>{{ title }}</h1>
+</div>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags|default:'info' }}" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+{% if form.errors %}
+  <div class="alert alert-danger" role="alert">
+    {% trans 'Παρακαλούμε διορθώστε τα σφάλματα στη φόρμα.' %}
+  </div>
+{% endif %}
+
+<div class="form-surface">
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="mb-3"{% if field.field.required %} data-required-field="{{ field.name }}"{% endif %}>
+        <label class="form-label" for="{{ field.id_for_label }}">
+          {{ field.label }}{% if show_asterisks and field.field.required %} <span class="text-danger">*</span>{% endif %}
+        </label>
+        {% if field.field.widget.input_type == "password" %}
+          <div class="input-group">
+            {{ field }}
+            <button class="btn btn-outline-secondary password-toggle" type="button" data-target="{{ field.id_for_label }}" aria-label="{% trans 'Εμφάνιση συνθηματικού' %}" title="{% trans 'Εμφάνιση συνθηματικού' %}">
+              <span class="mto" aria-hidden="true">visibility</span>
+            </button>
+          </div>
+        {% else %}
+          {{ field }}
+        {% endif %}
+        {% if field.help_text %}
+          <div class="form-text">{{ field.help_text }}</div>
+        {% endif %}
+        {% for error in field.errors %}
+          <div class="text-danger small mt-1">{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+      <div class="text-danger mb-3">{{ error }}</div>
+    {% endfor %}
+    <div class="text-end">
+      <button class="btn btn-primary" type="submit">{% trans 'Αποθήκευση' %}</button>
+    </div>
+  </form>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const language = (document.documentElement.lang || '').toLowerCase();
+    const requiredMsg = language.startsWith('en')
+      ? 'Please fill out this field.'
+      : 'Συμπληρώστε αυτό το πεδίο.';
+    const form = document.querySelector('.form-surface form');
+
+    // Password visibility toggle
+    document.querySelectorAll('.password-toggle').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const input = document.getElementById(button.dataset.target);
+        if (!input) return;
+
+        const show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        const icon = button.querySelector('.mto');
+        if (icon) {
+          icon.textContent = show ? 'visibility_off' : 'visibility';
+        }
+      });
+    });
+
+    if (form) {
+      function getErrorEl(container) {
+          let el = container.querySelector('.js-required-error');
+          if (!el) {
+              el = document.createElement('div');
+              el.className = 'js-required-error';
+              el.style.cssText = 'color:#ef4444;font-size:0.85rem;margin-top:0.3rem;display:none;';
+              container.appendChild(el);
+          }
+          return el;
+      }
+
+      function showError(container, msg) {
+          const el = getErrorEl(container);
+          el.textContent = msg || requiredMsg;
+          el.style.display = 'block';
+      }
+
+      function clearError(container) {
+          const el = container.querySelector('.js-required-error');
+          if (el) el.style.display = 'none';
+          
+          // Also hide backend-rendered field errors if any, so they don't double up
+          container.querySelectorAll('.text-danger.small').forEach(function(backendErr) {
+              backendErr.style.display = 'none';
+          });
+      }
+
+      function validateGroup(group) {
+          // If all active fields in the group are disabled, skip validation
+          const fields = Array.from(group.querySelectorAll('input:not([type="hidden"]), select, textarea'));
+          if (fields.length > 0 && fields.every(f => f.disabled)) {
+              clearError(group);
+              return true;
+          }
+
+          // 1. Checkboxes
+          const checkboxes = Array.from(group.querySelectorAll('input[type="checkbox"]'));
+          if (checkboxes.length > 0) {
+              const hasChecked = checkboxes.some(cb => cb.checked);
+              if (!hasChecked) {
+                  showError(group, requiredMsg);
+                  return false;
+              }
+              clearError(group);
+              return true;
+          }
+
+          // 2. Radios
+          const radios = Array.from(group.querySelectorAll('input[type="radio"]'));
+          if (radios.length > 0) {
+              const hasChecked = radios.some(r => r.checked);
+              if (!hasChecked) {
+                  showError(group, requiredMsg);
+                  return false;
+              }
+              clearError(group);
+              return true;
+          }
+
+          // 3. Standard inputs/selects/textareas
+          const textInputs = Array.from(group.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]), select, textarea'));
+          if (textInputs.length > 0) {
+              const hasEmpty = textInputs.some(input => !input.disabled && input.value.trim() === '');
+              if (hasEmpty) {
+                  showError(group, requiredMsg);
+                  return false;
+              }
+              clearError(group);
+              return true;
+          }
+
+          return true;
+      }
+
+      // Attach live-clear on each group's inputs
+      form.querySelectorAll('[data-required-field]').forEach(function(group) {
+          const inputs = group.querySelectorAll('input, select, textarea');
+          inputs.forEach(function(input) {
+              const eventType = (input.type === 'checkbox' || input.type === 'radio' || input.tagName.toLowerCase() === 'select')
+                  ? 'change'
+                  : 'input';
+              
+              input.addEventListener(eventType, function() {
+                  validateGroup(group);
+              });
+              
+              if (eventType === 'input') {
+                  input.addEventListener('change', function() {
+                      validateGroup(group);
+                  });
+              }
+          });
+      });
+
+      // Submit validation handler
+      form.addEventListener('submit', function(event) {
+          let firstError = null;
+          let formIsValid = true;
+
+          form.querySelectorAll('[data-required-field]').forEach(function(group) {
+              const groupIsValid = validateGroup(group);
+              if (!groupIsValid) {
+                  formIsValid = false;
+                  if (!firstError) {
+                      firstError = group;
+                  }
+              }
+          });
+
+          if (!formIsValid) {
+              event.preventDefault();
+              event.stopPropagation();
+              if (firstError) {
+                  firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  const focusTarget = firstError.querySelector('input:not([type="hidden"]), select, textarea');
+                  if (focusTarget) {
+                      setTimeout(function() { focusTarget.focus(); }, 300);
+                  }
+              }
+          }
+      });
+    }
+  });
+</script>
+{% endblock %}

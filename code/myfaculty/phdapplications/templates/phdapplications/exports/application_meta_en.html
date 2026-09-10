@@ -1,0 +1,96 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Application Information</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Applicant</th>
+    <td>{{ application.applicant }}</td>
+</tr>
+
+<tr>
+    <th>Call</th>
+    <td>{{ application.call|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Status</th>
+    <td>{{ application.get_status_display }}</td>
+</tr>
+
+<tr>
+    <th>Submission Date</th>
+    <td>{{ application.date_submitted|date:"d/m/Y H:i"|default:"—" }}</td>
+</tr>
+
+<tr>
+    <th>Reference Letter Number</th>
+    <td>{{ application.rf_num|default:"—" }}</td>
+</tr>
+
+</table>
+
+
+<h2 class="subsection">Attached Documents</h2>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Doctoral Research Plan</th>
+    <td>
+        {% if application.doctoral_plan %}
+            Attached document (included in the final PDF)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Declaration of Non-Enlistment</th>
+    <td>
+        {% if application.declaration_not_enlisted %}
+            Attached document
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Curriculum Vitae</th>
+    <td>
+        {% if application.cv %}
+            Attached document
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Additional Document</th>
+    <td>
+        {% if application.additional_doc %}
+            Attached document
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+
+{% if application.notes %}
+<h2 class="subsection">Notes</h2>
+
+<div class="text-block">
+    {{ application.notes|linebreaks }}
+</div>
+{% endif %}
+
+{% endblock %}

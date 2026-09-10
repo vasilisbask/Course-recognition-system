@@ -1,0 +1,12 @@
+
+{% load i18n %}
+{% load core_tags %}
+{% if result|get_item 'errors' %}
+<div class="alert alert-success" role="alert">
+    <p>{% trans 'Σφάλματα κατά την επαλήθευση της αίτηση σας:'}</p>
+    <ul>
+    {% for error in result|get_item:'errors' %}
+    <li class="li-error"> error.msg </li>
+    {% endfor %}
+    </ul>    
+</div>

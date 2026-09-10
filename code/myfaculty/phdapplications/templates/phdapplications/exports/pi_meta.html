@@ -1,0 +1,138 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Προσωπικά Στοιχεία</h1>
+
+<div class="profile-container">
+
+    {% if personal.pic %}
+    <div class="photo">
+        <img src="{{ personal.pic.path }}" alt="Photo">
+    </div>
+    {% endif %}
+
+    <table class="metadata-table">
+
+        <tr>
+            <th>Όνομα</th>
+            <td>{{ personal.given_name|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Επώνυμο</th>
+            <td>{{ personal.surname|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Πατρώνυμο</th>
+            <td>{{ personal.fathers_name|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Φύλο</th>
+            <td>{{ personal.get_gender_display|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Ημερομηνία Γέννησης</th>
+            <td>{{ personal.date_of_birth|date:"d/m/Y"|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Τμήμα</th>
+            <td>{{ personal.department|default:"—" }}</td>
+        </tr>
+
+        <tr>
+            <th>Πρόγραμμα Σπουδών</th>
+            <td>{{ personal.program|default:"—" }}</td>
+        </tr>
+
+    </table>
+</div>
+
+
+<h2 class="subsection">Στοιχεία Επικοινωνίας</h2>
+
+<table class="metadata-table">
+
+    <tr>
+        <th>Email</th>
+        <td>{{ personal.email|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Κινητό Τηλέφωνο</th>
+        <td>{{ personal.mobile_phone|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Σταθερό Τηλέφωνο</th>
+        <td>{{ personal.home_phone|default:"—" }}</td>
+    </tr>
+
+</table>
+
+
+<h2 class="subsection">Διεύθυνση Κατοικίας</h2>
+
+<table class="metadata-table">
+
+    <tr>
+        <th>Οδός</th>
+        <td>{{ personal.home_address_street }} {{ personal.home_address_no }}</td>
+    </tr>
+
+    <tr>
+        <th>Τ.Κ.</th>
+        <td>{{ personal.home_address_po_box|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Πόλη</th>
+        <td>{{ personal.home_address_city|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Χώρα</th>
+        <td>{{ personal.home_address_country|default:"—" }}</td>
+    </tr>
+
+</table>
+
+
+<h2 class="subsection">Διεύθυνση Εργασίας</h2>
+
+<table class="metadata-table">
+
+    <tr>
+        <th>Οδός</th>
+        <td>{{ personal.work_address_street }} {{ personal.work_address_no }}</td>
+    </tr>
+
+    <tr>
+        <th>Τ.Κ.</th>
+        <td>{{ personal.work_address_po_box|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Πόλη</th>
+        <td>{{ personal.work_address_city|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Χώρα</th>
+        <td>{{ personal.work_address_country|default:"—" }}</td>
+    </tr>
+
+    <tr>
+        <th>Τηλέφωνο</th>
+        <td>{{ personal.work_phone|default:"—" }}</td>
+    </tr>
+
+</table>
+
+
+
+{% endblock %}

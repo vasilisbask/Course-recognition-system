@@ -1,0 +1,28 @@
+{% load crispy_forms_field %}
+{% load core_tags %}
+
+{% for widget in field.subwidgets %}
+
+{% if field.value and field.value.url %}
+<div class="mb-2">
+    <a href="{{ field.value.url }}"
+       class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1"
+       download
+       title="{{ field.value|get_filename }}">
+        <span class="mto" style="font-size:1.1rem">download</span>
+        <span>{{ field.value|get_filename }}</span>
+    </a>
+</div>
+{% endif %}
+
+<div{% if field.errors %} class="is-invalid"{% endif %}>
+    <input type="{{ widget.data.type }}"
+           name="{{ widget.data.name }}"
+           class="form-control{% if field.errors %} is-invalid{% endif %}"
+           {% if field.field.disabled %} disabled{% endif %}
+           {% for name, value in widget.data.attrs.items %}{% if name != 'required' and name != 'aria-required' and value is not False and name != 'class' %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}{% endfor %}
+           {% if field.field.required and not field.value %} required aria-required="true"{% endif %}>
+    {% include 'bootstrap5/layout/help_text_and_errors.html' %}
+</div>
+
+{% endfor %}

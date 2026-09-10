@@ -1,0 +1,115 @@
+
+{% load core_tags %}
+{% load i18n %}
+<script>
+    $(document).ready(function() {
+      $('#{{ table_id }}').DataTable({
+        "lengthChange": false,
+        "pageLength": {{ page_length }},
+        "order" : [[ 0, "desc" ]],
+        language: {
+          search: "{% trans 'Αναζήτηση' %}",
+          info: "_START_ - _END_ ({% trans 'σύνολο:' %} _TOTAL_ {% trans 'εγγραφές' %})",
+          paginate: {
+            previous: "{% trans 'Προηγούμενο' %}",
+            next: "{% trans 'Επόμενο' %}",
+          } 
+        }    
+      }
+      );
+    });
+  </script>
+
+<div class="row">
+  <div class="col">
+    <h3> {{ table_title }}</h3>
+  </div>
+  {% if create_button %}
+  <div class="d-flex justify-content-end">
+    {% if next %}
+    <a href="{{ create_url }}?next={{ next }}" class="{{ create_button_class }}" >
+      <span class="mto">{{ create_button_icon }}</span> {{ create_text }}
+    </a>
+    {% else %}
+    <a href="{{ create_url }}" class="{{ create_button_class }}" >
+      <span class="mto">{{ create_button_icon }}</span> {{ create_text }}
+    </a>    
+    {% endif %}
+  </div>
+  {% endif %}
+</div> 
+</br>
+{% if objects %}  
+  <table id="{{ table_id }}">
+    <thead>
+      <tr>
+  {% for field in fields %}
+      <th>
+        {{ headers|get_item:field }}
+      </th>
+  {% endfor %}
+  {% if update_buttons %} 
+  <th></th>
+  {% endif %}  
+  {% if extra_buttons %} 
+  <th></th>
+  {% endif %}    
+  {% if extra_buttons2 %} 
+  <th></th>
+  {% endif %}     
+  {% if delete_buttons %} 
+  <th></th>
+  {% endif %}  
+  </tr>   
+    </thead>
+  {% for object in objects %}
+    <tr>
+    {% for field in fields %}
+      <td>
+        {{ object|get_attr:field }}
+      </td>
+    {% endfor %}
+    {% if update_buttons %} 
+    <td style="text-align: right;">
+      {% if next %}
+      <a href="{{ object.update_url }}?next={{ next }}" class="{{ update_button_class }}">
+      {% else %}
+      <a href="{{ object.update_url }}" class="{{ update_button_class }}">
+      {% endif %}      
+      <span class="mto">{{ update_button_icon }}</span>
+      {{ update_text }}</a>
+    </td>
+    {% endif %}  
+    {% if extra_buttons %} 
+    <td style="text-align: right;">
+      {% if next %}
+      <a href="{{ object.extra_url }}?next={{ next }}" class="{{ extra_button_class }}">
+      {% else %}
+      <a href="{{ object.extra_url }}" class="{{ extra_button_class }}">
+      {% endif %}      
+      <span class="mto">{{ extra_button_icon }}</span>
+      {{ extra_text }}</a>
+    </td>
+    {% endif %}
+    {% if extra_buttons2 %} 
+    <td style="text-align: right;">
+      {% if next %}
+      <a href="{{ object.extra_url2 }}?next={{ next }}" class="{{ extra_button_class2 }}">
+      {% else %}
+      <a href="{{ object.extra_url2 }}" class="{{ extra_button_class2 }}">
+      {% endif %}      
+      <span class="mto">{{ extra_button_icon2 }}</span>
+      {{ extra_text2 }}</a>
+    </td>
+    {% endif %}  
+    {% if delete_buttons %} 
+    <td>
+
+    </td>
+    {% endif %}  
+  </tr>
+  {% endfor %}
+  </table>
+  {% else %}
+  <p> {{ empty_text }}</p>
+  {% endif %}

@@ -1,0 +1,3321 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-03 15:44+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: core/forms.py:14
+msgid "Κάντε click στο πεδίο και επιλέξτε."
+msgstr "Click on the field and select."
+
+#: core/forms.py:15
+msgid "Υποβολή"
+msgstr "Submit"
+
+#: core/templates/core/partials/file_input.html:20
+#: core/templates/core/partials/file_input_old.html:20
+msgid "Δεν υπάρχει αρχείο"
+msgstr "No file exists"
+
+#: core/templates/core/partials/file_input.html:47
+msgid "Αντικατάσταση"
+msgstr "Replace"
+
+#: core/templates/core/partials/file_input.html:49
+#: core/templates/core/partials/file_input2.html:27
+#: core/templates/core/partials/file_input_old.html:43
+msgid "Επιλέξτε αρχείο"
+msgstr "Select file"
+
+#: core/templates/core/partials/file_input.html:110
+#: core/templates/core/partials/file_input_old.html:104
+msgid "Θα χρησιμοποιηθεί το αρχείο: "
+msgstr "The file to be used is: "
+
+#: core/templates/core/partials/file_input2.html:88
+msgid "Θα αντικατασταθεί με:"
+msgstr "Will be replaced with:"
+
+#: core/templates/core/partials/table.html:11
+msgid "Αναζήτηση"
+msgstr "Search"
+
+#: core/templates/core/partials/table.html:12
+msgid "σύνολο:"
+msgstr "total:"
+
+#: core/templates/core/partials/table.html:12
+msgid "εγγραφές"
+msgstr "records"
+
+#: core/templates/core/partials/table.html:14
+msgid "Προηγούμενο"
+msgstr "Previous"
+
+#: core/templates/core/partials/table.html:15
+msgid "Επόμενο"
+msgstr "Next"
+
+#: core/templates/core/show_object.html:18
+msgid ""
+"Παρακαλούμε διορθώστε τα σφάλματα στην φόρμα όπως εμφανίζονται παρακάτω."
+msgstr "Please correct the errors in the form as shown below."
+
+#: core/templates/core/show_object.html:54
+#: phdapplications/templates/phdapplications/partials/candidate_app_menu.html:45
+msgid "Εντάξει"
+msgstr "OK"
+
+#: core/templates/core/show_object.html:54
+#: core/templates/core/show_object.html:71
+#: phdapplications/templates/phdapplications/partials/candidate_app_menu.html:45
+msgid "Άκυρο"
+msgstr "Cancel"
+
+#: core/templates/core/show_object.html:69
+msgid "Είστε σίγουροι; "
+msgstr "Are you sure? "
+
+#: core/templates/core/show_object.html:70
+msgid "Διαγραφή!"
+msgstr "Delete!"
+
+#: core/views.py:22
+msgid "Καταχωρήσεις"
+msgstr "entries"
+
+#: core/views.py:27 core/views.py:227
+msgid "Νέα καταχώρηση"
+msgstr "New entry"
+
+#: core/views.py:32 phdapplications/views.py:783 phdapplications/views.py:1086
+#: phdstuds/views.py:162 phdstuds/views.py:884
+msgid "Προσωπικά Στοιχεία"
+msgstr "Personal Information"
+
+#: core/views.py:38
+msgid "Επιβεβαίωση"
+msgstr "Confirm"
+
+#: core/views.py:39
+msgid "Είστε σίγουροι ότι θέλετε να αποθηκεύσετε τις αλλαγές;"
+msgstr "Are you sure you want to save the changes?"
+
+#: core/views.py:40
+msgid "Όχι"
+msgstr "No"
+
+#: core/views.py:41
+msgid "Ναι"
+msgstr "Yes"
+
+#: core/views.py:50 myprofile/forms.py:64
+msgid "Ενημέρωση"
+msgstr "Update"
+
+#: core/views.py:57
+msgid "Εικόνα"
+msgstr "Overview"
+
+#: core/views.py:63
+msgid "Στοχεία"
+msgstr "Info"
+
+#: core/views.py:69
+#: phdapplications/templates/phdapplications/show_applicant_object.html:15
+#: phdstuds/models.py:49
+msgid "Διαγραφή"
+msgstr "Delete"
+
+#: core/views.py:72
+msgid "Δεν υπάρχουν καταχωρήσεις"
+msgstr "No entries found"
+
+#: core/views.py:78
+msgid "Ενημέρωση στοιχείων"
+msgstr "Update data"
+
+#: core/widgets.py:11
+msgid "Επιλέξτε"
+msgstr "Select"
+
+#: course_recognition/forms.py:36 course_recognition/models.py:70
+#: course_recognition/templates/course_recognition/admin_request_list.html:21
+#: course_recognition/templates/course_recognition/form.html:30
+#: course_recognition/templates/course_recognition/request_detail.html:30
+#: myprofile/templates/myprofile/admin_student_list.html:27
+msgid "Ονοματεπώνυμο"
+msgstr "Full name"
+
+#: course_recognition/forms.py:37 course_recognition/models.py:79
+#: course_recognition/templates/course_recognition/admin_request_list.html:24
+#: course_recognition/templates/course_recognition/form.html:42
+#: course_recognition/templates/course_recognition/request_detail.html:53
+#: course_recognition/templates/course_recognition/request_list.html:49
+msgid "Μάθημα προς αναγνώριση"
+msgstr "Course to recognize"
+
+#: course_recognition/forms.py:38
+msgid "Τίτλος περασμένου μαθήματος"
+msgstr "Previously completed course title"
+
+#: course_recognition/forms.py:39 course_recognition/models.py:88
+#: course_recognition/templates/course_recognition/form.html:66
+#: course_recognition/templates/course_recognition/request_detail.html:74
+msgid "Ίδρυμα"
+msgstr "Institution"
+
+#: course_recognition/forms.py:40 course_recognition/models.py:89
+#: course_recognition/templates/course_recognition/form.html:70
+#: course_recognition/templates/course_recognition/request_detail.html:78
+#: myprofile/forms.py:32 phdapplications/forms.py:93
+msgid "Σχολή"
+msgstr "School"
+
+#: course_recognition/forms.py:41 course_recognition/models.py:90
+#: course_recognition/templates/course_recognition/form.html:74
+#: course_recognition/templates/course_recognition/request_detail.html:82
+#: phdapplications/forms.py:94 phdapplications/views.py:65
+#: phdapplications/views.py:86 phdapplications/views.py:100
+#: phdapplications/views.py:268 phdapplications/views.py:521
+#: phdapplications/views.py:541 phdapplications/views.py:633
+#: phdapplications/views.py:806 phdapplications/views.py:828
+#: phdapplications/views.py:848 phdapplications/views.py:868
+#: phdapplications/views.py:973 phdstuds/forms.py:88
+msgid "Τμήμα"
+msgstr "Department"
+
+#: course_recognition/forms.py:42 course_recognition/models.py:91
+#: course_recognition/templates/course_recognition/form.html:78
+#: course_recognition/templates/course_recognition/request_detail.html:86
+msgid "Διδάσκοντες"
+msgstr "Instructors"
+
+#: course_recognition/forms.py:43
+#: course_recognition/templates/course_recognition/form.html:82
+#: course_recognition/templates/course_recognition/request_detail.html:90
+msgid "Διδακτικό έτος"
+msgstr "Academic year"
+
+#: course_recognition/forms.py:44
+#: course_recognition/templates/course_recognition/form.html:86
+#: course_recognition/templates/course_recognition/request_detail.html:94
+msgid "Διδακτικό εξάμηνο"
+msgstr "Academic semester"
+
+#: course_recognition/forms.py:45
+#: course_recognition/templates/course_recognition/form.html:98
+#: course_recognition/templates/course_recognition/request_detail.html:106
+msgid "Βαθμός θεωρίας"
+msgstr "Theory grade"
+
+#: course_recognition/forms.py:46
+#: course_recognition/templates/course_recognition/form.html:102
+#: course_recognition/templates/course_recognition/request_detail.html:110
+msgid "Βαθμός εργαστηρίου"
+msgstr "Laboratory grade"
+
+#: course_recognition/forms.py:47
+#: course_recognition/templates/course_recognition/form.html:106
+#: course_recognition/templates/course_recognition/request_detail.html:114
+msgid "Μέσος όρος"
+msgstr "Average grade"
+
+#: course_recognition/forms.py:48
+#: course_recognition/templates/course_recognition/form.html:110
+#: course_recognition/templates/course_recognition/request_detail.html:118
+msgid "Ώρες θεωρίας ανά εβδομάδα"
+msgstr "Theory hours per week"
+
+#: course_recognition/forms.py:49
+#: course_recognition/templates/course_recognition/form.html:114
+#: course_recognition/templates/course_recognition/request_detail.html:122
+msgid "Ώρες εργαστηρίου ανά εβδομάδα"
+msgstr "Laboratory hours per week"
+
+#: course_recognition/forms.py:50 course_recognition/models.py:112
+#: course_recognition/models.py:116
+#: course_recognition/templates/course_recognition/form.html:126
+#: course_recognition/templates/course_recognition/request_detail.html:134
+msgid "Περιγραφή μαθήματος"
+msgstr "Course description"
+
+#: course_recognition/forms.py:51 course_recognition/models.py:113
+#: course_recognition/templates/course_recognition/form.html:130
+#: course_recognition/templates/course_recognition/request_detail.html:138
+msgid "URL μαθήματος"
+msgstr "Course URL"
+
+#: course_recognition/forms.py:52
+#: course_recognition/templates/course_recognition/form.html:140
+#: course_recognition/templates/course_recognition/request_detail.html:148
+msgid "Αρχείο περιγραφής μαθήματος"
+msgstr "Course description file"
+
+#: course_recognition/forms.py:53
+#: course_recognition/templates/course_recognition/form.html:144
+#: course_recognition/templates/course_recognition/request_detail.html:152
+msgid "Αρχείο αναλυτικής βαθμολογίας"
+msgstr "Transcript file"
+
+#: course_recognition/forms.py:54
+#: course_recognition/templates/course_recognition/form.html:148
+#: course_recognition/templates/course_recognition/request_detail.html:156
+msgid "Αρχείο πτυχίου"
+msgstr "Degree file"
+
+#: course_recognition/forms.py:55
+#: course_recognition/templates/course_recognition/form.html:152
+msgid "Σχόλια αιτούντα"
+msgstr "Applicant comments"
+
+#: course_recognition/forms.py:59 course_recognition/models.py:238
+msgid "Θεωρητικό μέρος"
+msgstr "Theoretical part"
+
+#: course_recognition/forms.py:60 course_recognition/models.py:244
+msgid "Εργαστηριακό μέρος"
+msgstr "Laboratory part"
+
+#: course_recognition/forms.py:61 course_recognition/models.py:250
+msgid "Εγκρίνεται"
+msgstr "Approved"
+
+#: course_recognition/forms.py:62 course_recognition/models.py:252
+msgid "Βαθμός αναγνώρισης"
+msgstr "Recognition grade"
+
+#: course_recognition/forms.py:63
+msgid "Σχόλια"
+msgstr "Comments"
+
+#: course_recognition/forms.py:99
+msgid "Το μάθημα δεν ανήκει στο πρόγραμμα σπουδών και το εξάμηνο του φοιτητή."
+msgstr "The course does not belong to the student's study program and semester."
+
+#: course_recognition/forms.py:104
+msgid "Δεν βρέθηκαν μαθήματα για το πρόγραμμα σπουδών και το εξάμηνο του φοιτητή."
+msgstr "No courses were found for the student's study program and semester."
+
+#: course_recognition/forms.py:114 course_recognition/forms.py:296
+#: course_recognition/templates/course_recognition/form.html:61
+#: course_recognition/templates/course_recognition/request_detail.html:65
+msgid "Στοιχεία περασμένου μαθήματος"
+msgstr "Previously completed course details"
+
+#: course_recognition/forms.py:128 course_recognition/forms.py:307
+#: course_recognition/templates/course_recognition/form.html:93
+#: course_recognition/templates/course_recognition/request_detail.html:101
+msgid "Βαθμολογία και ώρες"
+msgstr "Grades and hours"
+
+#: course_recognition/forms.py:138 course_recognition/forms.py:317
+#: course_recognition/templates/course_recognition/form.html:121
+#: course_recognition/templates/course_recognition/request_detail.html:129
+msgid "Τεκμηρίωση"
+msgstr "Documentation"
+
+#: course_recognition/forms.py:153 course_recognition/forms.py:184
+#: course_recognition/forms.py:326
+#: myprofile/templates/myprofile/simple_form.html:50
+msgid "Αποθήκευση"
+msgstr "Save"
+
+#: course_recognition/forms.py:159
+msgid "Το μάθημα δεν ανήκει στο τμήμα του φοιτητή."
+msgstr "The course does not belong to the student's department."
+
+#: course_recognition/forms.py:166
+msgid "Το μάθημα δεν ανήκει στο πρόγραμμα σπουδών του φοιτητή."
+msgstr "The course does not belong to the student's study program."
+
+#: course_recognition/forms.py:168
+msgid "Το μάθημα δεν ανήκει στο εξάμηνο του φοιτητή."
+msgstr "The course does not belong to the student's semester."
+
+#: course_recognition/forms.py:175 course_recognition/forms.py:265
+#: course_recognition/models.py:136
+#: course_recognition/templates/course_recognition/admin_request_list.html:27
+#: course_recognition/templates/course_recognition/form.html:54
+#: course_recognition/templates/course_recognition/request_detail.html:46
+#: course_recognition/templates/course_recognition/request_list.html:52
+#: course_recognition/templates/course_recognition/request_list.html:95
+#: course_recognition/views.py:278
+msgid "Αριθμός πρωτοκόλλου"
+msgstr "Protocol number"
+
+#: course_recognition/forms.py:191
+#: course_recognition/templates/course_recognition/request_detail.html:58
+#: phdstuds/forms.py:59 phdstuds/views.py:392 phdstuds/views.py:472
+#: phdstuds/views.py:756 phdstuds/views.py:963
+msgid "Μάθημα"
+msgstr "Course"
+
+#: course_recognition/forms.py:196
+msgid "Υπεύθυνοι καθηγητές"
+msgstr "Responsible professors"
+
+#: course_recognition/forms.py:228
+msgid "Αποθήκευση ανάθεσης"
+msgstr "Save assignment"
+
+#: course_recognition/forms.py:266 course_recognition/models.py:142
+#: course_recognition/templates/course_recognition/admin_request_list.html:26
+#: course_recognition/templates/course_recognition/form.html:50
+#: course_recognition/templates/course_recognition/request_detail.html:42
+#: course_recognition/templates/course_recognition/request_list.html:51
+#: phdapplications/forms.py:61
+#: phdapplications/templates/phdapplications/dashboard.html:90
+#: phdapplications/templates/phdapplications/partials/app_info.html:8
+#: phdapplications/views.py:575 phdapplications/views.py:913
+#: phdstuds/views.py:119 phdstuds/views.py:521 phdstuds/views.py:543
+msgid "Κατάσταση"
+msgstr "Status"
+
+#: course_recognition/forms.py:287
+#: course_recognition/templates/course_recognition/form.html:25
+msgid "Στοιχεία αίτησης"
+msgstr "Request details"
+
+#: course_recognition/forms.py:360
+msgid "Υποβολή εισήγησης"
+msgstr "Submit recommendation"
+
+#: course_recognition/models.py:32 phdapplications/models.py:328
+msgid "Υποβλήθηκε"
+msgstr "Submitted"
+
+#: course_recognition/models.py:33
+msgid "Υπό εξέταση"
+msgstr "Under review"
+
+msgid "Ολοκληρωμένες"
+msgstr "Completed"
+
+msgid "Μη ενεργές"
+msgstr "Inactive"
+
+msgid "Όλες"
+msgstr "All"
+
+msgid "Φίλτρα αιτήσεων"
+msgstr "Request filters"
+
+#: course_recognition/models.py:34 course_recognition/views.py:385
+msgid "Εγκρίθηκε"
+msgstr "Approved"
+
+#: course_recognition/models.py:35 course_recognition/views.py:385
+msgid "Απορρίφθηκε"
+msgstr "Rejected"
+
+#: course_recognition/models.py:36
+msgid "Αποσύρθηκε / Μη ενεργή"
+msgstr "Withdrawn / Inactive"
+
+#: course_recognition/models.py:43
+msgid "Χειμερινό"
+msgstr "Winter"
+
+#: course_recognition/models.py:44
+msgid "Εαρινό"
+msgstr "Spring"
+
+#: course_recognition/models.py:54
+msgid "1ο"
+msgstr "1st"
+
+#: course_recognition/models.py:55
+msgid "2ο"
+msgstr "2nd"
+
+#: course_recognition/models.py:56
+msgid "3ο"
+msgstr "3rd"
+
+#: course_recognition/models.py:57
+msgid "4ο"
+msgstr "4th"
+
+#: course_recognition/models.py:58
+msgid "5ο"
+msgstr "5th"
+
+#: course_recognition/models.py:65
+#: course_recognition/templates/course_recognition/request_list.html:46
+msgid "Φοιτητής"
+msgstr "Student"
+
+#: course_recognition/models.py:84
+msgid "Τίτλος μαθήματος που έχει διδαχθεί στο άλλο πρόγραμμα σπουδών"
+msgstr "Title of the course completed in the other study program"
+
+#: course_recognition/models.py:94
+msgid "Έτος στο οποίο διδάχθηκε"
+msgstr "Year in which the course was taught"
+
+#: course_recognition/models.py:100
+msgid "Εξάμηνο στο οποίο διδάχθηκε"
+msgstr "Semester in which the course was taught"
+
+#: course_recognition/models.py:105
+msgid "Βαθμός θεωρητικής εξέτασης"
+msgstr "Theory examination grade"
+
+#: course_recognition/models.py:106
+msgid "Βαθμός εργαστηριακής εξέτασης"
+msgstr "Laboratory examination grade"
+
+#: course_recognition/models.py:107
+msgid "Μέσος όρος βαθμολογίας"
+msgstr "Average grade"
+
+#: course_recognition/models.py:109
+msgid "Αριθμός ωρών ανά εβδομάδα - θεωρία"
+msgstr "Hours per week - theory"
+
+#: course_recognition/models.py:110
+msgid "Αριθμός ωρών ανά εβδομάδα - εργαστήριο"
+msgstr "Hours per week - laboratory"
+
+#: course_recognition/models.py:122
+msgid "Αναλυτική βαθμολογία"
+msgstr "Transcript"
+
+#: course_recognition/models.py:128
+msgid "Πτυχίο"
+msgstr "Degree"
+
+#: course_recognition/models.py:133
+#: course_recognition/templates/course_recognition/request_detail.html:160
+msgid "Σχόλια φοιτητή"
+msgstr "Student comments"
+
+#: course_recognition/models.py:148 course_recognition/models.py:261
+msgid "Ημερομηνία δημιουργίας"
+msgstr "Creation date"
+
+#: course_recognition/models.py:149 course_recognition/models.py:262
+msgid "Ημερομηνία ενημέρωσης"
+msgstr "Last updated"
+
+#: course_recognition/models.py:154
+msgid "Αίτηση αναγνώρισης μαθήματος"
+msgstr "Course recognition request"
+
+#: course_recognition/models.py:155 course_recognition/views.py:231
+msgid "Αιτήσεις αναγνώρισης μαθημάτων"
+msgstr "Course recognition requests"
+
+#: course_recognition/models.py:185
+msgid "Το μάθημα προς αναγνώριση πρέπει να ανήκει στο τμήμα του φοιτητή."
+msgstr "The course to recognize must belong to the student's department."
+
+#: course_recognition/models.py:196
+msgid "Χωρίς φοιτητή"
+msgstr "No student"
+
+#: course_recognition/models.py:197
+msgid "Χωρίς μάθημα"
+msgstr "No course"
+
+#: course_recognition/models.py:216
+msgid "Διδάχθηκε σε συμβατό επίπεδο"
+msgstr "Taught at a compatible level"
+
+#: course_recognition/models.py:217
+msgid "Δεν διδάχθηκε σε συμβατό επίπεδο"
+msgstr "Not taught at a compatible level"
+
+#: course_recognition/models.py:218
+msgid "Δεν εφαρμόζεται"
+msgstr "Not applicable"
+
+#: course_recognition/models.py:224
+msgid "Αίτηση αναγνώρισης"
+msgstr "Recognition request"
+
+#: course_recognition/models.py:233
+msgid "Καθηγητής"
+msgstr "Professor"
+
+#: course_recognition/models.py:254
+msgid "Σχόλια καθηγητή"
+msgstr "Professor comments"
+
+#: course_recognition/models.py:257
+msgid "Συμπληρώθηκε από γραμματεία"
+msgstr "Completed by the secretariat"
+
+#: course_recognition/models.py:267
+msgid "Εισήγηση αναγνώρισης μαθήματος"
+msgstr "Course recognition recommendation"
+
+#: course_recognition/models.py:268
+msgid "Εισηγήσεις αναγνώρισης μαθημάτων"
+msgstr "Course recognition recommendations"
+
+#: course_recognition/models.py:283
+msgid "Ο βαθμός αναγνώρισης είναι υποχρεωτικός όταν η εισήγηση εγκρίνεται."
+msgstr "The recognition grade is required when the recommendation is approved."
+
+#: course_recognition/templates/course_recognition/admin_request_list.html:20
+#: course_recognition/templates/course_recognition/request_list.html:44
+msgid "ID"
+msgstr "ID"
+
+#: course_recognition/templates/course_recognition/admin_request_list.html:22
+#: course_recognition/templates/course_recognition/form.html:34
+#: course_recognition/templates/course_recognition/request_detail.html:34
+#: course_recognition/templates/course_recognition/request_list.html:47
+#: myprofile/forms_admin.py:128
+#: myprofile/templates/myprofile/admin_student_list.html:29
+#: phdstuds/forms.py:17
+msgid "Αριθμός μητρώου"
+msgstr "Registration number"
+
+msgid "Ο αριθμός μητρώου πρέπει να περιέχει μόνο αριθμούς."
+msgstr "The registration number must contain digits only."
+
+msgid "Ο κωδικός πρέπει να περιέχει τουλάχιστον 8 χαρακτήρες και:"
+msgstr "The password must contain at least 8 characters and:"
+
+msgid "1 λατινικό κεφαλαίο γράμμα"
+msgstr "1 uppercase Latin letter"
+
+msgid "1 λατινικό πεζό γράμμα"
+msgstr "1 lowercase Latin letter"
+
+msgid "1 αριθμό από 0 έως 9"
+msgstr "1 digit from 0 to 9"
+
+msgid "2 ειδικούς χαρακτήρες από {}!@#$%^&*()-+"
+msgstr "2 special characters from {}!@#$%^&*()-+"
+
+msgid "Επιτρέπονται μόνο λατινικά γράμματα, αριθμοί και οι παραπάνω ειδικοί χαρακτήρες."
+msgstr "Only Latin letters, digits, and the special characters above are allowed."
+
+#: course_recognition/templates/course_recognition/admin_request_list.html:23
+msgid "Email φοιτητή"
+msgstr "Student Email"
+
+#: course_recognition/templates/course_recognition/admin_request_list.html:25
+#: course_recognition/templates/course_recognition/form.html:46
+#: course_recognition/templates/course_recognition/request_detail.html:70
+#: course_recognition/templates/course_recognition/request_list.html:50
+msgid "Περασμένο μάθημα"
+msgstr "Previously completed course"
+
+#: course_recognition/templates/course_recognition/admin_request_list.html:28
+#: course_recognition/templates/course_recognition/request_list.html:53
+#: myprofile/templates/myprofile/admin_secretariat_list.html:31
+#: myprofile/templates/myprofile/admin_student_list.html:32
+msgid "Ενέργειες"
+msgstr "Actions"
+
+#: course_recognition/templates/course_recognition/admin_request_list.html:51
+#: course_recognition/templates/course_recognition/request_detail.html:13
+#: course_recognition/templates/course_recognition/request_list.html:83
+#: myprofile/templates/myprofile/admin_secretariat_list.html:56
+#: myprofile/templates/myprofile/admin_student_list.html:46
+msgid "Επεξεργασία"
+msgstr "Edit"
+
+#: course_recognition/templates/course_recognition/admin_request_list.html:58
+#: course_recognition/templates/course_recognition/request_list.html:117
+msgid "Δεν υπάρχουν αιτήσεις."
+msgstr "There are no requests."
+
+#: course_recognition/templates/course_recognition/course_assignment.html:7
+msgid "Γραμματεία"
+msgstr "Secretariat"
+
+#: course_recognition/templates/course_recognition/course_assignment.html:19
+#: course_recognition/templates/course_recognition/form.html:19
+#: myprofile/templates/myprofile/simple_form.html:18
+msgid "Παρακαλούμε διορθώστε τα σφάλματα στη φόρμα."
+msgstr "Please correct the errors in the form."
+
+#: course_recognition/templates/course_recognition/form.html:7
+#: course_recognition/templates/course_recognition/request_detail.html:7
+#: course_recognition/templates/course_recognition/request_list.html:6
+msgid "Αναγνώριση μαθημάτων"
+msgstr "Course recognition"
+
+#: course_recognition/templates/course_recognition/form.html:38
+#: course_recognition/templates/course_recognition/request_detail.html:38
+#: myprofile/forms.py:49 myprofile/forms_admin.py:51
+#: myprofile/forms_admin.py:130
+#: myprofile/templates/myprofile/admin_secretariat_list.html:29
+#: myprofile/templates/myprofile/admin_student_list.html:30
+#: phdapplications/forms.py:46 phdstuds/forms.py:16 phdstuds/forms.py:89
+#: phdstuds/views.py:183
+msgid "Πρόγραμμα Σπουδών"
+msgstr "Study Program"
+
+#: course_recognition/templates/course_recognition/form.html:133
+#: course_recognition/templates/course_recognition/request_detail.html:141
+msgid "Άνοιγμα συνδέσμου"
+msgstr "Open link"
+
+#: course_recognition/templates/course_recognition/form.html:141
+#: course_recognition/templates/course_recognition/form.html:145
+#: course_recognition/templates/course_recognition/form.html:149
+#: course_recognition/templates/course_recognition/request_detail.html:149
+#: course_recognition/templates/course_recognition/request_detail.html:153
+#: course_recognition/templates/course_recognition/request_detail.html:157
+msgid "Λήψη αρχείου"
+msgstr "Download file"
+
+#: course_recognition/templates/course_recognition/request_detail.html:8
+msgid "Προβολή αίτησης"
+msgstr "Request details"
+
+#: course_recognition/templates/course_recognition/request_detail.html:25
+msgid "Στοιχεία φοιτητή"
+msgstr "Student details"
+
+#: course_recognition/templates/course_recognition/request_list.html:18
+#, python-format
+msgid "%(total)s αίτηση"
+msgid_plural "%(total)s αιτήσεις"
+msgstr[0] "%(total)s request"
+msgstr[1] "%(total)s requests"
+
+#: course_recognition/templates/course_recognition/request_list.html:24
+msgid "Νέα αίτηση"
+msgstr "New request"
+
+#: course_recognition/templates/course_recognition/request_list.html:30
+msgid "Ανάθεση μαθημάτων"
+msgstr "Course assignment"
+
+#: course_recognition/templates/course_recognition/request_list.html:89
+#: course_recognition/templates/course_recognition/request_list.html:100
+#: phdstuds/forms.py:82
+msgid "Εισήγηση"
+msgstr "Recommendation"
+
+#: course_recognition/templates/course_recognition/request_list.html:102
+msgid "Να σημειωθεί η αίτηση ως μη ενεργή;"
+msgstr "Mark this request as inactive?"
+
+#: course_recognition/templates/course_recognition/request_list.html:106
+msgid "Μη ενεργή"
+msgstr "Inactive"
+
+#: course_recognition/views.py:120
+msgid "Η αίτηση δημιουργήθηκε και είναι υπό εξέταση."
+msgstr "The request was created and is under review."
+
+#: course_recognition/views.py:128
+#: myprofile/templates/myprofile/landing.html:13
+msgid "Νέα αίτηση αναγνώρισης"
+msgstr "New recognition request"
+
+#: course_recognition/views.py:171
+msgid "Η αίτηση ενημερώθηκε."
+msgstr "The request was updated."
+
+#: course_recognition/views.py:179 course_recognition/views.py:429
+msgid "Επεξεργασία αίτησης"
+msgstr "Edit request"
+
+#: course_recognition/views.py:190
+msgid "Δεν μπορεί να γίνει εισήγηση πριν καταχωρηθεί αριθμός πρωτοκόλλου."
+msgstr "A recommendation cannot be submitted before a protocol number is registered."
+
+#: course_recognition/views.py:205 course_recognition/views.py:304
+msgid "Η εισήγηση αποθηκεύτηκε."
+msgstr "The recommendation was saved."
+
+#: course_recognition/views.py:213
+msgid "Εισήγηση καθηγητή"
+msgstr "Professor recommendation"
+
+#: course_recognition/views.py:245
+msgid "Η ανάθεση καθηγητή στο μάθημα αποθηκεύτηκε."
+msgstr "The course professor assignment was saved."
+
+#: course_recognition/views.py:254
+msgid "Ανάθεση μαθημάτων σε καθηγητές"
+msgstr "Assign courses to professors"
+
+msgid "Ανάθεση Μαθημάτων σε Καθηγητές"
+msgstr "Assign Courses to Professors"
+
+#: course_recognition/views.py:270
+msgid "Ο αριθμός πρωτοκόλλου αποθηκεύτηκε."
+msgstr "The protocol number was saved."
+
+#: course_recognition/views.py:312
+msgid "Εισήγηση γραμματείας"
+msgstr "Secretariat recommendation"
+
+#: course_recognition/views.py:325
+msgid "Η αίτηση σημειώθηκε ως μη ενεργή."
+msgstr "The request was marked as inactive."
+
+#: course_recognition/views.py:406
+#: myprofile/templates/myprofile/admin_dashboard.html:35
+msgid "Προβολή Αιτήσεων"
+msgstr "View Requests"
+
+#: course_recognition/views.py:421
+msgid "Η αίτηση αποθηκεύτηκε."
+msgstr "The request was saved."
+
+#: myprofile/app_landings.py:7 myprofile/app_landings.py:45
+msgid "Διπλωματικές"
+msgstr "Theses"
+
+#: myprofile/app_landings.py:11 myprofile/app_landings.py:66
+msgid "Timesheets"
+msgstr "Timesheets"
+
+#: myprofile/app_landings.py:15 myprofile/app_landings.py:70
+msgid "Άδειες"
+msgstr "Leaves"
+
+#: myprofile/app_landings.py:19 myprofile/app_landings.py:74
+msgid "Έργα"
+msgstr "Projects"
+
+#: myprofile/app_landings.py:23 myprofile/app_landings.py:49
+#: myprofile/app_landings.py:90
+msgid "Μαθήματα"
+msgstr "Courses"
+
+#: myprofile/app_landings.py:27 myprofile/app_landings.py:78
+msgid "Συνεργάτες"
+msgstr "Associates"
+
+#: myprofile/app_landings.py:31
+msgid "Προσωπικό"
+msgstr "Staff"
+
+#: myprofile/app_landings.py:35 myprofile/app_landings.py:56
+#: myprofile/app_landings.py:96
+msgid "Προκλήσεις Διδακτορικών"
+msgstr "Doctoral Calls"
+
+#: myprofile/app_landings.py:39 myprofile/app_landings.py:60
+#: myprofile/app_landings.py:84 phdstuds/views.py:121
+msgid "Διδακτορικές Διατριβές"
+msgstr "Doctoral Theses"
+
+#: myprofile/app_landings.py:102
+#, fuzzy
+#| msgid "Διπλωματικές"
+msgid "Διπλωματικές Εργασίες"
+msgstr "Theses"
+
+#: myprofile/app_landings.py:110
+msgid "Το διδακτορικό μου"
+msgstr "My PhD Thesis"
+
+#: myprofile/app_landings.py:116
+msgid "Η διπλωματική μου"
+msgstr "My thesis"
+
+#: myprofile/app_landings.py:122
+msgid "Αίτηση για Διδακτορικό"
+msgstr "Your Doctorate Applications"
+
+#: myprofile/app_landings.py:128
+msgid "Προσθήκη αίτησης αναγνώρισης"
+msgstr "Add course recognition request"
+
+#: myprofile/app_landings.py:134 myprofile/app_landings.py:140
+msgid "Αιτήσεις αναγνώρισης"
+msgstr "Course recognition requests"
+
+#: myprofile/app_landings.py:147
+msgid "Διαχείριση συνθηματικού"
+msgstr "Password management"
+
+#: myprofile/checks.py:243
+#, python-format
+msgid "Πρέπει να χρησιμοποιήσετε τουλάχιστον %d χαρακτήρες για κωδικό"
+msgstr "You must use at least %d characters for the password"
+
+#: myprofile/checks.py:246
+msgid "Οι δύο κωδικοί δεν ταιριάζουν!"
+msgstr "The two passwords do not match!"
+
+#: myprofile/checks.py:262
+msgid ""
+"Χρησιμοποιήστε μόνο ψηφία από 0 εώς 9, λατινικούς ή τους ειδικούς χαρακτήρες "
+"που αναφέρονται παραπάνω."
+msgstr ""
+"Use only digits from 0 to 9, Latin letters, or the special characters listed "
+"above."
+
+#: myprofile/checks.py:265
+msgid "Δεν έχετε χρησιμοποιήσει τουλάχιστον ένα ψηφίο από 0 εώς 9"
+msgstr "You have not used at least one digit from 0 to 9"
+
+#: myprofile/checks.py:268
+msgid "Δεν έχετε χρησιμοποιήσει τουλάχιστον ένα λατινικό κεφαλαίο γράμμα"
+msgstr "You have not used at least one uppercase Latin letter"
+
+#: myprofile/checks.py:271
+msgid "Δεν έχετε χρησιμοποιήσει τουλάχιστον ένα λατινικό πεζό γράμμα"
+msgstr "You have not used at least one lowercase Latin letter"
+
+#: myprofile/checks.py:274
+msgid "Δεν έχετε χρησιμοποιήσει τουλάχιστον δύο ειδικούς χαρακτήρες"
+msgstr "You have not used at least two special characters"
+
+#: myprofile/forms.py:24
+msgid "Ε-mail"
+msgstr "E-mail"
+
+#: myprofile/forms.py:25 myprofile/forms_admin.py:123
+#: phdapplications/forms.py:67 phdapplications/forms.py:108
+#: phdapplications/templates/phdapplications/partials/app_info.html:4
+#: phdapplications/templates/phdapplications/reference_letter.html:17
+#: phdapplications/views.py:126 phdapplications/views.py:572
+#: phdapplications/views.py:712 phdapplications/views.py:910
+#: phdapplications/views.py:1106 phdstuds/forms.py:14 phdstuds/views.py:117
+#: phdstuds/views.py:181 phdstuds/views.py:241 phdstuds/views.py:271
+#: phdstuds/views.py:519 phdstuds/views.py:541 phdstuds/views.py:570
+msgid "Όνομα"
+msgstr "First Name"
+
+#: myprofile/forms.py:26 myprofile/forms_admin.py:124
+#: phdapplications/forms.py:68 phdapplications/forms.py:107
+#: phdapplications/templates/phdapplications/partials/app_info.html:5
+#: phdapplications/templates/phdapplications/reference_letter.html:18
+#: phdapplications/views.py:127 phdapplications/views.py:573
+#: phdapplications/views.py:713 phdapplications/views.py:911
+#: phdapplications/views.py:1107 phdstuds/forms.py:15 phdstuds/views.py:116
+#: phdstuds/views.py:180 phdstuds/views.py:240 phdstuds/views.py:270
+#: phdstuds/views.py:518 phdstuds/views.py:540 phdstuds/views.py:569
+msgid "Επώνυμο"
+msgstr "Last Name"
+
+#: myprofile/forms.py:27
+msgid "Όνομα Πατρός"
+msgstr "Father’s Name"
+
+#: myprofile/forms.py:28 phdapplications/forms.py:70 phdstuds/forms.py:94
+msgid "Ημερομηνία Γέννησης"
+msgstr "Date of Birth"
+
+#: myprofile/forms.py:29
+msgid "ΑΦΜ"
+msgstr "Tax Identification Number"
+
+#: myprofile/forms.py:30
+msgid "ΑΜΚΑ"
+msgstr "Social Security Number"
+
+#: myprofile/forms.py:31
+msgid "Φορεάς"
+msgstr "Organization"
+
+#: myprofile/forms.py:33
+msgid "Τμήμα εντός του ιδρύματος"
+msgstr "Department within the institution"
+
+#: myprofile/forms.py:34
+msgid "Ιδιότητα"
+msgstr "Position"
+
+#: myprofile/forms.py:35 myprofile/forms.py:41
+msgid "Οδός"
+msgstr "Street"
+
+#: myprofile/forms.py:36 myprofile/forms.py:42
+msgid "Ταχυδρομικός Κώδικας"
+msgstr "Postal Code"
+
+#: myprofile/forms.py:37 myprofile/forms.py:43
+msgid "Πόλη"
+msgstr "City"
+
+#: myprofile/forms.py:38 myprofile/forms.py:44
+msgid "Χώρα"
+msgstr "Country"
+
+#: myprofile/forms.py:39 phdapplications/forms.py:77 phdstuds/forms.py:104
+msgid "Κινητό Τηλέφωνο"
+msgstr "Mobile Phone"
+
+#: myprofile/forms.py:40
+msgid "Τηλέφωνο Οικίας"
+msgstr "Home Phone"
+
+#: myprofile/forms.py:45 phdapplications/forms.py:84 phdstuds/forms.py:112
+msgid "Τηλέφωνο Εργασίας"
+msgstr "Work Phone"
+
+#: myprofile/forms.py:46
+msgid "Αριθμός Θέσης"
+msgstr "Seat Number"
+
+#: myprofile/forms.py:47
+msgid "Γραφείο"
+msgstr "Office"
+
+#: myprofile/forms.py:48
+msgid "Αριθμός Κάρτας"
+msgstr "Card Number"
+
+#: myprofile/forms.py:50
+msgid "Αριθμός Μητρώου"
+msgstr "Registration Number"
+
+#: myprofile/forms.py:51
+msgid "Είναι εσωτερικός;"
+msgstr "Is internal?"
+
+#: myprofile/forms.py:52
+msgid "Επιπλέον Πληροφορίες"
+msgstr "Additional Information"
+
+#: myprofile/forms.py:53
+msgid "Ημέρες παρουσίας (εβδομαδίαιες)"
+msgstr "Days of presence (per week)"
+
+#: myprofile/forms.py:54
+msgid "Έχει σύμβαση;"
+msgstr "Has a contract?"
+
+#: myprofile/forms.py:55
+msgid "Έργο στο οποίο εργάζεται"
+msgstr "Project currently assigned"
+
+#: myprofile/forms.py:56
+msgid "Είναι υποψήφιος διδάκτορας;"
+msgstr "Is a PhD candidate?"
+
+#: myprofile/forms.py:57
+msgid "Είναι μεταδιδακτορικός;"
+msgstr "Is a postdoctoral researcher?"
+
+#: myprofile/forms.py:58
+msgid "Μπορεί να κάνει αίτηση για διδακτορικό;"
+msgstr "Can apply for a PhD?"
+
+#: myprofile/forms.py:59
+msgid "Μπορεί να είναι αξιολογητής σε αιτήσεις διδακτορικού;"
+msgstr "Can be an evaluator for PhD applications?"
+
+#: myprofile/forms.py:60
+msgid "Μπορεί να είναι επιβλέπων ή μέλος επιτροπής διπλωματικών;"
+msgstr "Can be a supervisor or a member of a thesis committee?"
+
+#: myprofile/forms.py:63
+msgid "Στοιχεία Προφίλ"
+msgstr "Profile Information"
+
+#: myprofile/forms.py:65
+msgid "Διεύθυνση Κατοικίας"
+msgstr "Home Address"
+
+#: myprofile/forms.py:66
+msgid "Διεύθυνση Εργασίας "
+msgstr "Work Address"
+
+#: myprofile/forms.py:67
+msgid "Θέση Εργασίας"
+msgstr "Job Position"
+
+#: myprofile/forms.py:261
+msgid "Το email σας"
+msgstr "Your email"
+
+#: myprofile/forms.py:262
+msgid "To μικρό σας όνομα"
+msgstr "Your first name"
+
+#: myprofile/forms.py:263
+msgid "To επίθετο σας"
+msgstr "Your last name"
+
+#: myprofile/forms.py:264
+msgid "Κωδικός πρόσβασης"
+msgstr "Password"
+
+#: myprofile/forms.py:265
+msgid "Κωδικός πρόσβασης (επανάληψη)"
+msgstr "Password (confirmation)"
+
+#: myprofile/forms.py:276
+msgid "Παρακαλούμε τηρήστε τις οδηγίες στην οθόνη για τον κωδικό σας!"
+msgstr "Please follow the on-screen instructions for your password!"
+
+#: myprofile/forms.py:287
+msgid "Δεν μπορείτε να χρησιμοποιήσετε διεύθυνση ταχυδρομείου @"
+msgstr "You cannot use an email address with @"
+
+#: myprofile/forms.py:292 myprofile/forms.py:319
+msgid "Υπάρχει ήδη χρήστης με αυτό το e-mail"
+msgstr "A user with this email already exists"
+
+#: myprofile/forms.py:298 myprofile/forms.py:322
+msgid "Το e-mail σας:"
+msgstr "Your email:"
+
+#: myprofile/forms.py:299 myprofile/forms.py:323
+msgid "Το e-mail σας (ξανά):"
+msgstr "Your email (again):"
+
+#: myprofile/forms.py:305 myprofile/forms.py:329
+msgid "Εισάγετε μία έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου"
+msgstr "Enter a valid email address"
+
+#: myprofile/forms.py:311 myprofile/forms.py:335
+msgid "Τα email πρέπει να ταυτίζονται!"
+msgstr "The email addresses must match!"
+
+#: myprofile/forms.py:314 myprofile/forms.py:338
+msgid "Αν έχετε ήδη email της μορφής @"
+msgstr "If you already have an email of the form @"
+
+#: myprofile/forms.py:314
+msgid " δεν χρειάζεται να εγγραφείτε."
+msgstr " you do not need to register."
+
+#: myprofile/forms.py:338
+msgid " δεν μπορείτε να επαναφέρετε τον κωδικό σας μέσω αυτού του συστήματος."
+msgstr " you cannot reset your password through this system."
+
+#: myprofile/forms.py:343
+msgid "Δεν υπάρχει χρήστης με αυτό το e-mail"
+msgstr "There is no user with this email"
+
+#: myprofile/forms.py:348
+msgid "Νέος κωδικός πρόσβασης"
+msgstr "New password"
+
+#: myprofile/forms.py:349
+msgid "Νέος κωδικός πρόσβασης (επανάληψη)"
+msgstr "New password (repeat)"
+
+#: myprofile/forms_admin.py:25
+msgid "Προπτυχιακό Πρόγραμμα Σπουδών"
+msgstr "Undergraduate Study Program"
+
+#: myprofile/forms_admin.py:27
+msgid "Μεταπτυχιακό Πρόγραμμα Σπουδών"
+msgstr "Postgraduate Study Program"
+
+#: myprofile/forms_admin.py:46
+#: myprofile/templates/myprofile/admin_secretariat_list.html:27
+msgid "Username"
+msgstr "Username"
+
+#: myprofile/forms_admin.py:47 myprofile/forms_admin.py:125
+#: myprofile/templates/myprofile/admin_secretariat_list.html:28
+#: myprofile/templates/myprofile/admin_student_list.html:28
+#: myprofile/templates/registration/login.html:51 phdapplications/forms.py:104
+#: phdstuds/forms.py:13 phdstuds/views.py:182
+msgid "Email"
+msgstr "Email"
+
+#: myprofile/forms_admin.py:48 myprofile/forms_admin.py:126
+#: myprofile/templates/registration/login.html:64
+msgid "Συνθηματικό"
+msgstr "Password"
+
+#: myprofile/forms_admin.py:49 myprofile/forms_admin.py:127
+msgid "Επιβεβαίωση συνθηματικού"
+msgstr "Confirm password"
+
+#: myprofile/forms_admin.py:56
+#: myprofile/templates/myprofile/admin_secretariat_list.html:30
+msgid "Τμήματα"
+msgstr "Departments"
+
+#: myprofile/forms_admin.py:72 myprofile/forms_admin.py:73
+#: myprofile/forms_admin.py:145 myprofile/forms_admin.py:146
+msgid "Αφήστε το κενό αν δεν θέλετε αλλαγή συνθηματικού."
+msgstr "Leave blank if you do not want to change password."
+
+#: myprofile/forms_admin.py:90 myprofile/forms_admin.py:163
+msgid "Το συνθηματικό είναι υποχρεωτικό."
+msgstr "Password is required."
+
+#: myprofile/forms_admin.py:93 myprofile/forms_admin.py:166
+msgid "Τα συνθηματικά δεν ταιριάζουν."
+msgstr "The passwords do not match."
+
+#: myprofile/forms_admin.py:95
+msgid "Υπάρχει ήδη χρήστης με αυτό το username."
+msgstr "A user with this username already exists."
+
+#: myprofile/forms_admin.py:97 myprofile/forms_admin.py:172
+msgid "Υπάρχει ήδη χρήστης με αυτό το email."
+msgstr "A user with this email already exists."
+
+#: myprofile/forms_admin.py:134
+#: myprofile/templates/myprofile/admin_student_list.html:31
+msgid "Εξάμηνο"
+msgstr "Semester"
+
+#: myprofile/forms_admin.py:170
+msgid "Υπάρχει ήδη χρήστης με αυτό το email/username."
+msgstr "A user with this email/username already exists."
+
+#: myprofile/models.py:45 phdapplications/models.py:90
+#: phdapplications/models.py:138
+msgid "Άρρεν"
+msgstr "Male"
+
+#: myprofile/models.py:46 phdapplications/models.py:91
+#: phdapplications/models.py:139
+msgid "Θηλυ"
+msgstr "Female"
+
+#: myprofile/models.py:47 phdapplications/models.py:92
+#: phdapplications/models.py:140 phdapplications/models.py:268
+#: phdstuds/models.py:135
+msgid "Άλλο"
+msgstr "Other"
+
+#: myprofile/templates/myprofile/admin_dashboard.html:8
+msgid "Διαχείριση συστήματος"
+msgstr "System administration"
+
+#: myprofile/templates/myprofile/admin_dashboard.html:9
+msgid "Προβολή χρηστών και αιτήσεων αναγνώρισης μαθημάτων."
+msgstr "View users and course recognition requests."
+
+#: myprofile/templates/myprofile/admin_dashboard.html:17
+msgid "Προβολή Χρηστών Γραμματείας"
+msgstr "View Secretariat Users"
+
+#: myprofile/templates/myprofile/admin_dashboard.html:18
+msgid "Ενεργές Γραμματείες"
+msgstr "Active Secretariats"
+
+#: myprofile/templates/myprofile/admin_dashboard.html:26
+msgid "Προβολή Χρηστών Φοιτητών"
+msgstr "View Student Users"
+
+#: myprofile/templates/myprofile/admin_dashboard.html:27
+#: phdstuds/templates/phdstuds/partials/phdstuds_menu.html:7
+msgid "Φοιτητές"
+msgstr "Candidates"
+
+#: myprofile/templates/myprofile/admin_dashboard.html:36
+#: phdapplications/views.py:570 phdapplications/views.py:908
+msgid "Αιτήσεις"
+msgstr "Requests"
+
+#: myprofile/templates/myprofile/admin_secretariat_list.html:8
+msgid "Χρήστες Γραμματείας"
+msgstr "Secretariat Users"
+
+#: myprofile/templates/myprofile/admin_secretariat_list.html:9
+msgid ""
+"Προβολή των λογαριασμών γραμματείας και των τμημάτων που διαχειρίζονται."
+msgstr "View secretariat accounts and their managed departments."
+
+#: myprofile/templates/myprofile/admin_secretariat_list.html:13
+#: myprofile/templates/myprofile/admin_student_list.html:13
+msgid "Δημιουργία Χρήστη"
+msgstr "Create User"
+
+#: myprofile/templates/myprofile/admin_secretariat_list.html:63
+msgid "Δεν υπάρχουν χρήστες γραμματείας."
+msgstr "There are no secretariat users."
+
+#: myprofile/templates/myprofile/admin_student_list.html:8
+msgid "Χρήστες Φοιτητών"
+msgstr "Student Users"
+
+#: myprofile/templates/myprofile/admin_student_list.html:9
+msgid ""
+"Προβολή των λογαριασμών φοιτητών και των βασικών ακαδημαϊκών στοιχείων τους."
+msgstr "View student accounts and their basic academic details."
+
+#: myprofile/templates/myprofile/admin_student_list.html:53
+msgid "Δεν υπάρχουν χρήστες φοιτητών."
+msgstr "There are no student users."
+
+#: myprofile/templates/myprofile/changepassword.html:6
+msgid "Αλλαγή Κωδικού"
+msgstr "Change Password"
+
+#: myprofile/templates/myprofile/changepassword.html:16
+#: myprofile/templates/myprofile/forgotpassword.html:6
+#: myprofile/templates/myprofile/forgotpassword.html:11
+#: myprofile/templates/myprofile/resetpassword.html:6
+#: myprofile/templates/myprofile/resetpassword.html:11
+msgid "Επαναφορά Κωδικού"
+msgstr "Password Reset"
+
+#: myprofile/templates/myprofile/forgotpassword.html:7
+#: myprofile/templates/myprofile/resetpassword.html:7
+msgid "Παρακαλούμε πληκτορολογήστε το email με το οποίο συνδέεστε στο σύστημα"
+msgstr "Please enter the email address you use to log in to the system"
+
+#: myprofile/templates/myprofile/landing.html:7
+msgid "Κεντρική Σελίδα"
+msgstr "Home Page"
+
+#: myprofile/templates/myprofile/landing.html:8
+msgid "Καλώς ορίσατε στην εφαρμογή αναγνώρισης μαθημάτων."
+msgstr "Welcome to the course recognition application."
+
+#: myprofile/templates/myprofile/landing.html:36
+msgid "Προβολή όλων"
+msgstr "View all"
+
+#: myprofile/templates/myprofile/landing.html:54
+msgid "Αριθμός μητρώου φοιτητή"
+msgstr "Student registration number"
+
+#: myprofile/templates/myprofile/landing.html:62
+msgid "Δεν υπάρχουν αιτήσεις ακόμη."
+msgstr "There are no requests yet."
+
+#: myprofile/templates/myprofile/page.html:48
+msgid "Κεντρική"
+msgstr "Home"
+
+#: myprofile/templates/myprofile/page.html:49
+#: myprofile/templates/myprofile/studentnavbar.html:3
+msgid "Έξοδος"
+msgstr "Logout"
+
+#: myprofile/templates/myprofile/page.html:88
+#: myprofile/templates/myprofile/page.html:95 myprofile/views.py:632
+#: myprofile/views.py:647 myprofile/views.py:708
+msgid "Επιστροφή"
+msgstr "Back"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:6
+msgid "Επαναφορά κωδικού"
+msgstr "Password Reset"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:7
+msgid "Επιλέξτε ένα από τα παρακάτω"
+msgstr "Select one of the following"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:13
+msgid "Εσωτερικός Χρήστης"
+msgstr "Institutional User"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:14
+#: myprofile/templates/myprofile/password_reset_choice.html:19
+msgid "Είστε εσωτερικός χρήστης"
+msgstr "You are an institutional user"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:14
+msgid "δηλαδή συνδέεστε με ιδρυματικό email"
+msgstr "i.e. you connect to the system with an institutional email"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:15
+#: myprofile/templates/myprofile/password_reset_choice.html:20
+msgid "Μεταβείτε"
+msgstr "Go to"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:15
+#: myprofile/templates/myprofile/password_reset_choice.html:20
+#: myprofile/views.py:384
+msgid "εδώ"
+msgstr "here"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:15
+#: myprofile/templates/myprofile/password_reset_choice.html:20
+msgid "για να επαναφέρετε τον κωδικό σας"
+msgstr "to reset your password"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:18
+msgid "Εξωτερικός Χρήστης"
+msgstr "External User"
+
+#: myprofile/templates/myprofile/password_reset_choice.html:19
+msgid "δηλαδή συνδέεστε με κάποιο εξωτερικό email"
+msgstr "i.e. you connect to the system using some external email"
+
+#: myprofile/templates/myprofile/profile.html:20
+#: phdapplications/templates/phdapplications/show_applicant_object.html:23
+#: phdapplications/templates/phdapplications/show_object.html:24
+#: phdstuds/templates/phdstuds/show_object.html:101
+msgid "Είστε σίγουροι;"
+msgstr "Are you sure?"
+
+#: myprofile/templates/myprofile/register.html:6
+msgid "Παρακαλούμε καταχωρείστε το e-mail σας"
+msgstr "Please enter your email address"
+
+#: myprofile/templates/myprofile/register.html:7
+msgid ""
+"Θα σας στείλουμε e-mail επιβεβαίωσης για να επαληθεύσετε την ηλεκτρονική σας "
+"διεύθυνση"
+msgstr "We will send you a confirmation email to verify your email address"
+
+#: myprofile/templates/myprofile/register.html:12
+#: myprofile/templates/myprofile/signup.html:16
+msgid "Εγγραφή!"
+msgstr "Register!"
+
+#: myprofile/templates/myprofile/signup.html:7
+msgid "Παρακαλούμε καταχωρείστε τα στοιχεία σας"
+msgstr "Please enter your details"
+
+#: myprofile/templates/myprofile/simple_form.html:6
+msgid "Διαχείριση"
+msgstr "Administration"
+
+#: myprofile/templates/myprofile/simple_form.html:31
+#: myprofile/templates/registration/login.html:72
+msgid "Εμφάνιση συνθηματικού"
+msgstr "Show password"
+
+#: myprofile/templates/registration/base.html:10
+#: myprofile/templates/registration/base.html:23
+msgid "Αναγνώριση Μαθημάτων"
+msgstr "Course Recognition"
+
+#: myprofile/templates/registration/login.html:13
+msgid "Σύνδεση"
+msgstr "Login"
+
+#: myprofile/templates/registration/login.html:14
+msgid "Παρακαλούμε συνδεθείτε με τον λογαριασμό σας."
+msgstr "Please log in with your account."
+
+#: myprofile/templates/registration/login.html:19
+msgid "Δεν δώσατε σωστό συνδυασμό email και συνθηματικού"
+msgstr "You did not provide a valid email and password combination"
+
+#: myprofile/templates/registration/login.html:25
+msgid "Είστε ήδη συνδεδεμένος."
+msgstr "You are already logged in."
+
+#: myprofile/templates/registration/login.html:60
+msgid "π.χ. user@hua.gr"
+msgstr "e.g. user@hua.gr"
+
+#: myprofile/templates/registration/login.html:82
+msgid "Είσοδος"
+msgstr "Sign in"
+
+#: myprofile/templates/registration/login.html:86
+msgid "Εγγραφή"
+msgstr "Register"
+
+#: myprofile/templates/registration/login.html:90
+msgid "Ξέχασα τον κωδικό μου"
+msgstr "I forgot my password"
+
+#: myprofile/utils.py:27
+#, python-format
+msgid ""
+"Για το κωδικό σας πρέπει να χρησιμοποιήσετε κωδικό που να περιέχει "
+"τουλάχιστον %(num)d χαρακτήρες με:"
+msgstr "Choose a password with at least %(num)d characters with:"
+
+#: myprofile/utils.py:30
+#, python-format
+msgid "%(num)d τουλάχιστον λατινικούς κεφαλαίους χαρακτήρες"
+msgstr "%(num)d at least latin capital letter(s)"
+
+#: myprofile/utils.py:31
+#, python-format
+msgid "%(num)d τουλάχιστον λατινικούς μικρούς χαρακτήρες"
+msgstr "%(num)d at least latin small letter(s)"
+
+#: myprofile/utils.py:32
+#, python-format
+msgid "%(num)d τουλάχιστον ψηφία (0 εώς 9)"
+msgstr "%(num)d at least digit(s) from 0 to 9"
+
+#: myprofile/utils.py:33
+#, python-format
+msgid "%(chars)d τουλάχιστον ειδικούς χαρακτήρες από %(special)s"
+msgstr "%(chars)d special characters, chosen from %(special)s "
+
+#: myprofile/utils.py:37
+msgid ""
+"Μην χρησιμοποιείτε άλλους χαρακτήρες εκτός ψηφίων, των ειδικών χαρακτήρων "
+"και λατινικών χαρακτήρων"
+msgstr ""
+"Use only digits from 0 to 9, Latin letters, or the special characters listed "
+"above."
+
+#: myprofile/views.py:34
+msgid "Δεν είστε δηλωμένος στο σύστημα ως μέλος του ιδρύματος."
+msgstr "You are not registered in the system as a member of the institution."
+
+#: myprofile/views.py:99
+msgid ""
+"Αποσυνδεθήκατε από το σύστημα. Ευχαριστούμε που χρησιμοποιήσατε την υπηρεσία "
+"μας. "
+msgstr "You have been logged out. Thank you for using our service."
+
+#: myprofile/views.py:100 myprofile/views.py:383
+msgid "Συνδεθείτε ξανά"
+msgstr "Log in again"
+
+#: myprofile/views.py:101
+msgid "εδώ."
+msgstr "here."
+
+#: myprofile/views.py:347
+msgid ""
+"H πρόκληση να εγγραφείτε έχει λήξει. Θα πρέπει να επαναλάβετε την διαδικασία."
+msgstr ""
+"The invitation to register has expired. You will need to repeat the process."
+
+#: myprofile/views.py:351 myprofile/views.py:695
+msgid "O σύνδεσμος δεν είναι σωστός!"
+msgstr "The link is invalid!"
+
+#: myprofile/views.py:357
+msgid "Έχετε ήδη εγγραφεί στο σύστημα!"
+msgstr "You are already registered in the system!"
+
+#: myprofile/views.py:382
+msgid "Εγγραφήκατε επιτυχώς στο σύστημα!"
+msgstr "You have successfully registered in the system!"
+
+#: myprofile/views.py:416
+msgid ""
+"Έχει αποσταλλεί e-mail στην διεύθυνση που δηλώσατε για να ενεργοποιήσετε το "
+"λογαριασμό σας"
+msgstr ""
+"An email has been sent to the address you provided to activate your account"
+
+#: myprofile/views.py:431
+msgid "Οι αιτήσεις μου"
+msgstr "My requests"
+
+#: myprofile/views.py:444
+msgid "Αιτήσεις για τα μαθήματά μου"
+msgstr "Requests for my courses"
+
+#: myprofile/views.py:523
+msgid "Ο χρήστης γραμματείας δημιουργήθηκε."
+msgstr "Secretariat user was created."
+
+#: myprofile/views.py:532
+msgid "Νέος χρήστης γραμματείας"
+msgstr "New Secretariat User"
+
+#: myprofile/views.py:547
+msgid "Ο χρήστης γραμματείας ενημερώθηκε."
+msgstr "Secretariat user was updated."
+
+#: myprofile/views.py:556
+msgid "Επεξεργασία χρήστη γραμματείας"
+msgstr "Edit Secretariat User"
+
+#: myprofile/views.py:585
+msgid "Ο χρήστης φοιτητή δημιουργήθηκε."
+msgstr "Student user was created."
+
+#: myprofile/views.py:594
+msgid "Νέος χρήστης φοιτητή"
+msgstr "New Student User"
+
+#: myprofile/views.py:609
+msgid "Ο χρήστης φοιτητή ενημερώθηκε."
+msgstr "Student user was updated."
+
+#: myprofile/views.py:618
+msgid "Επεξεργασία χρήστη φοιτητή"
+msgstr "Edit Student User"
+
+#: myprofile/views.py:631
+msgid ""
+"Είστε ιδρυματικός χρήστης. Θα πρέπει να αλλάξετε τον κωδικό χρησιμοποιώντας "
+"τα κεντρικά συστήματα του ιδρύματος"
+msgstr ""
+"You are an institutional user. You must change your password using the "
+"institution’s central systems."
+
+#: myprofile/views.py:646 myprofile/views.py:707
+msgid "Ο κωδικός σας έχει αλλάξει."
+msgstr "Your password has been changed."
+
+#: myprofile/views.py:672
+msgid ""
+"Παρακαλούμε ελέγξτε την διεύθυνση ηλεκτρονικού ταχυδρομείου που καταχωρήσατε "
+"για την συνέχεια."
+msgstr "Please check the email address you provided to proceed."
+
+#: myprofile/views.py:692
+msgid "Ο σύνδεσμος αυτός έχει λήξει."
+msgstr "This link has expired."
+
+#: phdapplications/forms.py:37 phdapplications/forms.py:109
+#: phdapplications/templates/phdapplications/applicant_call_list.html:28
+#: phdapplications/views.py:282 phdapplications/views.py:297
+#: phdapplications/views.py:312 phdapplications/views.py:648
+#: phdapplications/views.py:664 phdapplications/views.py:680
+#: phdapplications/views.py:987 phdapplications/views.py:1002
+#: phdapplications/views.py:1017 phdstuds/forms.py:39 phdstuds/views.py:118
+#: phdstuds/views.py:302 phdstuds/views.py:332 phdstuds/views.py:362
+#: phdstuds/views.py:444 phdstuds/views.py:458 phdstuds/views.py:520
+#: phdstuds/views.py:542 phdstuds/views.py:724 phdstuds/views.py:740
+#: phdstuds/views.py:925 phdstuds/views.py:944
+msgid "Τίτλος"
+msgstr "Title"
+
+#: phdapplications/forms.py:38
+msgid "Τίτλος (Αγγλικά)"
+msgstr "Title (English)"
+
+#: phdapplications/forms.py:39
+msgid "Περιγραφή"
+msgstr "Description"
+
+#: phdapplications/forms.py:40 phdapplications/forms.py:48
+#: phdapplications/forms.py:140 phdstuds/forms.py:63
+msgid "Ημερομηνία Έναρξης"
+msgstr "Start Date"
+
+#: phdapplications/forms.py:41 phdapplications/forms.py:47
+#: phdapplications/forms.py:141 phdstuds/forms.py:64
+msgid "Ημερομηνία Λήξης"
+msgstr "End Date"
+
+#: phdapplications/forms.py:42
+#: phdapplications/templates/phdapplications/applicant_call_list.html:29
+#: phdapplications/templates/phdapplications/apply.html:11
+#: phdapplications/templates/phdapplications/partials/app_info.html:7
+#: phdapplications/templates/phdapplications/partials/call_info.html:5
+#: phdapplications/templates/phdapplications/reference_letter.html:14
+#: phdapplications/views.py:66 phdapplications/views.py:522
+#: phdapplications/views.py:542 phdapplications/views.py:807
+#: phdapplications/views.py:829 phdapplications/views.py:849
+#: phdapplications/views.py:869 phdstuds/forms.py:83
+msgid "Επιβλέπων"
+msgstr "Supervisor"
+
+#: phdapplications/forms.py:43
+msgid "Αξιολογητές"
+msgstr "Evaluators"
+
+#: phdapplications/forms.py:44
+msgid "Έγγραφο Πρόσκλησης"
+msgstr "Call Document"
+
+#: phdapplications/forms.py:45
+msgid "Δημοσιευμένη"
+msgstr "Published"
+
+#: phdapplications/forms.py:54
+#: phdapplications/templates/phdapplications/application_summary.html:68
+msgid "Βιογραφικό Σημείωμα"
+msgstr "Curriculum Vitae"
+
+#: phdapplications/forms.py:55 phdstuds/views.py:126
+msgid "Υποψήφιος"
+msgstr "Applicant"
+
+#: phdapplications/forms.py:56
+#: phdapplications/templates/phdapplications/partials/app_info.html:6
+#: phdapplications/templates/phdapplications/partials/call_info.html:4
+#: phdapplications/views.py:85 phdapplications/views.py:99
+msgid "Πρόσκληση"
+msgstr "Call"
+
+#: phdapplications/forms.py:57
+msgid "Αντίγραφο Ταυτότητας ή Διαβατηρίου"
+msgstr "Copy of ID Card or Passport"
+
+#: phdapplications/forms.py:58
+#: phdapplications/templates/phdapplications/apply.html:19
+#: phdapplications/templates/phdapplications/partials/app_main_info.html:5
+msgid "Πλάνο Διδακτορικής Διατριβής"
+msgstr "Doctoral Dissertation Plan"
+
+#: phdapplications/forms.py:59 phdapplications/forms.py:111
+#: phdapplications/views.py:574 phdapplications/views.py:715
+#: phdapplications/views.py:912
+msgid "Ημερομηνία Υποβολής"
+msgstr "Submission Date"
+
+#: phdapplications/forms.py:60 phdstuds/forms.py:31
+msgid "Σημειώσεις"
+msgstr "Notes"
+
+#: phdapplications/forms.py:62 phdapplications/views.py:710
+#: phdapplications/views.py:1104
+msgid "Συστατικές Επιστολές"
+msgstr "Letters of Recommendation"
+
+#: phdapplications/forms.py:63
+#: phdapplications/templates/phdapplications/partials/app_main_info.html:7
+msgid "Υπεύθυνη Δήλωση"
+msgstr "Statutory Declaration"
+
+#: phdapplications/forms.py:64
+msgid "Επιπλέον Τεκμηρίωση"
+msgstr "Additional Documentation"
+
+#: phdapplications/forms.py:65
+msgid "Αριθμός Αναφοράς Συστήματος"
+msgstr "System Reference Number"
+
+#: phdapplications/forms.py:66
+msgid "Αριθμός Ιδρυματικού Πρωτοκόλλου"
+msgstr "Institutional Protocol Number"
+
+#: phdapplications/forms.py:69 phdstuds/forms.py:93
+msgid "Όνομα Πατέρα"
+msgstr "Father's Name"
+
+#: phdapplications/forms.py:71 phdstuds/forms.py:97
+msgid "Φύλο"
+msgstr "Gender"
+
+#: phdapplications/forms.py:72 phdstuds/forms.py:99
+msgid "Οδός Κατοικίας"
+msgstr "Home Street Address"
+
+#: phdapplications/forms.py:73 phdstuds/forms.py:100
+msgid "Αριθμός Κατοικίας"
+msgstr "Home Address Number"
+
+#: phdapplications/forms.py:74 phdstuds/forms.py:101
+msgid "Ταχυδρομικός Κώδικας Κατοικίας"
+msgstr "Home Postal Code"
+
+#: phdapplications/forms.py:75 phdstuds/forms.py:102
+msgid "Πόλη Κατοικίας"
+msgstr "Home City"
+
+#: phdapplications/forms.py:76 phdstuds/forms.py:103
+msgid "Χώρα Κατοικίας"
+msgstr "Home Country"
+
+#: phdapplications/forms.py:78
+msgid "Σταθερό Τηλέφωνο"
+msgstr "Landline Phone"
+
+#: phdapplications/forms.py:79 phdstuds/forms.py:107
+msgid "Οδός Εργασίας"
+msgstr "Work Street Address"
+
+#: phdapplications/forms.py:80 phdstuds/forms.py:108
+msgid "Αριθμός Εργασίας"
+msgstr "Work Address Number"
+
+#: phdapplications/forms.py:81
+msgid "Τ.Κ. Εργασίας"
+msgstr "Work Postal Code"
+
+#: phdapplications/forms.py:82 phdstuds/forms.py:110
+msgid "Πόλη Εργασίας"
+msgstr "Work City"
+
+#: phdapplications/forms.py:83 phdstuds/forms.py:111
+msgid "Χώρα Εργασίας"
+msgstr "Work Country"
+
+#: phdapplications/forms.py:85 phdstuds/forms.py:114
+msgid "Φωτογραφία"
+msgstr "Photo"
+
+#: phdapplications/forms.py:86
+#: phdapplications/templates/phdapplications/dashboard.html:88
+#: phdstuds/forms.py:115
+msgid "Τελευταία Ενημέρωση"
+msgstr "Last Updated"
+
+#: phdapplications/forms.py:91
+msgid "Τύπος Πτυχίου"
+msgstr "Degree Type"
+
+#: phdapplications/forms.py:92
+msgid "Πανεπιστήμιο"
+msgstr "University"
+
+#: phdapplications/forms.py:95
+msgid "Βαθμός"
+msgstr "Grade"
+
+#: phdapplications/forms.py:96
+msgid "Αντίγραφο Πτυχίου"
+msgstr "Copy of Degree"
+
+#: phdapplications/forms.py:97 phdapplications/views.py:266
+#: phdapplications/views.py:296 phdapplications/views.py:311
+#: phdapplications/views.py:631 phdapplications/views.py:663
+#: phdapplications/views.py:679 phdapplications/views.py:971
+#: phdapplications/views.py:1001 phdapplications/views.py:1016
+#: phdstuds/forms.py:45 phdstuds/views.py:242 phdstuds/views.py:272
+#: phdstuds/views.py:301 phdstuds/views.py:331 phdstuds/views.py:361
+#: phdstuds/views.py:391 phdstuds/views.py:419 phdstuds/views.py:432
+#: phdstuds/views.py:446 phdstuds/views.py:460 phdstuds/views.py:471
+#: phdstuds/views.py:571 phdstuds/views.py:693 phdstuds/views.py:708
+#: phdstuds/views.py:726 phdstuds/views.py:742 phdstuds/views.py:755
+#: phdstuds/views.py:891 phdstuds/views.py:910 phdstuds/views.py:927
+#: phdstuds/views.py:946 phdstuds/views.py:962
+msgid "Έτος"
+msgstr "Year"
+
+#: phdapplications/forms.py:98
+msgid "Αναλυτική Βαθμολογία"
+msgstr "Transcript"
+
+#: phdapplications/forms.py:103
+msgid "Αίτηση Διδακτορικού"
+msgstr "PhD Application"
+
+#: phdapplications/forms.py:105
+msgid "Τηλέφωνο"
+msgstr "Phone"
+
+#: phdapplications/forms.py:106
+#: phdapplications/templates/phdapplications/reference_letter.html:20
+#: phdapplications/views.py:771 phdapplications/views.py:1068 rfs/models.py:13
+msgid "Συστατική Επιστολή"
+msgstr "Reference Letter"
+
+#: phdapplications/forms.py:110
+msgid "Ίδρυμα/Φορέας"
+msgstr "Institution/Body"
+
+#: phdapplications/forms.py:112
+msgid "Στοιχεία Επαφής"
+msgstr "Contact Information"
+
+#: phdapplications/forms.py:122 phdstuds/forms.py:40
+msgid "Τίτλος Περιοδικού"
+msgstr "Journal Title"
+
+#: phdapplications/forms.py:123 phdstuds/forms.py:41
+msgid "Συγγραφείς"
+msgstr "Authors"
+
+#: phdapplications/forms.py:124 phdstuds/forms.py:42
+msgid "Εκδότης"
+msgstr "Publisher"
+
+#: phdapplications/forms.py:125 phdstuds/forms.py:43
+msgid "Τόμος"
+msgstr "Volume"
+
+#: phdapplications/forms.py:126 phdstuds/forms.py:44
+msgid "Σελίδες"
+msgstr "Pages"
+
+#: phdapplications/forms.py:127 phdstuds/forms.py:46
+msgid "Σύνδεσμος"
+msgstr "Link"
+
+#: phdapplications/forms.py:128 phdstuds/forms.py:47
+msgid "DOI"
+msgstr "DOI"
+
+#: phdapplications/forms.py:129 phdstuds/forms.py:48
+msgid "Αρχείο PDF"
+msgstr "PDF File"
+
+#: phdapplications/forms.py:134 phdstuds/forms.py:53
+msgid "Τίτλος Συνεδρίου"
+msgstr "Conference Title"
+
+#: phdapplications/forms.py:139
+msgid "Εταιρεία / Φορέας"
+msgstr "Company / Organization"
+
+#: phdapplications/forms.py:142
+msgid "Καθήκοντα"
+msgstr "Duties"
+
+#: phdapplications/forms.py:143
+msgid "Σύμβαση (ή άλλο αποδεικτικό)"
+msgstr "Contract (or other proof)"
+
+#: phdapplications/forms.py:147
+msgid ""
+"Αρχείο PDF που περιγράφει το πλάνο της διδακτορικής διατριβής, όπως "
+"απαιτείται από την πρόσκληση."
+msgstr "PDF file describing the doctoral thesis plan, as required by the call."
+
+#: phdapplications/forms.py:148
+msgid ""
+"Βιογραφικό σημείωμα σε μορφή PDF. Δεν υπάρχει κάποιο προτεινόμενο format."
+msgstr "Curriculum vitae in PDF format. There is no suggested format."
+
+#: phdapplications/forms.py:149
+msgid ""
+"Σημειώσεις που θα θέλατε να ληφθούν υπόψη από την επιτροπή αξιολόγησης. "
+"(Προαιρετικό)"
+msgstr "Notes you would like the evaluation committee to consider. (Optional)"
+
+#: phdapplications/forms.py:150
+msgid ""
+"Κάποιο επιπλέον αρχείο PDF με τεκμηρίωση που θα θέλατε να ληφθούν υπόψη από "
+"την επιτροπή αξιολόγησης. (Προαιρετικό)"
+msgstr ""
+"An additional PDF file with documentation you would like the evaluation "
+"committee to consider. (Optional)"
+
+#: phdapplications/forms.py:151
+msgid ""
+"Υπεύθυνη δήλωση σε μορφή PDF που να δηλώνει ότι δεν είστε εγγεγραμμένος σε "
+"κάποιο άλλο διδακτορικό πρόγραμμα."
+msgstr ""
+"Statutory declaration in PDF format stating that you are not enrolled in "
+"another doctoral program."
+
+#: phdapplications/forms.py:186 phdapplications/forms.py:190
+msgid ""
+"H ημερομηνία έναρξης δεν μπορεί να είναι προγενέστερη της ημερομηνίας λήξης"
+msgstr "The start date cannot be earlier than the end date"
+
+#: phdapplications/forms.py:194 phdapplications/forms.py:198
+msgid "H ημερομηνία δεν μπορεί να είναι στο μέλλον."
+msgstr "The date cannot be in the future."
+
+#: phdapplications/forms.py:202
+msgid "Δεν μπορείτε να καταχωρήσετε χρονιά που ανήκει στο μέλλον."
+msgstr "You cannot enter a year that is in the future."
+
+#: phdapplications/forms.py:212
+msgid "Δεν επιτρέπεται να ανεβάσετε αρχείο που δεν είναι της μορφής PDF."
+msgstr "You are not allowed to upload a file that is not in PDF format."
+
+#: phdapplications/forms.py:219
+msgid "Δεν φαίνεται να ανεβάσατε κατάλληλο PDF αρχείο."
+msgstr "You don't seem to have uploaded a proper PDF file."
+
+#: phdapplications/forms.py:400
+msgid ""
+"Κάντε click στο πεδίο και επιλέξτε. Αν απασχολείστε ακόμα εκεί καταχωρείστε "
+"την σημερινή ημερομηνία."
+msgstr ""
+"Click on the field and select. If you are still employed there, enter "
+"today's date."
+
+#: phdapplications/forms.py:463
+#: phdapplications/templates/phdapplications/reference_letter.html:10
+msgid "Υποβολή Συστατικής Επιστολής"
+msgstr "Submit Reference Letter"
+
+#: phdapplications/models.py:15
+msgid "Χρησιμοποιείστε την μορφή DD/MM/YYYY, π.χ. 28/2/2020"
+msgstr "Use the format DD/MM/YYYY, e.g., 28/2/2020"
+
+#: phdapplications/models.py:16
+msgid ""
+"Χρησιμοποιείστε την μορφή DD/MM/YYYY, π.χ. 28/2/2020. Αν ακόμα απασχολήστε "
+"συμπληρώστε την τωρινή ημερομηνία."
+msgstr ""
+"Use the format DD/MM/YYYY, e.g., 28/2/2020. If you are still employed, fill "
+"in the current date."
+
+#: phdapplications/models.py:38
+msgid "Περιγραφή της πρόσκλησης"
+msgstr "Call description"
+
+#: phdapplications/models.py:47
+msgid "Επίσημο έγγραφο πρόσκλησης"
+msgstr "Official call document"
+
+#: phdapplications/models.py:150
+msgid "Επιτυχής"
+msgstr "Successful"
+
+#: phdapplications/models.py:151
+msgid "Μη επιτυχής"
+msgstr "Unsuccessful"
+
+#: phdapplications/models.py:152
+msgid "Οριστικοποιημένη"
+msgstr "Finalized"
+
+#: phdapplications/models.py:153
+msgid "Έχει Υποβληθεί"
+msgstr "Submitted"
+
+#: phdapplications/models.py:154
+msgid "Προσωρινή"
+msgstr "Draft"
+
+#: phdapplications/models.py:265
+msgid "Προπτυχιακό"
+msgstr "Undergraduate"
+
+#: phdapplications/models.py:266
+msgid "Μεταπτυχιακό"
+msgstr "Postgraduate"
+
+#: phdapplications/models.py:267
+msgid "Διδακτορικό"
+msgstr "Doctoral"
+
+#: phdapplications/models.py:329
+msgid "Αναμένεται"
+msgstr "Pending"
+
+#: phdapplications/models.py:330
+msgid "Θα Ειδοποιηθεί Μετά την Υποβολή"
+msgstr "Will be notified after submission"
+
+#: phdapplications/templates/phdapplications/applicant_call_list.html:18
+#, fuzzy
+#| msgid "Ανοιχτές Προσκλήσεις"
+msgid "Ενεργές Προσκλήσεις"
+msgstr "Open Calls"
+
+#: phdapplications/templates/phdapplications/applicant_call_list.html:26
+#, fuzzy
+#| msgid "Έτος Έναρξης"
+msgid "Έναρξη"
+msgstr "Start Year"
+
+#: phdapplications/templates/phdapplications/applicant_call_list.html:27
+msgid "Λήξη"
+msgstr ""
+
+#: phdapplications/templates/phdapplications/applicant_call_list.html:55
+#: phdapplications/templates/phdapplications/dashboard.html:107
+#: phdapplications/views.py:71 phdapplications/views.py:137
+#: phdapplications/views.py:527 phdapplications/views.py:547
+#: phdapplications/views.py:580 phdapplications/views.py:640
+#: phdapplications/views.py:656 phdapplications/views.py:672
+#: phdapplications/views.py:688 phdapplications/views.py:719
+#: phdapplications/views.py:814 phdapplications/views.py:834
+#: phdapplications/views.py:854 phdapplications/views.py:874
+#: phdapplications/views.py:918 phdapplications/views.py:1113
+#: phdstuds/views.py:528 phdstuds/views.py:549 phdstuds/views.py:579
+#: phdstuds/views.py:699 phdstuds/views.py:713 phdstuds/views.py:731
+#: phdstuds/views.py:748
+msgid "Λεπτομέρειες"
+msgstr "Details"
+
+#: phdapplications/templates/phdapplications/applicant_call_list.html:58
+#: phdapplications/templates/phdapplications/applicant_call_view.html:11
+#, fuzzy
+#| msgid "Νέα αίτηση"
+msgid "Κάντε Αίτηση!"
+msgstr "New request"
+
+#: phdapplications/templates/phdapplications/applicant_call_list.html:66
+#, fuzzy
+#| msgid "Δεν υπάρχουν αιτήσεις ακόμη."
+msgid "Δεν υπάρχουν ενεργές προσκλήσεις αυτή την στιγμή."
+msgstr "There are no requests yet."
+
+#: phdapplications/templates/phdapplications/applicant_call_view.html:8
+#, fuzzy
+#| msgid "Στοιχεία Πρόσκλησης"
+msgid "Στοιχεία Πρόκλησης"
+msgstr "Call Details"
+
+#: phdapplications/templates/phdapplications/applicant_edit.html:13
+msgid "Αλλαγή Κωδικού Πρόσβασης"
+msgstr "Change Password"
+
+#: phdapplications/templates/phdapplications/applicant_no_profile.html:9
+#, fuzzy
+#| msgid "Πρέπει να χρησιμοποιήσετε τουλάχιστον %d χαρακτήρες για κωδικό"
+msgid "Πρέπει να δημιουργήσετε προφίλ για να προχωρήσετε σε κάποια αίτηση!"
+msgstr "You must use at least %d characters for the password"
+
+#: phdapplications/templates/phdapplications/applicant_no_profile.html:15
+#, fuzzy
+#| msgid "Στοιχεία Προφίλ"
+msgid "Δημιουργία Προφίλ"
+msgstr "Profile Information"
+
+#: phdapplications/templates/phdapplications/application_summary.html:12
+#: phdapplications/templates/phdapplications/candidate_app.html:5
+#: phdapplications/templates/phdapplications/reviewer_app.html:5
+#: phdapplications/templates/phdapplications/sec_app.html:5
+msgid "Επισκόπηση Αίτησης"
+msgstr "Application Overview"
+
+#: phdapplications/templates/phdapplications/application_summary.html:16
+#: phdapplications/templates/phdapplications/partials/candidate_app_menu.html:61
+msgid "Διαγραφή Αίτησης!"
+msgstr "Delete Application!"
+
+#: phdapplications/templates/phdapplications/application_summary.html:25
+msgid "Εξαγωγή"
+msgstr "Export"
+
+#: phdapplications/templates/phdapplications/application_summary.html:32
+msgid "Στοιχεία της Πρόσκλησης"
+msgstr "Call Details"
+
+#: phdapplications/templates/phdapplications/application_summary.html:36
+msgid "Επεξεργασία Πρόσκλησης"
+msgstr "Edit Call"
+
+#: phdapplications/templates/phdapplications/application_summary.html:44
+msgid "Επισυναπτόμενο αρχείο πρόσκλησης"
+msgstr "Attached call file"
+
+#: phdapplications/templates/phdapplications/application_summary.html:47
+msgid "H πρόσκληση δεν έχει επισυναπτόμενο αρχείο!"
+msgstr "The call does not have an attached file!"
+
+#: phdapplications/templates/phdapplications/application_summary.html:55
+#: phdapplications/templates/phdapplications/reference_letter.html:16
+msgid "Στοιχεία Υποψηφίου"
+msgstr "Applicant Details"
+
+#: phdapplications/templates/phdapplications/application_summary.html:59
+msgid "Επεξεργασία Υποψηφίου"
+msgstr "Edit Applicant"
+
+#: phdapplications/templates/phdapplications/application_summary.html:71
+msgid "Δεν έχει ανέβει βιογραφικό σημείωμα"
+msgstr "No curriculum vitae has been uploaded"
+
+#: phdapplications/templates/phdapplications/application_summary.html:81
+msgid "Στοιχεία Αίτησης"
+msgstr "Application Details"
+
+#: phdapplications/templates/phdapplications/application_summary.html:85
+msgid "Επεξεργασία Αίτησης"
+msgstr "Edit Application"
+
+#: phdapplications/templates/phdapplications/application_summary.html:97
+#: phdapplications/templates/phdapplications/dashboard.html:46
+msgid "Τίτλοι Σπουδών"
+msgstr "Academic Degrees"
+
+#: phdapplications/templates/phdapplications/application_summary.html:117
+msgid "Δεν έχουν καταχωρηθεί τίτλοι σπουδών"
+msgstr "No academic degrees have been registered"
+
+#: phdapplications/templates/phdapplications/application_summary.html:125
+#: phdapplications/templates/phdapplications/dashboard.html:51
+#: phdapplications/views.py:279 phdapplications/views.py:645
+#: phdapplications/views.py:984
+msgid "Εργασιακή Εμπειρία"
+msgstr "Work Experience"
+
+#: phdapplications/templates/phdapplications/application_summary.html:145
+msgid "Δεν έχει καταχωρηθεί κάποια εργασιακή εμπειρία"
+msgstr "No work experience has been registered"
+
+#: phdapplications/templates/phdapplications/application_summary.html:151
+msgid "Δημοσιεύσεις"
+msgstr "Publications"
+
+#: phdapplications/templates/phdapplications/application_summary.html:152
+msgid "Περιοδικά"
+msgstr "Journals"
+
+#: phdapplications/templates/phdapplications/application_summary.html:171
+msgid "Δεν έχει καταχωρηθεί κάποια δημοσίευση σε περιοδικό"
+msgstr "No journal publication has been registered"
+
+#: phdapplications/templates/phdapplications/application_summary.html:173
+msgid "Συνέδρια"
+msgstr "Conferences"
+
+#: phdapplications/templates/phdapplications/application_summary.html:192
+msgid "Δεν έχει καταχωρήθει κάποια δημοσίευση σε συνέδριο"
+msgstr "No conference publication has been registered"
+
+#: phdapplications/templates/phdapplications/application_summary.html:198
+msgid "Συστατικές Επιστολές που έχουν υποβληθεί"
+msgstr "Submitted Letters of Recommendation"
+
+#: phdapplications/templates/phdapplications/application_summary.html:203
+msgid "Νέο σημείο επαφής"
+msgstr "New contact point"
+
+#: phdapplications/templates/phdapplications/application_summary.html:229
+msgid "Δεν έχει υποβληθεί κάποια συστατική επιστολή"
+msgstr "No letter of recommendation has been submitted"
+
+#: phdapplications/templates/phdapplications/application_summary.html:244
+msgid "Συστατικές Επιστολές που δεν έχουν ακόμα αποστάλλει"
+msgstr "Letters of recommendation not yet sent"
+
+#: phdapplications/templates/phdapplications/application_summary.html:261
+msgid ""
+"Δεν έχει υπάρχει κάποια επαφή που να μην έχει αποστείλει συστατική επιστολή"
+msgstr "There is no contact that has not sent a letter of recommendation"
+
+#: phdapplications/templates/phdapplications/apply.html:6
+msgid "Υποβολή αίτησης"
+msgstr "Submit application"
+
+#: phdapplications/templates/phdapplications/apply.html:9
+msgid "Στοιχεία Πρόσκλησης"
+msgstr "Call Details"
+
+#: phdapplications/templates/phdapplications/apply.html:10
+msgid "Τίτλος Πρόσκλησης"
+msgstr "Call Title"
+
+#: phdapplications/templates/phdapplications/apply.html:14
+msgid "Οδηγίες"
+msgstr "Instructions"
+
+#: phdapplications/templates/phdapplications/apply.html:16
+msgid "Μπορείτε να υποβάλλετε την αίτηση σας εδώ."
+msgstr "You can submit your application here."
+
+#: phdapplications/templates/phdapplications/apply.html:19
+msgid "Θα πρέπει να ανεβάσετε το έγγραφο"
+msgstr "You must upload the document"
+
+#: phdapplications/templates/phdapplications/apply.html:20
+msgid ""
+"Μπορείτε επίσης να συμπληρώσετε κάποιες παρατηρήσεις/σημειώσεις για την "
+"αίτηση σας, αν το επιθυμείτε στο αντίστοιχο πεδίο παρακάτω."
+msgstr ""
+"You can also fill in some observations/notes for your application in the "
+"corresponding field below, if you wish."
+
+#: phdapplications/templates/phdapplications/apply.html:25
+#: phdapplications/templates/phdapplications/dashboard.html:19
+msgid "Προσοχή"
+msgstr "Attention"
+
+#: phdapplications/templates/phdapplications/candidate_app.html:8
+msgid "Εδώ μπορείτε να υποβάλλετε αίτηση για εκπόνηση διδακτορικής διατριβής."
+msgstr "Here you can submit an application for a doctoral thesis."
+
+#: phdapplications/templates/phdapplications/candidate_app.html:10
+msgid ""
+"To κύριο σώμα της αίτησης σας, περιλαμβάνει στοιχεία σχετικά με το πλάνο "
+"διδακτορικής διατριβής και άλλες απαιτούμενες από την πρόσκληση πληροφορίες."
+msgstr ""
+"The main body of your application includes details regarding the doctoral "
+"thesis plan and other information required by the call."
+
+#: phdapplications/templates/phdapplications/candidate_app.html:11
+msgid ""
+"Τα προσωπικά στοιχεία της αίτησης σας, περιλαμβάνουν στοιχεία που αφορούν "
+"την ταυτοποίηση σας."
+msgstr ""
+"The personal details of your application include information regarding your "
+"identification."
+
+#: phdapplications/templates/phdapplications/candidate_app.html:12
+msgid ""
+"Στα επισυναπτόμενα μπορείτε να καταχωρήσετε τα πτυχία σας, την εργασιακή σας "
+"εμπειρία και τις δημοσιεύσεις σας."
+msgstr ""
+"In the attachments, you can register your degrees, work experience, and "
+"publications."
+
+#: phdapplications/templates/phdapplications/candidate_app.html:13
+msgid ""
+"Στις συστατικές επιστολές θα καταχωρήσετε σημεία επαφής που θα προσκληθούν "
+"από το σύστημα να παρέχουν συστατική επιστολή"
+msgstr ""
+"In the letters of recommendation, you will register contact points that will "
+"be invited by the system to provide a reference letter."
+
+#: phdapplications/templates/phdapplications/candidate_app.html:14
+msgid ""
+"Όταν ολοκληρώσετε την καταχώρηση των στοιχείων σας πατήστε \"Υποβολή\" για "
+"να υποβάλλεται την αίτηση στο σύστημα. Μέχρι την ημερομηνία λήξης της "
+"πρόσκλησης μπορείτε να κάνετε αλλαγές στην αίτηση σας."
+msgstr ""
+"When you have finished entering your details, press \"Submit\" to submit the "
+"application to the system. You can make changes to your application until "
+"the call deadline."
+
+#: phdapplications/templates/phdapplications/candidate_app_extra.html:5
+#: phdapplications/templates/phdapplications/reviewer_app_extra.html:5
+msgid "Επισυναπτόμενα"
+msgstr "Attachments"
+
+#: phdapplications/templates/phdapplications/candidate_app_extra.html:8
+msgid "Εδώ μπορείτε να υποβάλλετε τα επισυναπτόμενα για την αίτηση σας."
+msgstr "Here you can submit the attachments for your application."
+
+#: phdapplications/templates/phdapplications/candidate_app_extra.html:9
+msgid ""
+"Βεβαιωθείτε ότι έχει συμπληρώσει έχετε προσθέσει όλες τις συνοδευτικές "
+"πληροφορίες (π.χ. πτυχία, κτλ)"
+msgstr ""
+"Make sure you have added all the accompanying information (e.g. degrees, "
+"etc.)"
+
+#: phdapplications/templates/phdapplications/candidate_app_rc.html:5
+#: phdapplications/templates/phdapplications/dashboard.html:68
+msgid "Σημεία Επαφής"
+msgstr "Contact Points"
+
+#: phdapplications/templates/phdapplications/candidate_app_rc.html:7
+msgid ""
+"Εδώ μπορείτε να καταχωρήσετε σημεία επαφής για την παροχή συστατικών "
+"επιστολών για την αίτηση σας."
+msgstr ""
+"Here you can register contact points for the provision of reference letters "
+"for your application."
+
+#: phdapplications/templates/phdapplications/candidate_app_rc.html:8
+msgid ""
+"Όταν υποβάλλετε την αίτηση σας, θα τους αποσταλλεί email για να ανεβάσουν "
+"την συστατική τους επιστολή."
+msgstr ""
+"When you submit your application, an email will be sent to them to upload "
+"their reference letter."
+
+#: phdapplications/templates/phdapplications/candidate_app_rc.html:9
+msgid ""
+"Δεν μπορείτε να διαγράψετε σημεία επαφής όταν έχετε υποβάλλει την αίτηση."
+msgstr ""
+"You cannot delete contact points once you have submitted the application."
+
+#: phdapplications/templates/phdapplications/custom_file_input.html:5
+msgid "Κατεβάστε εδώ"
+msgstr "Download here"
+
+#: phdapplications/templates/phdapplications/custom_file_input.html:7
+msgid "Δεν έχει υποβληθεί κάποιο αρχείο."
+msgstr "No file has been submitted."
+
+#: phdapplications/templates/phdapplications/dashboard.html:6
+#: phdapplications/templates/phdapplications/reference_letter.html:7
+msgid "Καλώς ήρθατε!"
+msgstr "Welcome!"
+
+#: phdapplications/templates/phdapplications/dashboard.html:11
+#, fuzzy
+#| msgid "Ανοιχτές Προσκλήσεις"
+msgid "Δείτε τις ανοιχτές προσκλήσεις"
+msgstr "Open Calls"
+
+#: phdapplications/templates/phdapplications/dashboard.html:28
+#, fuzzy
+#| msgid "Βεβαιωθείτε ότι τα προσωπικά σας στοιχεία είναι ενημερώμενα"
+msgid "Βεβαιωθείτε ότι όλα τα προσωπικά σας στοιχεία είναι ενημερωμένα."
+msgstr "Make sure that your personal information is accurate"
+
+#: phdapplications/templates/phdapplications/dashboard.html:35
+#, fuzzy
+#| msgid "Παρακαλούμε καταχωρείστε τα στοιχεία σας"
+msgid "Δείτε όλα τα στοιχεία σας"
+msgstr "Please enter your details"
+
+#: phdapplications/templates/phdapplications/dashboard.html:39
+msgid "Συνοδευτικές πληροφορίες για τις αιτήσεις σας:"
+msgstr "Supporting information for your requests:"
+
+#: phdapplications/templates/phdapplications/dashboard.html:56
+#, fuzzy
+#| msgid "Περιοδικά"
+msgid "Eπ. Περιοδικά"
+msgstr "Journals"
+
+#: phdapplications/templates/phdapplications/dashboard.html:63
+#, fuzzy
+#| msgid "Συνέδρια"
+msgid "Επ. Συνέδρια"
+msgstr "Conferences"
+
+#: phdapplications/templates/phdapplications/dashboard.html:83
+#, fuzzy
+#| msgid "Οι αιτήσεις μου"
+msgid "Οι αιτήσεις σας"
+msgstr "My requests"
+
+#: phdapplications/templates/phdapplications/dashboard.html:89
+#, fuzzy
+#| msgid "Αριθμός αναφοράς"
+msgid "Αριθμός Αναφοράς"
+msgstr "Reference number"
+
+#: phdapplications/templates/phdapplications/dashboard.html:115
+#, fuzzy
+#| msgid "Δεν έχει υποβληθεί κάποιο αρχείο."
+msgid "Δεν έχετε κάνει κάποια αίτηση."
+msgstr "No file has been submitted."
+
+#: phdapplications/templates/phdapplications/partials/app_info.html:3
+msgid "Κωδικός Αναφοράς Συστήματος"
+msgstr "System Reference Code"
+
+#: phdapplications/templates/phdapplications/partials/app_info.html:9
+#: phdapplications/templates/phdapplications/partials/call_info.html:6
+msgid "Προθεσμία Υποβολής"
+msgstr "Submission Deadline"
+
+#: phdapplications/templates/phdapplications/partials/app_main_info.html:5
+#: phdapplications/templates/phdapplications/partials/app_main_info.html:7
+msgid "Στο πεδίο"
+msgstr "In the field"
+
+#: phdapplications/templates/phdapplications/partials/app_main_info.html:5
+msgid ""
+"θα ανεβάσετε ένα αρχείο σε μορφή PDF το οποίο θα περιγράφει ένα σχέδιο "
+"δράσης για τα πρώτα βήματα της διδακτορικής διατριβής αν επιλεγείτε."
+msgstr ""
+"you will upload a PDF file describing an action plan for the first steps of "
+"the doctoral thesis if selected."
+
+#: phdapplications/templates/phdapplications/partials/app_main_info.html:7
+msgid ""
+"θα ανεβάσετε ένα αρχείο υπεύθυνης δήλωσης ψηφιακά υπογεγραμμένο ή βεβαιωμένο "
+"από gov.gr στο οποίο θα αναγράψετε: "
+msgstr ""
+"you will upload a statutory declaration file, digitally signed or certified "
+"via gov.gr, in which you will state: "
+
+#: phdapplications/templates/phdapplications/partials/app_main_info.html:7
+msgid ""
+"Όλα τα υποβαλλόμενα στοιχεία και πληροφορίες είναι αληθής και ακριβή. "
+"Επιπλέον, δεν είμαι εγγεγραμμένος/η σε διδακτορικό πρόγραμμα σπουδών, ούτε "
+"μου έχει αποδοθεί Διδακτορικός τίτλος σπουδών"
+msgstr ""
+"All submitted data and information are true and accurate. Furthermore, I am "
+"not enrolled in a doctoral study program, nor have I been awarded a Doctoral "
+"degree"
+
+#: phdapplications/templates/phdapplications/partials/app_main_info.html:7
+msgid "και θα απευθύνεται στην γραμματεία του Τμήματος"
+msgstr "and it will be addressed to the Department's secretariat"
+
+#: phdapplications/templates/phdapplications/partials/call_info.html:3
+#: phdapplications/templates/phdapplications/reviewer_applications.html:20
+msgid "Πληροφορίες Πρόσκλησης"
+msgstr "Call Information"
+
+#: phdapplications/templates/phdapplications/partials/candidate_app_menu.html:60
+msgid "Είστε σίγουροι; Θα διαγραφούν όλα τα στοιχεία της αίτησης σας!"
+msgstr "Are you sure? All your application data will be deleted!"
+
+#: phdapplications/templates/phdapplications/partials/candidate_app_menu.html:62
+msgid "Άκυρο!"
+msgstr "Cancel!"
+
+#: phdapplications/templates/phdapplications/phdapp_sec.html:6
+msgid "Διαχείριση Υποψηφίων"
+msgstr "Applicant Management"
+
+#: phdapplications/templates/phdapplications/phdapp_sec.html:9
+msgid "Διαχείριση Προσκλήσεων"
+msgstr "Call Management"
+
+#: phdapplications/templates/phdapplications/reference_letter.html:5
+msgid "Σύστημα Διαχείρισης Προσκλήσεων Εκπόνησης Διδακτορικής Διατριβής"
+msgstr "Doctoral Thesis Call Management System"
+
+#: phdapplications/templates/phdapplications/reference_letter.html:12
+msgid "Στοιχεία πρόσκλησης υποβολής αιτήσεων"
+msgstr "Call for applications details"
+
+#: phdapplications/templates/phdapplications/reference_letter.html:13
+msgid "Τίτλος Διδακτορικού"
+msgstr "PhD Title"
+
+#: phdapplications/templates/phdapplications/reference_letter.html:22
+msgid ""
+"Παρακαλούμε ανεβάστε την συστατική σας επιστολή για τον υποψήφιο "
+"χρησιμοποιώντας αυτή την φόρμα."
+msgstr "Please upload your reference letter for the candidate using this form."
+
+#: phdapplications/templates/phdapplications/reference_letter.html:23
+msgid "Mπορείτε να συμπληρώσετε προαιρετικά και παρατηρήσεις για τον υποψήφιο."
+msgstr "You may optionally fill in remarks about the candidate."
+
+#: phdapplications/templates/phdapplications/reference_letter.html:24
+msgid ""
+"Επίσης μπορείτε να διορθώσετε τα στοιχεία επικοινωνίας σας, όπως αυτά έχουν "
+"καταχωρηθεί από τον υποψήφιο."
+msgstr ""
+"You can also correct your contact details, as they have been entered by the "
+"candidate."
+
+#: phdapplications/templates/phdapplications/reference_letter.html:25
+msgid ""
+"Πατήστε \"Υποβολή Συστατικής Επιστολής\" όταν συμπληρώσετε την παρακάτω φόρμα"
+msgstr ""
+"Press \"Submit Reference Letter\" once you have completed the form below"
+
+#: phdapplications/templates/phdapplications/reviewer_applications.html:35
+#, fuzzy
+#| msgid "Δεν υπάρχουν αιτήσεις ακόμη."
+msgid "Δεν υπάρχουν αιτήσεις στην πρόσκληση αυτή."
+msgstr "There are no requests yet."
+
+#: phdapplications/templates/phdapplications/reviewer_dashboard.html:19
+#, fuzzy
+#| msgid "Διδακτορικές Διατριβές στις οποίες είστε επιβλέπων"
+msgid "Προσκλήσεις στις οποίες είστε αξιολογητής"
+msgstr "Doctoral Theses that your are supervising"
+
+#: phdapplications/templates/phdapplications/reviewer_dashboard.html:33
+#, fuzzy
+#| msgid "Διδακτορικές Διατριβές στις οποίες είστε επιβλέπων"
+msgid "Δεν υπάρχουν προσκλήσεις στις οποίες είστε αξιολογητής"
+msgstr "Doctoral Theses that your are supervising"
+
+#: phdapplications/templates/phdapplications/sec_dashboard.html:6
+msgid "Καλως ήρθατε"
+msgstr "Welcome"
+
+#: phdapplications/templates/phdapplications/sec_dashboard.html:7
+msgid "Επιλέξτε κάποια λειτουργία διαχείρισης από το παραπάνω μενού"
+msgstr "Please select a management function from the menu above."
+
+#: phdapplications/templates/phdapplications/submit.html:9
+msgid ""
+"Διορθώστε τα παρακάτω σφάλματα για να μπορέσετε να υποβάλλετε την αίτηση σας:"
+msgstr "Correct the following errors to be able to submit your application:"
+
+#: phdapplications/templates/phdapplications/submit.html:23
+msgid "Υποβολή Αίτησης"
+msgstr "Application Submission"
+
+#: phdapplications/templates/phdapplications/submit.html:37
+msgid "Προειδοποιητικά μηνύματα:"
+msgstr "Warning messages:"
+
+#: phdapplications/templates/phdapplications/submit.html:48
+msgid "Επιτυχείς έλεγχοι:"
+msgstr "Successful checks:"
+
+#: phdapplications/utils.py:175
+msgid "Το κύριο σώμα της αίτησης είναι συμπληρωμένο."
+msgstr "The main body of the application is completed."
+
+#: phdapplications/utils.py:178
+msgid ""
+"Δεν έχετε συμπληρώσει όλα τα απαιτούμενα πεδία στο κύριο μέρος της αίτησης "
+"σας: "
+msgstr ""
+"You have not completed all the required fields in the main part of your "
+"application: "
+
+#: phdapplications/utils.py:187
+msgid "Τα προσωπικά σας στοιχεία είναι συμπληρωμένα."
+msgstr "Your personal details are completed."
+
+#: phdapplications/utils.py:190
+msgid "Δεν έχετε συμπληρώσει όλα τα απαιτούμενα πεδία: "
+msgstr "You have not filled in all the required fields: "
+
+#: phdapplications/utils.py:198
+msgid "Δεν έχετε καταχωρήσει καθόλου τίτλους σπουδών"
+msgstr "You have not registered any degrees"
+
+#: phdapplications/utils.py:202
+#, python-format
+msgid "Έχετε καταχωρήσει %(no)s τίτλους σπουδών."
+msgstr "You have registered %(no)s degrees."
+
+#: phdapplications/utils.py:209
+msgid ""
+"Δεν έχετε καταχωρήσει σημεία επαφής για παροχή συστατικής επιστολής. "
+"Βεβαιωθείτε ότι δεν απαιτείται από την πρόσκληση."
+msgstr ""
+"You have not registered any contact points for providing a reference letter. "
+"Make sure it is not required by the call."
+
+#: phdapplications/utils.py:213
+#, python-format
+msgid "Έχετε καταχωρήσει %(no)s σημεία επαφής για παροχή συστατικής επιστολής."
+msgstr ""
+"You have registered %(no)s contact points for providing a reference letter."
+
+#: phdapplications/utils.py:220
+msgid "Δεν έχετε καταχωρήσει καθόλου εργασιακή εμπειρία"
+msgstr "You have not registered any work experience"
+
+#: phdapplications/utils.py:224
+#, python-format
+msgid "Έχετε καταχωρήσει %(no)s εγγραφές στην εργασιακή εμπειρία."
+msgstr "You have registered %(no)s entries in work experience."
+
+#: phdapplications/utils.py:231
+msgid "Δεν έχετε καταχωρήσει δημοσιεύσεις σε ερευνητικά περιοδικά"
+msgstr "You have not registered any publications in research journals"
+
+#: phdapplications/utils.py:235
+#, python-format
+msgid "Έχετε καταχωρήσει %(no)s δημοσιεύσεις σε ερευνητικά περιοδικά"
+msgstr "You have registered %(no)s publications in research journals"
+
+#: phdapplications/utils.py:242
+msgid "Δεν έχετε καταχωρήσει δημοσιεύσεις σε ερευνητικά συνέδρια"
+msgstr "You have not registered any publications in research conferences"
+
+#: phdapplications/utils.py:246
+#, python-format
+msgid "Έχετε καταχωρήσει %(no)s δημοσιεύσεις σε ερευνητικά συνέδρια"
+msgstr "You have registered %(no)s publications in research conferences"
+
+#: phdapplications/utils.py:250
+msgid "Πατήστε \"Επιστροφή\" για να τα συμπληρώσετε."
+msgstr "Press \"Back\" to fill them in."
+
+#: phdapplications/views.py:62 phdapplications/views.py:518
+#: phdapplications/views.py:803
+msgid "Ανοιχτές Προσκλήσεις"
+msgstr "Open Calls"
+
+#: phdapplications/views.py:64 phdapplications/views.py:520
+#: phdapplications/views.py:540 phdapplications/views.py:805
+#: phdapplications/views.py:827 phdapplications/views.py:847
+#: phdapplications/views.py:867 phdstuds/views.py:418 phdstuds/views.py:431
+#: phdstuds/views.py:692 phdstuds/views.py:707 phdstuds/views.py:890
+#: phdstuds/views.py:909
+msgid "Θέμα"
+msgstr "Subject"
+
+#: phdapplications/views.py:74
+msgid "Αίτηση"
+msgstr "Application"
+
+#: phdapplications/views.py:82
+msgid "Αιτήσεις σε προσωρινή αποθήκευση"
+msgstr "Applications in draft status"
+
+#: phdapplications/views.py:84 phdapplications/views.py:98
+msgid "Αριθμός αναφοράς"
+msgstr "Reference number"
+
+#: phdapplications/views.py:96
+msgid "Αιτήσεις που έχουν υποβληθεί"
+msgstr "Submitted applications"
+
+#: phdapplications/views.py:124
+msgid "Σημεία Επαφής για Παροχή Συστατικής Επιστολής"
+msgstr "Contact Points for Providing Reference Letter"
+
+#: phdapplications/views.py:128 phdapplications/views.py:283
+#: phdapplications/views.py:649 phdapplications/views.py:714
+#: phdapplications/views.py:988 phdapplications/views.py:1108
+msgid "Φορέας"
+msgstr "Institution"
+
+#: phdapplications/views.py:129 phdapplications/views.py:1109
+msgid "Κατάσταση Συστατικής"
+msgstr "Reference Status"
+
+#: phdapplications/views.py:201
+msgid ""
+"Παρακαλούμε συμπληρώστε τα στοιχεία που λείπουν παρακάτω για να συνεχίσετε."
+msgstr "Please fill in the missing information below to continue."
+
+#: phdapplications/views.py:264 phdapplications/views.py:629
+#: phdapplications/views.py:969
+msgid "Πτυχία"
+msgstr "Degrees"
+
+#: phdapplications/views.py:267 phdapplications/views.py:632
+#: phdapplications/views.py:972
+msgid "Τύπος"
+msgstr "Type"
+
+#: phdapplications/views.py:281 phdapplications/views.py:647
+#: phdapplications/views.py:986
+msgid "Έτος Έναρξης"
+msgstr "Start Year"
+
+#: phdapplications/views.py:294 phdapplications/views.py:661
+#: phdapplications/views.py:999 phdstuds/views.py:305 phdstuds/views.py:442
+#: phdstuds/views.py:722 phdstuds/views.py:923
+msgid "Δημοσιεύσεις σε Περιοδικά"
+msgstr "Journal Publications"
+
+#: phdapplications/views.py:298 phdapplications/views.py:665
+#: phdapplications/views.py:1003 phdstuds/views.py:303 phdstuds/views.py:445
+#: phdstuds/views.py:725 phdstuds/views.py:926
+msgid "Περιοδικό"
+msgstr "Journal"
+
+#: phdapplications/views.py:309 phdapplications/views.py:677
+#: phdapplications/views.py:1014 phdstuds/views.py:335 phdstuds/views.py:365
+#: phdstuds/views.py:456 phdstuds/views.py:738 phdstuds/views.py:942
+msgid "Δημοσιεύσεις σε Συνέδρια"
+msgstr "Conference Publications"
+
+#: phdapplications/views.py:313 phdapplications/views.py:681
+#: phdapplications/views.py:1018 phdstuds/views.py:333 phdstuds/views.py:363
+#: phdstuds/views.py:459 phdstuds/views.py:741 phdstuds/views.py:945
+msgid "Συνέδριο"
+msgstr "Conference"
+
+#: phdapplications/views.py:334 phdapplications/views.py:339
+#: phdapplications/views.py:751 phdapplications/views.py:1044
+msgid "Στοιχεία τίτλου σπουδών"
+msgstr "Degree information"
+
+#: phdapplications/views.py:345 phdapplications/views.py:350
+#: phdapplications/views.py:766 phdapplications/views.py:1062
+msgid "Στοιχεία εργασιακής εμπειρίας"
+msgstr "Work experience information"
+
+#: phdapplications/views.py:356 phdapplications/views.py:361
+#: phdapplications/views.py:367 phdapplications/views.py:372
+msgid "Στοιχεία δημοσιεύσης"
+msgstr "Publication information"
+
+#: phdapplications/views.py:378 phdapplications/views.py:383
+msgid "Στοιχεία σημείου επαφής"
+msgstr "Contact point information"
+
+#: phdapplications/views.py:387
+msgid "Λεπτομέρειες Πρόσκλησης"
+msgstr "Call Details"
+
+#: phdapplications/views.py:449
+msgid ""
+"\n"
+"            H πρόκληση για να υποβάλλετε την συστατική έχει λήξει.\n"
+"            "
+msgstr ""
+"\n"
+"            The invitation to submit the reference letter has expired.\n"
+"            "
+
+#: phdapplications/views.py:454
+msgid ""
+"\n"
+"            O σύνδεσμος δεν είναι σωστός!\n"
+"            "
+msgstr ""
+"\n"
+"            The link is invalid!\n"
+"            "
+
+#: phdapplications/views.py:486
+msgid "Ευχαριστούμε πολύ! Η συστατική σας καταχωρήθηκε."
+msgstr "Thank you very much! Your reference letter has been submitted."
+
+#: phdapplications/views.py:530 phdapplications/views.py:550
+#: phdapplications/views.py:817 phdapplications/views.py:837
+#: phdapplications/views.py:857 phdapplications/views.py:877
+msgid "Αίτησεις"
+msgstr "Applications"
+
+#: phdapplications/views.py:538 phdapplications/views.py:825
+msgid "Προσκλήσεις που έχουν λήξει"
+msgstr "Expired calls"
+
+#: phdapplications/views.py:756 phdapplications/views.py:761
+#: phdapplications/views.py:1050 phdapplications/views.py:1056
+msgid "Στοιχεία δημοσίευσης"
+msgstr "Publication information"
+
+#: phdapplications/views.py:812
+msgid "Νέα πρόσκληση"
+msgstr "New call"
+
+#: phdapplications/views.py:845
+msgid "Προσκλήσεις που δεν έχουν ακόμα ανοίξει"
+msgstr "Calls that have not opened yet"
+
+#: phdapplications/views.py:865
+msgid "Προσκλήσεις που δεν είναι δημοσιευμένες"
+msgstr "Unpublished calls"
+
+#: phdstuds/forms.py:20
+msgid "Υποψήφιος Διδάκτορας"
+msgstr "PhD Candidate"
+
+#: phdstuds/forms.py:21
+msgid "Επιβλέπων Καθηγητής"
+msgstr "Supervisor Professor"
+
+#: phdstuds/forms.py:22
+msgid "Τριμελής Συμβουλευτική Επιτροπή"
+msgstr "Three-member Advisory Committee"
+
+#: phdstuds/forms.py:23
+msgid "Τίτλος Διατριβής (Ελληνικά)"
+msgstr "Dissertation Title (Greek)"
+
+#: phdstuds/forms.py:24
+msgid "Τίτλος Διατριβής (Αγγλικά)"
+msgstr "Dissertation Title (English)"
+
+#: phdstuds/forms.py:25
+msgid "Ημερομηνία Εγγραφής"
+msgstr "Registration Date"
+
+#: phdstuds/forms.py:26
+msgid "Έτος Εγγραφής"
+msgstr "Registration Year"
+
+#: phdstuds/forms.py:27
+msgid "Αριθμός Πράξης Εγγραφής"
+msgstr "Registration Act Number"
+
+#: phdstuds/forms.py:28
+msgid "Ημερομηνία Αναγόρευσης"
+msgstr "Award Date"
+
+#: phdstuds/forms.py:29
+msgid "Συνέλευση Αναγόρευσης"
+msgstr "Award Assembly"
+
+#: phdstuds/forms.py:30
+msgid "Κατάσταση Φοίτησης"
+msgstr "Enrollment Status"
+
+#: phdstuds/forms.py:32
+msgid "Περίληψη (Ελληνικά)"
+msgstr "Abstract (Greek)"
+
+#: phdstuds/forms.py:33
+msgid "Περίληψη (Αγγλικά)"
+msgstr "Abstract (English)"
+
+#: phdstuds/forms.py:36
+msgid "Διδακτορική Διατριβή"
+msgstr "Doctoral Dissertation"
+
+#: phdstuds/forms.py:49
+msgid "Συμμετέχει στη δημοσίευση ο επιβλέπων καθηγητής;"
+msgstr "Does the supervisor participate in the publication?"
+
+#: phdstuds/forms.py:50
+msgid "Τεύχος"
+msgstr "Issue"
+
+#: phdstuds/forms.py:56
+msgid "Μέλος ΔΕΠ"
+msgstr "Faculty Member"
+
+#: phdstuds/forms.py:60
+msgid "Ώρες ανά Εβδομάδα"
+msgstr "Hours per Week"
+
+#: phdstuds/forms.py:61
+msgid "Αριθμός Εβδομάδων"
+msgstr "Number of Weeks"
+
+#: phdstuds/forms.py:62
+msgid "Με Σύμβαση"
+msgstr "With Contract"
+
+#: phdstuds/forms.py:67
+msgid "Ημερομηνία Εξέτασης"
+msgstr "Examination Date"
+
+#: phdstuds/forms.py:70
+msgid "Συνολικές Ώρες Απασχόλησης"
+msgstr "Total Working Hours"
+
+#: phdstuds/forms.py:73
+msgid "Σχετική Απόφαση / Έγγραφο"
+msgstr "Related Decision / Document"
+
+#: phdstuds/forms.py:74
+msgid "Ημερομηνία Δημιουργίας"
+msgstr "Created Date"
+
+#: phdstuds/forms.py:75
+msgid "Ημερομηνία Τελευταίας Ενημέρωσης"
+msgstr "Last Updated Date"
+
+#: phdstuds/forms.py:76
+msgid "Χρήστης που Δημιούργησε την Εγγραφή"
+msgstr "User who created the record"
+
+#: phdstuds/forms.py:77
+msgid "Χρήστης που Ενημέρωσε Τελευταίος την Εγγραφή"
+msgstr "User who last updated the record"
+
+#: phdstuds/forms.py:79
+msgid "Ημερομηνία Απόφασης"
+msgstr "Decision Date"
+
+#: phdstuds/forms.py:84
+msgid "Επισυναπτόμενο έγγραφο"
+msgstr "Attached document"
+
+#: phdstuds/forms.py:87
+msgid "Χρήστης"
+msgstr "User"
+
+#: phdstuds/forms.py:91
+msgid "Ηλεκτρονική Διεύθυνση"
+msgstr "Email Address"
+
+#: phdstuds/forms.py:92
+msgid "Δευτερεύουσα Ηλεκτρονική Διεύθυνση"
+msgstr "Secondary Email Address"
+
+#: phdstuds/forms.py:95
+msgid "Αριθμός Φορολογικού Μητρώου (ΑΦΜ)"
+msgstr "Tax Registry Number"
+
+#: phdstuds/forms.py:96
+msgid "Αριθμός Μητρώου Κοινωνικής Ασφάλισης (ΑΜΚΑ)"
+msgstr "Social Security Number"
+
+#: phdstuds/forms.py:105
+msgid "Τηλέφωνο Κατοικίας"
+msgstr "Home Phone"
+
+#: phdstuds/forms.py:109
+msgid "Ταχυδρομικός Κώδικας Εργασίας"
+msgstr "Work Address Postal Code"
+
+#: phdstuds/forms.py:309
+msgid "Δεν μπορείτε να καταχωρήσετε εισήγηση για επόμενη χρονιά."
+msgstr "You cannot submit a recommendation for a future year."
+
+#: phdstuds/forms.py:318
+msgid ""
+"Έχετε ήδη καταχωρήσει εισήγηση σε αυτή την χρονιά για αυτήν τη διατριβή."
+msgstr ""
+"You have already submitted a recommendation for that year for the thesis in "
+"question."
+
+#: phdstuds/forms.py:415
+msgid "Δεν μπορείτε να καταχωρήσετε αναφορά για επόμενη χρονιά."
+msgstr "You cannot submit a report for a future year."
+
+#: phdstuds/forms.py:424
+msgid "Έχετε ήδη καταχωρήσει αναφορά για την χρονιά αυτή"
+msgstr "You have already submitted a report for this year"
+
+#: phdstuds/models.py:46
+msgid "Ολοκληρωμένη"
+msgstr "Completed"
+
+#: phdstuds/models.py:47
+msgid "Ενεργή"
+msgstr "Active"
+
+#: phdstuds/models.py:48
+msgid "Διακοπή φοίτησης"
+msgstr "Suspension of studies"
+
+#: phdstuds/models.py:133
+msgid "Διαλέξεις θεωρίας"
+msgstr "Lecture courses"
+
+#: phdstuds/models.py:134
+msgid "Εργαστηριακά μαθήματα"
+msgstr "Lab courses"
+
+#: phdstuds/models.py:172
+msgid "Ικανοποιητική"
+msgstr "Satisfactory"
+
+#: phdstuds/models.py:173
+msgid "Οριακά Ικανοποιητική"
+msgstr "Marginal"
+
+#: phdstuds/models.py:174
+msgid "Ανεπαρκής - Διαγραφή"
+msgstr "Insufficient - Dismissal"
+
+#: phdstuds/templates/phdstuds/partials/phdstuds_menu.html:6
+#: phdstuds/templates/phdstuds/partials/phdstuds_menu.html:16
+msgid "Διατριβές"
+msgstr "Theses"
+
+#: phdstuds/templates/phdstuds/partials/phdstuds_menu.html:8
+msgid "Αναφορές"
+msgstr "Reports"
+
+#: phdstuds/templates/phdstuds/partials/phdstuds_menu.html:9
+#: phdstuds/templates/phdstuds/partials/phdstuds_menu.html:17
+msgid "Eισηγήσεις"
+msgstr "Recommendations"
+
+#: phdstuds/views.py:102
+msgid "Δημιουργία Διδακτορικής Διατριβής"
+msgstr "Create Doctoral Thesis"
+
+#: phdstuds/views.py:109 phdstuds/views.py:592
+msgid "Ενημέρωση Διδακτορικής Διατριβής"
+msgstr "Update Doctoral Thesis"
+
+#: phdstuds/views.py:131
+msgid "Πορεία"
+msgstr "Progress"
+
+#: phdstuds/views.py:153
+msgid "Δημιουργία Διδακτορικού Φοιτητή"
+msgstr "Create Doctoral Student"
+
+#: phdstuds/views.py:160
+msgid "Ενημέρωση Στοιχείων Φοίτησης"
+msgstr "Update Enrollment Information"
+
+#: phdstuds/views.py:163
+msgid "Για την ενημέρωση των προσωπικών στοιχείων πατήστε εδώ:"
+msgstr "To update your personal information, click here:"
+
+#: phdstuds/views.py:164
+msgid "Επεξεργασία προσωπικών στοιχείων"
+msgstr "Update personal information"
+
+#: phdstuds/views.py:186
+msgid "Διδακτορικοί Φοιτητές"
+msgstr "Doctoral Candidates"
+
+#: phdstuds/views.py:190 phdstuds/views.py:531 phdstuds/views.py:553
+msgid "Προφίλ"
+msgstr "Profile"
+
+#: phdstuds/views.py:204
+msgid "Ενημέρωση Προσωπικών Στοιχείων"
+msgstr "Update Personal Information"
+
+#: phdstuds/views.py:228
+msgid "Δημιουργία Αναφοράς Υποψήφιου Διδάκτορα"
+msgstr "Create Doctoral Candidate Report"
+
+#: phdstuds/views.py:233
+msgid "Ενημέρωση Αναφοράς Υποψήφιου Διδάκτορα"
+msgstr "Update Doctoral Candidate Report"
+
+#: phdstuds/views.py:244
+msgid "Αναφορές Υποψήφιων Διδακτόρων"
+msgstr "Doctoral Candidate Reports`"
+
+#: phdstuds/views.py:258
+msgid "Δημιουργία Εισήγησης Προόδου"
+msgstr "Create Progress Recommendation"
+
+#: phdstuds/views.py:263
+msgid "Ενημέρωση Εισήγησης Προόδου"
+msgstr "Update Progress Recommendation Information"
+
+#: phdstuds/views.py:274
+msgid "Εισηγήσεις Προόδου"
+msgstr "Progress Recommendations"
+
+#: phdstuds/views.py:289 phdstuds/views.py:319 phdstuds/views.py:349
+msgid "Δημιουργία Δημοσιεύσης"
+msgstr "Create Publication"
+
+#: phdstuds/views.py:294 phdstuds/views.py:324 phdstuds/views.py:354
+msgid "Ενημέρωση Δημοσίευσης"
+msgstr "Update Publication Info"
+
+#: phdstuds/views.py:379
+msgid "Δημιουργία Επικουρικού Διδακτικού Έργου"
+msgstr "New Teaching Assistance Task"
+
+#: phdstuds/views.py:384
+msgid "Ενημέρωση Επικουρικού Διδακτικού Έργου"
+msgstr "Update Teaching Assistance Task"
+
+#: phdstuds/views.py:393 phdstuds/views.py:473 phdstuds/views.py:757
+#: phdstuds/views.py:964
+msgid "Υπεύθυνος Καθηγητής"
+msgstr "Supervisor"
+
+#: phdstuds/views.py:395
+msgid "Επικουργικό Διδακτικό Έργο"
+msgstr "Teaching Assistance Tasks"
+
+#: phdstuds/views.py:407 phdstuds/views.py:509 phdstuds/views.py:671
+#: phdstuds/views.py:873
+msgid "Στοιχεία Διδακτορικής Διατριβής"
+msgstr "Doctoral Thesis Information"
+
+#: phdstuds/views.py:412 phdstuds/views.py:686
+msgid "Υποψήφιος Διδάκτορας: "
+msgstr "Doctoral Candidate: "
+
+#: phdstuds/views.py:416 phdstuds/views.py:690 phdstuds/views.py:888
+msgid "Αναφορές Διδακτορικής Διατριβής"
+msgstr "Doctoral Thesis Progress Reports"
+
+#: phdstuds/views.py:429 phdstuds/views.py:705 phdstuds/views.py:907
+msgid "Εισηγήσεις Επιβλέποντα"
+msgstr "Supervisor Recommendations"
+
+#: phdstuds/views.py:475 phdstuds/views.py:759 phdstuds/views.py:966
+msgid "Επικουρικό Διδακτικό Έργο"
+msgstr "Teaching Assistance Tasks"
+
+#: phdstuds/views.py:523
+msgid "Διδακτορικές Διατριβές στις οποίες είστε επιβλέπων"
+msgstr "Doctoral Theses that your are supervising"
+
+#: phdstuds/views.py:545
+msgid "Διδακτορικές Διατριβές στις οποίες είστε στην επιτροπή παρακολούθησης"
+msgstr "Doctoral Theses you are co-supervising"
+
+#: phdstuds/views.py:574
+msgid "Εισηγήσεις Διδακτορικών Διατριβών"
+msgstr "Recommendation for Doctoral Theses"
+
+#: phdstuds/views.py:576
+msgid "Νέα Εισήγηση"
+msgstr "New Recommendation"
+
+#: phdstuds/views.py:620 phdstuds/views.py:799 phdstuds/views.py:804
+msgid "Αναφορά Πορείας Διδακτορικής Διατριβής"
+msgstr "Doctroral Thesis Progress Report"
+
+#: phdstuds/views.py:625 phdstuds/views.py:837
+msgid "Εισήγηση Πορείας Διδακτορικής Διατριβής"
+msgstr "Doctroal Thesis Progress Recommendation"
+
+#: phdstuds/views.py:631
+msgid "Δημιουργία Εισήγησης Πορείας Διδακτορικής Διατριβής"
+msgstr "Create a new PhD progress recommendation"
+
+#: phdstuds/views.py:656 phdstuds/views.py:843 phdstuds/views.py:848
+msgid "Δημοσίευση σε Περιοδικό"
+msgstr "Journal Publication"
+
+#: phdstuds/views.py:661 phdstuds/views.py:853 phdstuds/views.py:858
+msgid "Δημοσίευση σε Συνέδριο"
+msgstr "Conference Publication"
+
+#: phdstuds/views.py:666 phdstuds/views.py:863 phdstuds/views.py:868
+msgid "Επικουρικό Έργο"
+msgstr "My teaching assistance tasks"
+
+#: phdstuds/views.py:879
+msgid "Βεβαιωθείτε ότι τα προσωπικά σας στοιχεία είναι ενημερώμενα"
+msgstr "Make sure that your personal information is accurate"
+
+#: phdstuds/views.py:895
+msgid "Νέα Αναφορά"
+msgstr "New Report"
+
+#: phdstuds/views.py:950
+msgid "Νέα Συνέδριο"
+msgstr "New conference"
+
+#: phdstuds/views.py:953 phdstuds/views.py:971
+msgid "Προβολή"
+msgstr "View"
+
+#: phdstuds/views.py:969
+msgid "Νέο Επικουρικό Έργο"
+msgstr "New Teaching Assistance"
+
+#: phdstuds/views.py:995
+msgid "Ενημέρωση προσωπικών στοιχείων"
+msgstr "Update personal data"
+
+#: rfs/models.py:12
+msgid "Αίτηση για Διδακτορική Διατριβή"
+msgstr "Doctorate Application"
+
+#: rfs/models.py:14
+msgid "Αναφορά Προόδου Διδακτορικής Διατριβής"
+msgstr "Doctoral Dissertation Progress"
+
+msgid "Εισήγηση αίτησης"
+msgstr "Request recommendation"
+
+msgid "Απόφαση"
+msgstr "Decision"
+
+msgid "Συμπληρώθηκε από"
+msgstr "Submitted by"
+
+msgid "Σχόλια εισήγησης"
+msgstr "Recommendation comments"
+
+msgid "Εκκρεμής εισήγηση καθηγητή"
+msgstr "Pending professor recommendation"
+
+msgid "Προτείνεται έγκριση"
+msgstr "Approval recommended"
+
+msgid "Προτείνεται απόρριψη"
+msgstr "Rejection recommended"
+
+msgid "Αποδοχή εισήγησης"
+msgstr "Accept recommendation"
+
+msgid "Απόρριψη εισήγησης"
+msgstr "Reject recommendation"
+
+msgid "Ο αριθμός πρωτοκόλλου δεν μπορεί να αλλάξει για αυτή την αίτηση."
+msgstr "The protocol number cannot be changed for this request."
+
+msgid "Δεν υπάρχει εκκρεμής εισήγηση καθηγητή για αποδοχή."
+msgstr "There is no pending professor recommendation to accept."
+
+msgid "Η εισήγηση του καθηγητή έγινε αποδεκτή."
+msgstr "The professor recommendation was accepted."
+
+msgid "Δεν υπάρχει εκκρεμής εισήγηση καθηγητή για απόρριψη."
+msgstr "There is no pending professor recommendation to reject."
+
+msgid "Η εισήγηση του καθηγητή απορρίφθηκε και η αίτηση παραμένει υπό εξέταση."
+msgstr "The professor recommendation was rejected and the request remains under review."
+
+msgid "Μόνο αιτήσεις που είναι υπό εξέταση μπορούν να σημειωθούν ως μη ενεργές."
+msgstr "Only requests that are under review can be marked as inactive."
+
+msgid "Μόνο μη ενεργές αιτήσεις μπορούν να επανέλθουν."
+msgstr "Only inactive requests can be restored."
+
+msgid "Η αίτηση επανήλθε σε κατάσταση υπό εξέταση."
+msgstr "The request was restored to under review."
+
+msgid "Επαναφορά"
+msgstr "Restore"
+
+msgid "Συμπληρώστε course_code και professor_email."
+msgstr "Fill in course_code and professor_email."
+
+msgid "Δεν βρέθηκε μάθημα με κωδικό %(code)s."
+msgstr "Course with code %(code)s was not found."
+
+msgid "Ο κωδικός %(code)s αντιστοιχεί σε περισσότερα από ένα μαθήματα."
+msgstr "Code %(code)s matches more than one course."
+
+msgid "Δεν βρέθηκε καθηγητής με email %(email)s."
+msgstr "Professor with email %(email)s was not found."
+
+msgid "Αρχείο CSV"
+msgstr "CSV file"
+
+msgid "Το αρχείο πρέπει να είναι CSV."
+msgstr "The file must be a CSV file."
+
+msgid "Το αρχείο CSV δεν μπορεί να διαβαστεί. Χρησιμοποιήστε UTF-8."
+msgstr "The CSV file cannot be read. Use UTF-8."
+
+msgid "Το CSV δεν περιέχει γραμμές για import."
+msgstr "The CSV does not contain rows to import."
+
+msgid "Το CSV πρέπει να έχει επικεφαλίδες."
+msgstr "The CSV must contain headers."
+
+msgid "Το CSV πρέπει να έχει στήλες course_code και professor_email."
+msgstr "The CSV must contain course_code and professor_email columns."
+
+msgid "Επιλογή αρχείου"
+msgstr "Choose file"
+
+msgid "Δεν επιλέχθηκε αρχείο."
+msgstr "No file selected."
+
+msgid "Συμπληρώθηκε από χρήστη"
+msgstr "Completed by user"
+
+msgid "Ο αριθμός πρωτοκόλλου πρέπει να είναι θετικός ακέραιος αριθμός."
+msgstr "The protocol number must be a positive integer."
+
+msgid "Ο αριθμός πρωτοκόλλου πρέπει να είναι μεγαλύτερος από το μηδέν."
+msgstr "The protocol number must be greater than zero."
+
+msgid "Αυτός ο αριθμός πρωτοκόλλου χρησιμοποιείται ήδη σε άλλη αίτηση."
+msgstr "This protocol number is already used in another request."
+
+msgid "Το import δεν ολοκληρώθηκε. "
+msgstr "The import was not completed. "
+
+msgid "Το import ολοκληρώθηκε με σφάλματα. "
+msgstr "The import completed with errors. "
+
+msgid "Προστέθηκε 1 ανάθεση."
+msgstr "Added 1 assignment."
+
+msgid "Προστέθηκαν %(imported)s αναθέσεις."
+msgstr "Added %(imported)s assignments."
+
+msgid "Η τιμή πρέπει να είναι από 1 έως 8."
+msgstr "The value must be from 1 to 8."
+
+msgid "Αλλαγή Θέματος"
+msgstr "Toggle theme"
+
+msgid "Η αίτηση δεν μπορεί να επεξεργαστεί επειδή έχει ολοκληρωθεί η εισήγηση."
+msgstr "This request cannot be edited because the recommendation has been completed."
+
+msgid "Η αίτηση δεν μπορεί να επεξεργαστεί επειδή δεν είναι υπό εξέταση."
+msgstr "This request cannot be edited because it is not under review."
+
+msgid "Η αίτηση δεν μπορεί να επεξεργαστεί επειδή υπάρχει εκκρεμής εισήγηση καθηγητή."
+msgstr "This request cannot be edited because there is a pending professor recommendation."
+
+msgid "Η αιτιολόγηση διαγραφής είναι υποχρεωτική."
+msgstr "The deletion justification is required."
+
+msgid "Η αιτιολόγηση είναι υποχρεωτική."
+msgstr "The justification is required."
+
+msgid "Αιτιολόγηση"
+msgstr "Justification"
+
+msgid "Αιτιολόγηση διαγραφής"
+msgstr "Deletion justification"
+
+msgid "Στοιχεία διαγραφής"
+msgstr "Deletion details"
+
+msgid "Διαγραφή από"
+msgstr "Deleted by"
+
+msgid "Ημερομηνία διαγραφής"
+msgstr "Deletion date"
+
+msgid "Ο βαθμός αναγνώρισης συμπληρώνεται μόνο όταν η εισήγηση εγκρίνεται."
+msgstr "The recognition grade can be filled in only when the recommendation is approved."
+
+msgid "Ο αριθμός πρωτοκόλλου δεν μπορεί να αλλάξει επειδή έχει ολοκληρωθεί η εισήγηση."
+msgstr "The protocol number cannot be changed because the recommendation has been completed."
+
+msgid "Η τιμή πρέπει να είναι από 0 έως 10."
+msgstr "The value must be between 0 and 10."
+
+msgid "Η τιμή πρέπει να είναι από 1 έως 3."
+msgstr "The value must be between 1 and 3."
+
+msgid "Η τιμή πρέπει να είναι από 5 έως 10."
+msgstr "The value must be between 5 and 10."
+
+msgid "Διαγραφή αίτησης"
+msgstr "Delete request"
+
+msgid "Η αίτηση θα σημειωθεί ως μη ενεργή. Είστε σίγουροι;"
+msgstr "The request will be marked as inactive. Are you sure?"
+
+msgid "Συμπληρώστε αυτό το πεδίο."
+msgstr "Please fill out this field."
+
+msgid "Ο καθηγητής %(professor)s είναι ήδη υπεύθυνος στο μάθημα %(course)s."
+msgstr "Professor %(professor)s is already responsible for course %(course)s."
+
+msgid "Πρέπει να επιλεχθεί κάποιο αρχείο."
+msgstr "A file must be selected."
+
+#~| msgid "Πανεπιστήμιο"
+#~ msgid "Χαροκόπειο Πανεπιστήμιο"
+#~ msgstr "Harokopio University"
+
+#~| msgid "Πλάνο Διδακτορικής Διατριβής"
+#~ msgid "Τμήμα Πληροφορικής και Τηλεματικής"
+#~ msgstr "Department of Informatics and Telematics"
+
+#~| msgid "Πρόγραμμα Σπουδών"
+#~ msgid "Πρόγραμμα σπουδών"
+#~ msgstr "Study Program"
+
+#~ msgid "Καλώς ορίσατε στην εφαρμογή μας."
+#~ msgstr "Welcome to our application."
+
+#~ msgid "Μπορείτε να έχετε πρόσβαση στις εξής εφαρμογές"
+#~ msgstr "You can access the following applications"
+
+#~ msgid "Εισοδος"
+#~ msgstr "Login"
+
+#~ msgid "Επιλέξτε μάθημα"
+#~ msgstr "Select a course"
+
+#~ msgid "Όλες οι αιτήσεις"
+#~ msgstr "All requests"

@@ -1,0 +1,59 @@
+{% extends "phdapplications/exports/base_export.html" %}
+
+{% block content %}
+
+<h1 class="section-title">Επαγγελματική Εμπειρία</h1>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Θέση</th>
+    <td>{{ work.title }}</td>
+</tr>
+
+<tr>
+    <th>Εταιρεία / Οργανισμός</th>
+    <td>{{ work.company }}</td>
+</tr>
+
+<tr>
+    <th>Ημερομηνία Έναρξης</th>
+    <td>{{ work.start_date|date:"d/m/Y" }}</td>
+</tr>
+
+<tr>
+    <th>Ημερομηνία Λήξης</th>
+    <td>
+        {% if work.end_date %}
+            {{ work.end_date|date:"d/m/Y" }}
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Καθήκοντα / Περιγραφή</th>
+    <td>{{ work.duties|default:"—" }}</td>
+</tr>
+
+</table>
+
+<h2 class="subsection">Συνημμένο Συμβόλαιο</h2>
+
+<table class="metadata-table">
+
+<tr>
+    <th>Αρχείο</th>
+    <td>
+        {% if work.contract %}
+            (επισυνάπτεται στη συνέχεια)
+        {% else %}
+            —
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+{% endblock %}

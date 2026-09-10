@@ -1,0 +1,42 @@
+office,seat,days,surname,givename,supervisor,displayname,associate_email
+3.1,1,5,Γκιουλής,Μιχάλης,mara@hua.gr,3.1 (1),mgioulis@hua.gr
+"3,1",2,5,Φραγκιαδάκης,Γεώργιος,cdiou@hua.gr,"3,1 (2)",grfragi@hua.gr
+3.5,1,5,Παπαϊωάννου,Θεόδωρος,michalak@hua.gr,3.5 (1),theopap@studyingreece.edu.gr
+3.5,2,5,Χατζηθανάσης,Γιώργος,michalak@hua.gr,3.5 (2),geo.hatz@hua.gr
+3.5,3,4,Πανούση,Εύη,michalak@hua.gr,3.5 (3),evi.panousi@studyingreece.edu.gr
+3.3,1,5,Σαρδιανός,Χρήστος,varlamis@hua.gr,3.3 (1),sardianos@hua.gr
+3.3,2,5,Πολίτη,Ελένη,gdimitra@hua.gr,3.3 (2),politie@hua.gr
+3.3,3,5,Λυπιτάκη,Δήμητρα,dimosthe@hua.gr,3.3 (3),adlipita@hua.gr
+3.3,4,5,Καφατάρη,Θέκλα,gdimitra@hua.gr,3.3 (4),thkaf@hua.gr
+5.4,1,5,Μπάλλας,Αριστοτέλης,cdiou@hua.gr,5.4 (1),aballas@hua.gr
+5.4,2,5,Τσερπέ,Ηρώ,cdiou@hua.gr,5.4 (2),iro@hua.gr
+5.4,3,5,Δαβαλάς,Χρήστος,michail@hua.gr,5.4 (3),cdavalas@hua.gr
+Ε5,1,5,Χρόνης,Χρήστος,varlamis@hua.gr,Ε5 (1),chronis@hua.gr
+Ε5,2,5,Γέμος,Παναγιώτης,varlamis@hua.gr,Ε5 (2),δεν έχει εκδοθεί ακόμη
+Ε5,3,2,Κυριακίδου,Νίκη,cdiou@hua.gr,Ε5 (3),kiriakidou@hua.gr
+Ε5,3,2,Ζαλαχώρης,Χρήστος-Κυπριανός,cdiou@hua.gr,Ε5 (3),it21922@hua.gr
+Ε5,3,1,Αλημίσης,Παναγιώτης,cdiou@hua.gr,Ε5 (3),csi23301@hua.gr
+Ε5,4,1,Γκολέμης,Βασίλειος,cdiou@hua.gr,Ε5 (4),gkolemis@hua.gr
+Ε5,4,2,Παπαμανώλης,Αναστάσιος,cdiou@hua.gr,Ε5 (4),-
+Ε5,4,1,Σαρρίδης,Ιωάννης,cdiou@hua.gr,Ε5 (4),isarridis@hua.gr
+Ε5,5,5,Κωστόπουλος,Χαράλαμπος,acharal@hua.gr,Ε5 (5),kostbabis@hua.gr
+Ε5,6,3,Χαλκιαδάκη,Δέσποινα,g.th.papadopoulos@hua.gr,Ε5 (6),it2022112@hua.gr
+Ε5,6,2,Τσανι,Γιοργκεν,g.th.papadopoulos@hua.gr,Ε5 (6),it22105@hua.gr
+Ε5,7,5,Μαδεμλής,Ιωάννης,g.th.papadopoulos@hua.gr,Ε5 (7),imademlis@hua.gr
+Ε5,8,4,Τζεράνης,Σπυρίδων,g.th.papadopoulos@hua.gr,Ε5 (8),spyros.tzer@hua.gr
+Ε5,9,4,Γιαννακοπούλου,Φενια,gdimitra@hua.gr,Ε5 (9),fgiannakopoulou@hua.gr
+Ε5,10,5,ΚΑΡΑΘΑΝΑΣΟΠΟΥΛΟΥ,ΚΩΝΣΤΑΝΤΙΝΑ,gdimitra@hua.gr,Ε5 (10),kkarathanasopoulou@hua.gr
+Ε5,11,4,ΒΟΝΔΙΚΑΚΗΣ,ΓΙΑΝΝΗΣ,gdimitra@hua.gr,Ε5 (11),ivondi@hua.gr
+Ε5,12,5,ΓΕΩΡΓΙΑΔΗΣ,ΔΗΜΗΤΡΗΣ,gdimitra@hua.gr,Ε5 (12),dgeorgiadis@hua.gr
+Ε5,13,5,Λυμπέρη,Μαρίνα,gdimitra@hua.gr,Ε5 (13),lymperi@hua.gr
+Ε2,1,3,Μαλλίδης,Αντώνης,michalak@hua.gr,Ε2 (1),a.mallidis@studyingreece.edu.gr
+Ε2,2,3,Σερέτη,Άλκηστη,michalak@hua.gr,Ε2 (2),a.sereti@studyingreece.edu.gr
+Ε2,2,2,Ρεβογέδο,Αδαμαντία,michalak@hua.gr,Ε2 (2),adamantia.reb@studyingreece.edu.gr
+Ε2,3,4,Jone,Diana,michalak@hua.gr,Ε2 (3),djzhong@studyingreece.edu.gr
+Ε2,4,3,Ρίζος,Χρήστος,michalak@hua.gr,Ε2 (4),ckrizos@studyingreece.edu.gr
+Ε2,4,2,Ρουσιά,Αθηνά,michalak@hua.gr,Ε2 (4),athinarousa@gmail.com
+Ε2,5,4,Τσαρσιταλίδης,Στελιος,gkousiou@hua.gr,Ε2 (5),stsarsitalidis@hua.gr
+Ε2,6,4,Γιαννακος,Χρυσοστομος,gkousiou@hua.gr,Ε2 (6),chrisgiannakoss@hua.gr
+Ε2,7,4,Ζάβρας,Άγγελος,michail@hua.gr,Ε2 (7),todo@hua.gr
+,,,,,,,
+Ε2,9,5,Ασλανιδης,Αλέξανδρος,thkam@hua.gr,Ε2 (9),aaslan@hua.gr
